@@ -1,0 +1,11 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: Das Zwischenverzeichnis (Debug.win32\) enthält freigegebene Dateien aus einem anderen Projekt (CocosProject.vcxproj). Dies kann zu einem falschen Bereinigungs- und Neuerstellungsverhalten führen.
+  AppDelegate.cpp
+  HelloWorldScene.cpp
+  main.cpp
+c:\users\mathi\documents\cocos\cocosprojects\mmp ss17 projekt\classes\appdelegate.cpp(40): warning C4305: "Argument": Verkürzung von "double" in "float"
+  60 Datei(en) kopiert
+AppDelegate.obj : warning LNK4075: /EDITANDCONTINUE wird aufgrund der Angabe von /SAFESEH ignoriert.
+     Bibliothek "C:\Users\mathi\Documents\Cocos\CocosProjects\MMP SS17 Projekt\proj.win32\Debug.win32\MMP SS17 Projekt.lib" und Objekt "C:\Users\mathi\Documents\Cocos\CocosProjects\MMP SS17 Projekt\proj.win32\Debug.win32\MMP SS17 Projekt.exp" werden erstellt.
+  CocosProject.vcxproj -> C:\Users\mathi\Documents\Cocos\CocosProjects\MMP SS17 Projekt\proj.win32\Debug.win32\MMP SS17 Projekt.exe
+  CocosProject.vcxproj -> C:\Users\mathi\Documents\Cocos\CocosProjects\MMP SS17 Projekt\proj.win32\Debug.win32\MMP SS17 Projekt.pdb (Full PDB)
+  0 Datei(en) kopiert
