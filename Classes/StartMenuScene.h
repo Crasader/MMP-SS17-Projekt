@@ -1,9 +1,9 @@
-#ifndef __HELLOWORLD_SCENE_H__
-#define __HELLOWORLD_SCENE_H__
+#ifndef __STARTMENU_SCENE_H__
+#define __STARTMENU_SCENE_H__
 
 #include "cocos2d.h"
 
-class HelloWorld : public cocos2d::Layer
+class StartMenuScene : public cocos2d::LayerColor
 {
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
@@ -13,7 +13,10 @@ public:
     virtual bool init();
 
     // implement the "static create()" method manually
-    CREATE_FUNC(HelloWorld);
+    CREATE_FUNC(StartMenuScene);
+
+private:
+	void GoToMainMenuScene(cocos2d::Ref * sender);
 };
 
-#endif // __HELLOWORLD_SCENE_H__
+#endif // __STARTMENU_SCENE_H__
