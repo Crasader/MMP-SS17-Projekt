@@ -34,6 +34,34 @@ bool MainMenuScene::init()
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto origin = Director::getInstance()->getVisibleOrigin();
 
+	// Easy Button
+	auto easyButtonMenuItem = MenuItemImage::create("EasyButton.png", "Easy Button clicked",
+		CC_CALLBACK_1(MainMenuScene::GoToMainLevel1Scene, this));
+	easyButtonMenuItem->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height * 0.5 + origin.y + 150));
+
+	// Medium Button
+	auto mediumButtonMenuItem = MenuItemImage::create("MediumButton.png", "Medium Button clicked",
+		CC_CALLBACK_1(MainMenuScene::GoToMainLevel2Scene, this));
+	mediumButtonMenuItem->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height * 0.5 + origin.y));
+
+	// Hard Button
+	auto hardButtonMenuItem = MenuItemImage::create("HardButton.png", "Hard Button clicked",
+		CC_CALLBACK_1(MainMenuScene::GoToMainLevel3Scene, this));
+	hardButtonMenuItem->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height * 0.5 + origin.y - 150));
+
+	// Guide Button
+	auto guideButtonMenuItem = MenuItemImage::create("QuestionButton.png", "Question Button clicked",
+		CC_CALLBACK_1(MainMenuScene::GoToGuideScene, this));
+	guideButtonMenuItem->setPosition(Point(visibleSize.width * 0.9 + origin.x, visibleSize.height * 0.15 + origin.y));
+
+	// Back Button
+
+	// Close Button
+
+	auto menu = Menu::create(easyButtonMenuItem, mediumButtonMenuItem, hardButtonMenuItem, guideButtonMenuItem,  NULL);
+	menu->setPosition(Point::ZERO);
+	this->addChild(menu);
+
 
 	return true;
 }
@@ -51,4 +79,9 @@ void MainMenuScene::GoToMainLevel2Scene(cocos2d::Ref *sender)
 void MainMenuScene::GoToMainLevel3Scene(cocos2d::Ref *sender)
 {
 	// TODO Transition to Level 3
+}
+
+void MainMenuScene::GoToGuideScene(cocos2d::Ref *sender)
+{
+	// TODO Transition to Guide
 }

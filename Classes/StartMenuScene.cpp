@@ -42,7 +42,7 @@ bool StartMenuScene::init()
 	addChild(gameName);
 
 	// Start Button
-	auto startButtonMenuItem = MenuItemImage::create("StartButton.png", "Start Button Clicked.png",
+	auto startButtonMenuItem = MenuItemImage::create("StartButton.png", "Start Button clicked",
 		CC_CALLBACK_1(StartMenuScene::GoToMainMenuScene, this));
 	startButtonMenuItem->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height / 3 + origin.y));
 

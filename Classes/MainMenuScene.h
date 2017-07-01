@@ -22,6 +22,8 @@ private:
 
 	void GoToMainLevel3Scene(cocos2d::Ref * sender);
 
+	void GoToGuideScene(cocos2d::Ref * sender);
+
 };
 
 #endif // __MAINMENU_SCENE_H__
