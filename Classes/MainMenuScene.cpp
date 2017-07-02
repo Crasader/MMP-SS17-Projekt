@@ -1,6 +1,8 @@
 #include "MainMenuScene.h"
 #include "cocostudio/CocoStudio.h"
-#include "ui/CocosGUI.h"
+#include "ui/CocosGUI.h"+
+#include "Constants.h"
+#include "StartMenuScene.h"
 
 USING_NS_CC;
 
@@ -26,7 +28,7 @@ bool MainMenuScene::init()
 {
 	//////////////////////////////
 	// 1. super init first
-	if (!LayerColor::initWithColor(Color4B(34, 34, 51, 255)))
+	if (!LayerColor::initWithColor(Color4B(bgColorRed, bgColorGreen, bgColorBlue, bgColorAlpha)))
 	{
 		return false;
 	}
@@ -35,30 +37,32 @@ bool MainMenuScene::init()
 	auto origin = Director::getInstance()->getVisibleOrigin();
 
 	// Easy Button
-	auto easyButtonMenuItem = MenuItemImage::create("EasyButton.png", "Easy Button clicked",
-		CC_CALLBACK_1(MainMenuScene::GoToMainLevel1Scene, this));
+	auto easyButtonMenuItem = MenuItemImage::create(easyButton, "Easy Button clicked",
+		CC_CALLBACK_1(MainMenuScene::goToMainLevel1Scene, this));
 	easyButtonMenuItem->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height * 0.5 + origin.y + 150));
 
 	// Medium Button
-	auto mediumButtonMenuItem = MenuItemImage::create("MediumButton.png", "Medium Button clicked",
-		CC_CALLBACK_1(MainMenuScene::GoToMainLevel2Scene, this));
-	mediumButtonMenuItem->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height * 0.5 + origin.y));
+	auto mediumButtonMenuItem = MenuItemImage::create(mediumButton, "Medium Button clicked",
+		CC_CALLBACK_1(MainMenuScene::goToMainLevel2Scene, this));
+	mediumButtonMenuItem->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.5 + origin.y));
 
 	// Hard Button
-	auto hardButtonMenuItem = MenuItemImage::create("HardButton.png", "Hard Button clicked",
-		CC_CALLBACK_1(MainMenuScene::GoToMainLevel3Scene, this));
-	hardButtonMenuItem->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height * 0.5 + origin.y - 150));
+	auto hardButtonMenuItem = MenuItemImage::create(hardButton, "Hard Button clicked",
+		CC_CALLBACK_1(MainMenuScene::goToMainLevel3Scene, this));
+	hardButtonMenuItem->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.5 + origin.y - 150));
 
 	// Guide Button
-	auto guideButtonMenuItem = MenuItemImage::create("QuestionButton.png", "Question Button clicked",
-		CC_CALLBACK_1(MainMenuScene::GoToGuideScene, this));
+	auto guideButtonMenuItem = MenuItemImage::create(questionButton, "Question Button clicked",
+		CC_CALLBACK_1(MainMenuScene::goToGuideScene, this));
 	guideButtonMenuItem->setPosition(Point(visibleSize.width * 0.9 + origin.x, visibleSize.height * 0.15 + origin.y));
 
 	// Back Button
+	auto backButtonMenuItem = MenuItemImage::create(backButton, "Back Button clicked",
+		CC_CALLBACK_1(MainMenuScene::goToStartMenuScene, this));
+	backButtonMenuItem->setPosition(Point(visibleSize.width * 0.1 + origin.x, visibleSize.height * 0.15 + origin.y));
 
-	// Close Button
-
-	auto menu = Menu::create(easyButtonMenuItem, mediumButtonMenuItem, hardButtonMenuItem, guideButtonMenuItem,  NULL);
+	auto menu = Menu::create(easyButtonMenuItem, mediumButtonMenuItem, hardButtonMenuItem, guideButtonMenuItem,
+		backButtonMenuItem,  NULL);
 	menu->setPosition(Point::ZERO);
 	this->addChild(menu);
 
@@ -66,22 +70,28 @@ bool MainMenuScene::init()
 	return true;
 }
 
-void MainMenuScene::GoToMainLevel1Scene(cocos2d::Ref *sender)
+void MainMenuScene::goToMainLevel1Scene(cocos2d::Ref *sender)
 {
 	// TODO Transition to Level 1
 }
 
-void MainMenuScene::GoToMainLevel2Scene(cocos2d::Ref *sender)
+void MainMenuScene::goToMainLevel2Scene(cocos2d::Ref *sender)
 {
 	// TODO Transition to Level 2
 }
 
-void MainMenuScene::GoToMainLevel3Scene(cocos2d::Ref *sender)
+void MainMenuScene::goToMainLevel3Scene(cocos2d::Ref *sender)
 {
 	// TODO Transition to Level 3
 }
 
-void MainMenuScene::GoToGuideScene(cocos2d::Ref *sender)
+void MainMenuScene::goToGuideScene(cocos2d::Ref *sender)
 {
 	// TODO Transition to Guide
+}
+
+void MainMenuScene::goToStartMenuScene(cocos2d::Ref *sender) 
+{
+	auto scene = StartMenuScene::createScene();
+	Director::getInstance()->replaceScene(TransitionFade::create(transitionDuration, scene));
 }

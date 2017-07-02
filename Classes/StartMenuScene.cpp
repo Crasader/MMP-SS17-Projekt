@@ -2,6 +2,7 @@
 #include "MainMenuScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "Constants.h"
 
 USING_NS_CC;
 
@@ -27,7 +28,7 @@ bool StartMenuScene::init()
 {
     //////////////////////////////
     // 1. super init first
-    if ( !LayerColor::initWithColor(Color4B(34,34,51,255)) )
+	if (!LayerColor::initWithColor(Color4B(bgColorRed, bgColorGreen, bgColorBlue, bgColorAlpha)))
     {
         return false;
     }
@@ -36,18 +37,23 @@ bool StartMenuScene::init()
 	auto origin = Director::getInstance()->getVisibleOrigin();
 
 	// Logo/Name of the Game, could be replaced by sprite/graphic
-	auto gameName = CCLabelTTF::create("DROP IT!", "Zapfino", 100, CCSizeMake(500, 100), kCCTextAlignmentCenter);
-	gameName->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height / 1.2 + origin.y));
-	gameName->setColor(ccc3(255,255,255));
+	auto gameName = CCLabelTTF::create(logoText, logoFont, logoFontSize, CCSizeMake(500, 100), kCCTextAlignmentCenter);
+	gameName->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.9 + origin.y));
+	gameName->setColor(ccc3(logoColorRed, logoColorGreen, logoColorBlue));
 	addChild(gameName);
 
 	// Start Button
-	auto startButtonMenuItem = MenuItemImage::create("StartButton.png", "Start Button clicked",
-		CC_CALLBACK_1(StartMenuScene::GoToMainMenuScene, this));
-	startButtonMenuItem->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height / 3 + origin.y));
+	auto startButtonMenuItem = MenuItemImage::create(startButton, "Start Button clicked",
+		CC_CALLBACK_1(StartMenuScene::goToMainMenuScene, this));
+	startButtonMenuItem->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height / 2 + origin.y));
 
-	// Not needed?
-	auto menu = Menu::create(startButtonMenuItem, NULL);
+	// Close Button
+	auto closeButtonMenuItem = MenuItemImage::create(closeButton, "Close Button clicked",
+		// Note: CC_CALLBACK_1 only works when when function takes an argument?
+		CC_CALLBACK_1(StartMenuScene::closeApplication, this));
+	closeButtonMenuItem->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height / 2 + origin.y - 150));
+
+	auto menu = Menu::create(startButtonMenuItem, closeButtonMenuItem, NULL);
 	menu->setPosition(Point::ZERO);
 	this->addChild(menu);
 
@@ -55,8 +61,13 @@ bool StartMenuScene::init()
     return true;
 }
 
-void StartMenuScene::GoToMainMenuScene(cocos2d::Ref *sender)
+void StartMenuScene::goToMainMenuScene(cocos2d::Ref *sender)
 {
 	auto scene = MainMenuScene::createScene();
-	Director::getInstance()->replaceScene(TransitionFade::create(0.5, scene));
+	Director::getInstance()->replaceScene(TransitionFade::create(transitionDuration, scene));
+}
+
+void StartMenuScene::closeApplication(cocos2d::Ref *sender)
+{
+	Director::getInstance()->end();
 }

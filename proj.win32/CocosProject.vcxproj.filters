@@ -10,6 +10,18 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Scenes">
+      <UniqueIdentifier>{b67e14eb-29c7-482e-8f9a-8c77f4d2a392}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scenes\Menu">
+      <UniqueIdentifier>{142e8d3f-21a1-4604-8ef8-117fd8564de4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scenes\Level">
+      <UniqueIdentifier>{a23dfd65-6fde-4954-aa47-384c631b7594}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Constants">
+      <UniqueIdentifier>{5b49dbf5-e2b3-4943-89aa-b80d479b8101}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -18,8 +30,14 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\StartMenuScene.cpp">
+      <Filter>src\Scenes\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainMenuScene.cpp">
+      <Filter>src\Scenes\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Constants.cpp">
+      <Filter>src\Constants</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -29,8 +47,14 @@
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\Classes\StartMenuScene.h">
+      <Filter>src\Scenes\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainMenuScene.h">
+      <Filter>src\Scenes\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Constants.h">
+      <Filter>src\Constants</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

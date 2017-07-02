@@ -16,7 +16,9 @@ public:
     CREATE_FUNC(StartMenuScene);
 
 private:
-	void GoToMainMenuScene(cocos2d::Ref * sender);
+	void goToMainMenuScene(cocos2d::Ref *sender);
+
+	void closeApplication(cocos2d::Ref *sender);
 };
 
 #endif // __STARTMENU_SCENE_H__
