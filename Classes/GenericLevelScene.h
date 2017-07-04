@@ -1,11 +1,11 @@
-#ifndef __LEVELEASY_SCENE_H__
-#define __LEVELEASY_SCENE_H__
+#ifndef __GENERICLEVEL_SCENE_H__
+#define __GENERICLEVEL_SCENE_H__
 
 #include "cocos2d.h"
-#include "GenericLevelScene.h"
 
-class LevelEasyScene : public ::GenericLevelScene
+class GenericLevelScene : public cocos2d::LayerColor
 {
+
 public:
 	// there's no 'id' in cpp, so we recommend returning the class instance pointer
 	static cocos2d::Scene* createScene();
@@ -14,10 +14,10 @@ public:
 	virtual bool init();
 
 	// implement the "static create()" method manually
-	CREATE_FUNC(LevelEasyScene);
+	CREATE_FUNC(GenericLevelScene);
 
 private:
-
+	void goToMainMenuScene(cocos2d::Ref *sender);
 };
 
-#endif // __LEVELEASY_SCENE_H__
+#endif // __GENERICLEVEL_SCENE_H__

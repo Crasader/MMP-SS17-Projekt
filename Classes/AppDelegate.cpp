@@ -1,6 +1,6 @@
 #include "AppDelegate.h"
 #include "StartMenuScene.h"
-#include "Constants.h"
+#include "GlobalValues.h"
 
 USING_NS_CC;
 

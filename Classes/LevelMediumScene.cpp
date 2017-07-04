@@ -1,8 +1,9 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "LevelMediumScene.h"
-#include "Constants.h"
+#include "GlobalValues.h"
 #include "MainMenuScene.h"
+#include <string>
 
 USING_NS_CC;
 
@@ -28,32 +29,10 @@ bool LevelMediumScene::init()
 {
 	//////////////////////////////
 	// 1. super init first
-	if (!LayerColor::initWithColor(Color4B(bgColorRed, bgColorGreen, bgColorBlue, bgColorAlpha)))
+	if (!GenericLevelScene::init())
 	{
 		return false;
 	}
 
-	auto visibleSize = Director::getInstance()->getVisibleSize();
-	auto origin = Director::getInstance()->getVisibleOrigin();
-
-	auto backGround = Sprite::create(level2);
-	backGround->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.5 + origin.y + bottomBarOffset / 2));
-	this->addChild(backGround);
-
-	// Back Button
-	auto backButtonMenuItem = MenuItemImage::create(backButton, "Back Button clicked",
-		CC_CALLBACK_1(LevelMediumScene::goToMainMenuScene, this));
-	backButtonMenuItem->setPosition(Point(visibleSize.width * 0.1 + origin.x, visibleSize.height * 0.1 + origin.y));
-
-	auto menu = Menu::create(backButtonMenuItem, NULL);
-	menu->setPosition(Point::ZERO);
-	this->addChild(menu);
-
 	return true;
-}
-
-void LevelMediumScene::goToMainMenuScene(cocos2d::Ref *sender)
-{
-	auto scene = MainMenuScene::createScene();
-	Director::getInstance()->replaceScene(TransitionFade::create(transitionDuration, scene));
 }

@@ -2,9 +2,11 @@
 #define __LEVELMEDIUM_SCENE_H__
 
 #include "cocos2d.h"
+#include "GenericLevelScene.h"
 
-class LevelMediumScene : public cocos2d::LayerColor
+class LevelMediumScene : public ::GenericLevelScene
 {
+
 public:
 	// there's no 'id' in cpp, so we recommend returning the class instance pointer
 	static cocos2d::Scene* createScene();
@@ -16,7 +18,6 @@ public:
 	CREATE_FUNC(LevelMediumScene);
 
 private:
-	void LevelMediumScene::goToMainMenuScene(cocos2d::Ref *sender);
 
 };
 

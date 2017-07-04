@@ -1,10 +1,10 @@
-#ifndef  _CONSTANTS_H_
-#define  _CONSTANTS_H_
+#ifndef  _GLOBALVALUES_H_
+#define  _GLOBALVALUES_H_
 #include <string>
 
 using namespace std;
 
-/* File for global constants (Probably not best practice for CPP, but what do I know)*/
+/* File for global values (Probably not best practice for CPP, but what do I know)*/
 
 // Buttons
 extern const string startButton;
@@ -46,5 +46,8 @@ extern const string level1;
 extern const string level2;
 extern const string level3;
 
-#endif // _CONSTANTS_H_
+// Current Level
+extern string levelName;
+
+#endif // _GLOBALVALUES_H_
 

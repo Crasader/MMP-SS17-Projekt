@@ -2,7 +2,7 @@
 #include "MainMenuScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-#include "Constants.h"
+#include "GlobalValues.h"
 
 USING_NS_CC;
 

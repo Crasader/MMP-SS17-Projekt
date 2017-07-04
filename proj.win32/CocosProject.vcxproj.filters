@@ -36,9 +36,6 @@
     <ClCompile Include="..\Classes\MainMenuScene.cpp">
       <Filter>src\Scenes\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Constants.cpp">
-      <Filter>src\Constants</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\LevelHardScene.cpp">
       <Filter>src\Scenes\Level</Filter>
     </ClCompile>
@@ -47,6 +44,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\LevelEasyScene.cpp">
       <Filter>src\Scenes\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GenericLevelScene.cpp">
+      <Filter>src\Scenes\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GlobalValues.cpp">
+      <Filter>src\Constants</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -62,9 +65,6 @@
     <ClInclude Include="..\Classes\MainMenuScene.h">
       <Filter>src\Scenes\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Constants.h">
-      <Filter>src\Constants</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\LevelEasyScene.h">
       <Filter>src\Scenes\Level</Filter>
     </ClInclude>
@@ -73,6 +73,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\LevelMediumScene.h">
       <Filter>src\Scenes\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GenericLevelScene.h">
+      <Filter>src\Scenes\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GlobalValues.h">
+      <Filter>src\Constants</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

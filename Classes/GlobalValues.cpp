@@ -1,4 +1,4 @@
-#include "Constants.h"
+#include "GlobalValues.h"
 
 // Buttons
 extern const string startButton = "StartButton.png";
@@ -39,3 +39,6 @@ extern const int bottomBarOffset = 150; // Sizeadjustment. Makes some space to p
 extern const string level1 = "Level1.png";
 extern const string level2 = "level2.png";
 extern const string level3 = "Level3.png";
+
+// Current Level
+extern string levelName = "";
