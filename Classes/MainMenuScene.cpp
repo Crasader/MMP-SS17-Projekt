@@ -57,12 +57,12 @@ bool MainMenuScene::init()
 	// Guide Button
 	auto guideButtonMenuItem = MenuItemImage::create(questionButton, "Question Button clicked",
 		CC_CALLBACK_1(MainMenuScene::goToGuideScene, this));
-	guideButtonMenuItem->setPosition(Point(visibleSize.width * 0.9 + origin.x, visibleSize.height * 0.15 + origin.y));
+	guideButtonMenuItem->setPosition(Point(visibleSize.width * 0.9 + origin.x, visibleSize.height * 0.1 + origin.y));
 
 	// Back Button
 	auto backButtonMenuItem = MenuItemImage::create(backButton, "Back Button clicked",
 		CC_CALLBACK_1(MainMenuScene::goToStartMenuScene, this));
-	backButtonMenuItem->setPosition(Point(visibleSize.width * 0.1 + origin.x, visibleSize.height * 0.15 + origin.y));
+	backButtonMenuItem->setPosition(Point(visibleSize.width * 0.1 + origin.x, visibleSize.height * 0.1 + origin.y));
 
 	auto menu = Menu::create(easyButtonMenuItem, mediumButtonMenuItem, hardButtonMenuItem, guideButtonMenuItem,
 		backButtonMenuItem,  NULL);

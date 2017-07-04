@@ -31,9 +31,11 @@ extern const double transitionDuration = 0.5;
 
 // Misc
 extern const int logoFontSize = 100;
-extern const string logoText = "DROP IT";
+extern const string logoText = "DUNK THE TRUMP";
 extern const string logoFont = "Helvetica";
+extern const int bottomBarOffset = 150; // Sizeadjustment. Makes some space to place buttons below the level background
 
 // Level Backgrounds
 extern const string level1 = "Level1.png";
 extern const string level2 = "level2.png";
+extern const string level3 = "Level3.png";

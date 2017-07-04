@@ -39,10 +39,12 @@ extern const double transitionDuration;
 extern const int logoFontSize;
 extern const string logoText;
 extern const string logoFont;
+extern const int bottomBarOffset;
 
 // Level Backgrounds
 extern const string level1;
 extern const string level2;
+extern const string level3;
 
 #endif // _CONSTANTS_H_
 

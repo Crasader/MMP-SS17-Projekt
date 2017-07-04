@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 
-class LevelHardScene : public cocos2d::Layer
+class LevelHardScene : public cocos2d::LayerColor
 {
 public:
 	// there's no 'id' in cpp, so we recommend returning the class instance pointer
@@ -16,7 +16,7 @@ public:
 	CREATE_FUNC(LevelHardScene);
 
 private:
-
+	void LevelHardScene::goToMainMenuScene(cocos2d::Ref * sender);
 
 };
 

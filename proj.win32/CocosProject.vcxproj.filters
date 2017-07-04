@@ -39,6 +39,15 @@
     <ClCompile Include="..\Classes\Constants.cpp">
       <Filter>src\Constants</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\LevelHardScene.cpp">
+      <Filter>src\Scenes\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LevelMediumScene.cpp">
+      <Filter>src\Scenes\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LevelEasyScene.cpp">
+      <Filter>src\Scenes\Level</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -55,6 +64,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Constants.h">
       <Filter>src\Constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LevelEasyScene.h">
+      <Filter>src\Scenes\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LevelHardScene.h">
+      <Filter>src\Scenes\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LevelMediumScene.h">
+      <Filter>src\Scenes\Level</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
