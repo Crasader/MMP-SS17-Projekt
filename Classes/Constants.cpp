@@ -33,3 +33,7 @@ extern const double transitionDuration = 0.5;
 extern const int logoFontSize = 100;
 extern const string logoText = "DROP IT";
 extern const string logoFont = "Helvetica";
+
+// Level Backgrounds
+extern const string level1 = "Level1.png";
+extern const string level2 = "level2.png";

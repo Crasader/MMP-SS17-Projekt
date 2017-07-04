@@ -40,5 +40,9 @@ extern const int logoFontSize;
 extern const string logoText;
 extern const string logoFont;
 
+// Level Backgrounds
+extern const string level1;
+extern const string level2;
+
 #endif // _CONSTANTS_H_
 

@@ -1,8 +1,11 @@
 #include "MainMenuScene.h"
 #include "cocostudio/CocoStudio.h"
-#include "ui/CocosGUI.h"+
+#include "ui/CocosGUI.h"
 #include "Constants.h"
 #include "StartMenuScene.h"
+#include "LevelEasyScene.h"
+#include "LevelMediumScene.h"
+#include "LevelHardScene.h"
 
 USING_NS_CC;
 
@@ -39,7 +42,7 @@ bool MainMenuScene::init()
 	// Easy Button
 	auto easyButtonMenuItem = MenuItemImage::create(easyButton, "Easy Button clicked",
 		CC_CALLBACK_1(MainMenuScene::goToMainLevel1Scene, this));
-	easyButtonMenuItem->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height * 0.5 + origin.y + 150));
+	easyButtonMenuItem->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.5 + origin.y + 150));
 
 	// Medium Button
 	auto mediumButtonMenuItem = MenuItemImage::create(mediumButton, "Medium Button clicked",
@@ -72,17 +75,20 @@ bool MainMenuScene::init()
 
 void MainMenuScene::goToMainLevel1Scene(cocos2d::Ref *sender)
 {
-	// TODO Transition to Level 1
+	auto scene = LevelEasyScene::createScene();
+	Director::getInstance()->replaceScene(TransitionFade::create(transitionDuration, scene));
 }
 
 void MainMenuScene::goToMainLevel2Scene(cocos2d::Ref *sender)
 {
-	// TODO Transition to Level 2
+	auto scene = LevelMediumScene::createScene();
+	Director::getInstance()->replaceScene(TransitionFade::create(transitionDuration, scene));
 }
 
 void MainMenuScene::goToMainLevel3Scene(cocos2d::Ref *sender)
 {
-	// TODO Transition to Level 3
+	auto scene = LevelHardScene::createScene();
+	Director::getInstance()->replaceScene(TransitionFade::create(transitionDuration, scene));
 }
 
 void MainMenuScene::goToGuideScene(cocos2d::Ref *sender)

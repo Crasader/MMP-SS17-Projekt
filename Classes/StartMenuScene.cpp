@@ -51,7 +51,7 @@ bool StartMenuScene::init()
 	auto closeButtonMenuItem = MenuItemImage::create(closeButton, "Close Button clicked",
 		// Note: CC_CALLBACK_1 only works when when function takes an argument?
 		CC_CALLBACK_1(StartMenuScene::closeApplication, this));
-	closeButtonMenuItem->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height / 2 + origin.y - 150));
+	closeButtonMenuItem->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height / 2 + origin.y - 125));
 
 	auto menu = Menu::create(startButtonMenuItem, closeButtonMenuItem, NULL);
 	menu->setPosition(Point::ZERO);
