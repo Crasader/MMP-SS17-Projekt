@@ -9,21 +9,6 @@ USING_NS_CC;
 
 using namespace cocostudio::timeline;
 
-Scene* GenericLevelScene::createScene()
-{
-	// 'scene' is an autorelease object
-	auto scene = Scene::create();
-
-	// 'layer' is an autorelease object
-	auto layer = GenericLevelScene::create();
-
-	// add layer as a child to scene
-	scene->addChild(layer);
-
-	// return the scene
-	return scene;
-}
-
 // on "init" you need to initialize your instance
 bool GenericLevelScene::init()
 {
@@ -44,12 +29,14 @@ bool GenericLevelScene::init()
 	// Back Button
 	auto backButtonMenuItem = MenuItemImage::create(backButton, "Back Button clicked",
 		CC_CALLBACK_1(GenericLevelScene::goToMainMenuScene, this));
-	backButtonMenuItem->setPosition(Point(visibleSize.width * 0.1 + origin.x, visibleSize.height * 0.1 + origin.y));
+	backButtonMenuItem->setPosition(Point(visibleSize.width * bottomButtonBarLeft + origin.x,
+		visibleSize.height * bottomButtonBarVerticalFactor + origin.y));
 
 	// Drop Button
 	auto dropButtonMenuItem = MenuItemImage::create(dropButton, "Drop Button clicked",
 		CC_CALLBACK_1(GenericLevelScene::goToMainMenuScene, this));
-	dropButtonMenuItem->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.1 + origin.y));
+	dropButtonMenuItem->setPosition(Point(visibleSize.width * bottomButtonBarMiddle + origin.x,
+		visibleSize.height * bottomButtonBarVerticalFactor + origin.y));
 
 	auto menu = Menu::create(backButtonMenuItem, dropButtonMenuItem, NULL);
 	menu->setPosition(Point::ZERO);

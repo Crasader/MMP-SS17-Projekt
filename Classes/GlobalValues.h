@@ -19,6 +19,13 @@ extern const string backButton;
 extern const string dropButton;
 extern const string resetButton;
 
+// Position
+// Bottom Buttons
+extern const double bottomButtonBarVerticalFactor;
+extern const double bottomButtonBarLeft;
+extern const double bottomButtonBarMiddle;
+extern const double bottomButtonBarRight;
+
 
 // Color
 // Background Color (for start and main menu)

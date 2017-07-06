@@ -13,6 +13,13 @@ extern const string backButton = "BackArrowButton.png";
 extern const string dropButton = "DropButton.png";
 extern const string resetButton = "ResetButton.png";
 
+// Position
+// Bottom Buttons
+extern const double bottomButtonBarVerticalFactor = 0.1;
+extern const double bottomButtonBarLeft = 0.1;
+extern const double bottomButtonBarMiddle = 0.5;
+extern const double bottomButtonBarRight = 0.9;
+
 
 // Color
 // Background Color (for start and main menu)

@@ -16,15 +16,15 @@ public:
 	CREATE_FUNC(MainMenuScene);
 
 private:
-	void goToMainLevel1Scene(cocos2d::Ref * sender);
+	void goToMainLevel1Scene(cocos2d::Ref *sender);
 
-	void goToMainLevel2Scene(cocos2d::Ref * sender);
+	void goToMainLevel2Scene(cocos2d::Ref *sender);
 
-	void goToMainLevel3Scene(cocos2d::Ref * sender);
+	void goToMainLevel3Scene(cocos2d::Ref *sender);
 
-	void goToGuideScene(cocos2d::Ref * sender);
+	void goToGuideScene(cocos2d::Ref *sender);
 
-	void goToStartMenuScene(cocos2d::Ref * sender);
+	void goToStartMenuScene(cocos2d::Ref *sender);
 
 };
 
