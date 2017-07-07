@@ -3,13 +3,14 @@
 
 #include "cocos2d.h"
 
+using namespace cocos2d;
+
 class GenericLevelScene : public cocos2d::LayerColor
 {
 	// TODO Make custom Sprite Classes?
 	//Sprite* figure;
-
 	//Vector<Sprite*> obstacleObjects;
-	//Vector<Sprite*> supportObjects;
+	//vector<Sprite*> supportObjects;
 
 
 public:

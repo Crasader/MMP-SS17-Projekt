@@ -7,8 +7,6 @@
 
 USING_NS_CC;
 
-using namespace cocostudio::timeline;
-
 // on "init" you need to initialize your instance
 bool GenericLevelScene::init()
 {

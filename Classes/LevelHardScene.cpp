@@ -6,8 +6,6 @@
 
 USING_NS_CC;
 
-using namespace cocostudio::timeline;
-
 Scene* LevelHardScene::createScene()
 {
 	// 'scene' is an autorelease object
