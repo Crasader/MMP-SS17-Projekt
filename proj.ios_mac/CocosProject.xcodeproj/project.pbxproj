@@ -12,8 +12,6 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
-		46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
-		46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -61,6 +59,22 @@
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 		F37E4A7783DDF760FFBAAB1E /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E42C4AF3A8AEB23F21997366 /* libcocos2d Mac.a */; };
+		FC732DFC1F0FBCA700222A33 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC732DEC1F0FBCA700222A33 /* AppDelegate.cpp */; settings = {ASSET_TAGS = (); }; };
+		FC732DFD1F0FBCA700222A33 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC732DEC1F0FBCA700222A33 /* AppDelegate.cpp */; settings = {ASSET_TAGS = (); }; };
+		FC732DFE1F0FBCA700222A33 /* GenericLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC732DEE1F0FBCA700222A33 /* GenericLevelScene.cpp */; settings = {ASSET_TAGS = (); }; };
+		FC732DFF1F0FBCA700222A33 /* GenericLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC732DEE1F0FBCA700222A33 /* GenericLevelScene.cpp */; settings = {ASSET_TAGS = (); }; };
+		FC732E001F0FBCA700222A33 /* GlobalValues.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC732DF01F0FBCA700222A33 /* GlobalValues.cpp */; settings = {ASSET_TAGS = (); }; };
+		FC732E011F0FBCA700222A33 /* GlobalValues.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC732DF01F0FBCA700222A33 /* GlobalValues.cpp */; settings = {ASSET_TAGS = (); }; };
+		FC732E021F0FBCA700222A33 /* LevelEasyScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC732DF21F0FBCA700222A33 /* LevelEasyScene.cpp */; settings = {ASSET_TAGS = (); }; };
+		FC732E031F0FBCA700222A33 /* LevelEasyScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC732DF21F0FBCA700222A33 /* LevelEasyScene.cpp */; settings = {ASSET_TAGS = (); }; };
+		FC732E041F0FBCA700222A33 /* LevelHardScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC732DF41F0FBCA700222A33 /* LevelHardScene.cpp */; settings = {ASSET_TAGS = (); }; };
+		FC732E051F0FBCA700222A33 /* LevelHardScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC732DF41F0FBCA700222A33 /* LevelHardScene.cpp */; settings = {ASSET_TAGS = (); }; };
+		FC732E061F0FBCA700222A33 /* LevelMediumScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC732DF61F0FBCA700222A33 /* LevelMediumScene.cpp */; settings = {ASSET_TAGS = (); }; };
+		FC732E071F0FBCA700222A33 /* LevelMediumScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC732DF61F0FBCA700222A33 /* LevelMediumScene.cpp */; settings = {ASSET_TAGS = (); }; };
+		FC732E081F0FBCA700222A33 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC732DF81F0FBCA700222A33 /* MainMenuScene.cpp */; settings = {ASSET_TAGS = (); }; };
+		FC732E091F0FBCA700222A33 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC732DF81F0FBCA700222A33 /* MainMenuScene.cpp */; settings = {ASSET_TAGS = (); }; };
+		FC732E0A1F0FBCA700222A33 /* StartMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC732DFA1F0FBCA700222A33 /* StartMenuScene.cpp */; settings = {ASSET_TAGS = (); }; };
+		FC732E0B1F0FBCA700222A33 /* StartMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC732DFA1F0FBCA700222A33 /* StartMenuScene.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,8 +85,6 @@
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		46880B8419C43A87006E1F66 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
-		46880B8719C43A87006E1F66 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -121,6 +133,21 @@
 		E42C4AF3A8AEB23F21997366 /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "/Applications/Cocos/frameworks/cocos2d-x-3.8.1/prebuilt\\mac\\libcocos2d Mac.a"; sourceTree = "<absolute>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		FC732DEC1F0FBCA700222A33 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
+		FC732DEE1F0FBCA700222A33 /* GenericLevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GenericLevelScene.cpp; sourceTree = "<group>"; };
+		FC732DEF1F0FBCA700222A33 /* GenericLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericLevelScene.h; sourceTree = "<group>"; };
+		FC732DF01F0FBCA700222A33 /* GlobalValues.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GlobalValues.cpp; sourceTree = "<group>"; };
+		FC732DF11F0FBCA700222A33 /* GlobalValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalValues.h; sourceTree = "<group>"; };
+		FC732DF21F0FBCA700222A33 /* LevelEasyScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelEasyScene.cpp; sourceTree = "<group>"; };
+		FC732DF31F0FBCA700222A33 /* LevelEasyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelEasyScene.h; sourceTree = "<group>"; };
+		FC732DF41F0FBCA700222A33 /* LevelHardScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelHardScene.cpp; sourceTree = "<group>"; };
+		FC732DF51F0FBCA700222A33 /* LevelHardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelHardScene.h; sourceTree = "<group>"; };
+		FC732DF61F0FBCA700222A33 /* LevelMediumScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelMediumScene.cpp; sourceTree = "<group>"; };
+		FC732DF71F0FBCA700222A33 /* LevelMediumScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelMediumScene.h; sourceTree = "<group>"; };
+		FC732DF81F0FBCA700222A33 /* MainMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuScene.cpp; sourceTree = "<group>"; };
+		FC732DF91F0FBCA700222A33 /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
+		FC732DFA1F0FBCA700222A33 /* StartMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartMenuScene.cpp; sourceTree = "<group>"; };
+		FC732DFB1F0FBCA700222A33 /* StartMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuScene.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,10 +278,24 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FC732DEE1F0FBCA700222A33 /* GenericLevelScene.cpp */,
+				FC732DEF1F0FBCA700222A33 /* GenericLevelScene.h */,
+				FC732DF01F0FBCA700222A33 /* GlobalValues.cpp */,
+				FC732DF11F0FBCA700222A33 /* GlobalValues.h */,
+				FC732DF21F0FBCA700222A33 /* LevelEasyScene.cpp */,
+				FC732DF31F0FBCA700222A33 /* LevelEasyScene.h */,
+				FC732DF41F0FBCA700222A33 /* LevelHardScene.cpp */,
+				FC732DF51F0FBCA700222A33 /* LevelHardScene.h */,
+				FC732DF61F0FBCA700222A33 /* LevelMediumScene.cpp */,
+				FC732DF71F0FBCA700222A33 /* LevelMediumScene.h */,
+				FC732DF81F0FBCA700222A33 /* MainMenuScene.cpp */,
+				FC732DF91F0FBCA700222A33 /* MainMenuScene.h */,
+				FC732DFA1F0FBCA700222A33 /* StartMenuScene.cpp */,
+				FC732DFB1F0FBCA700222A33 /* StartMenuScene.h */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
-				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
-				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
+				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
+				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -424,10 +465,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
-				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				FC732E001F0FBCA700222A33 /* GlobalValues.cpp in Sources */,
+				FC732DFC1F0FBCA700222A33 /* AppDelegate.cpp in Sources */,
+				FC732E0A1F0FBCA700222A33 /* StartMenuScene.cpp in Sources */,
+				FC732E041F0FBCA700222A33 /* LevelHardScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				FC732E061F0FBCA700222A33 /* LevelMediumScene.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				FC732E021F0FBCA700222A33 /* LevelEasyScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				FC732E081F0FBCA700222A33 /* MainMenuScene.cpp in Sources */,
+				FC732DFE1F0FBCA700222A33 /* GenericLevelScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,9 +483,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC732E051F0FBCA700222A33 /* LevelHardScene.cpp in Sources */,
+				FC732E011F0FBCA700222A33 /* GlobalValues.cpp in Sources */,
+				FC732DFD1F0FBCA700222A33 /* AppDelegate.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
-				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				FC732E071F0FBCA700222A33 /* LevelMediumScene.cpp in Sources */,
+				FC732DFF1F0FBCA700222A33 /* GenericLevelScene.cpp in Sources */,
+				FC732E0B1F0FBCA700222A33 /* StartMenuScene.cpp in Sources */,
+				FC732E091F0FBCA700222A33 /* MainMenuScene.cpp in Sources */,
+				FC732E031F0FBCA700222A33 /* LevelEasyScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,13 +520,13 @@
 					"$(inherited)",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/cocos/platform/ios",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/cocos/platform/ios/Simulation",
+					/Users/KlaraMariaDersche/Desktop/CocosProject/cocos2d/external/Box2D,
+					"/Users/KlaraMariaDersche/Desktop/Multimedia_Programmierung/cocos2d-x-3.15/external/box2d",
+					"/Users/KlaraMariaDersche/Desktop/Multimedia_Programmierung/cocos2d-x-3.15/external/Box2D",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/prebuilt\\ios",
-				);
+				LIBRARY_SEARCH_PATHS = " /Applications/Cocos/frameworks/cocos2d-x-3.8.1/prebuilt\\ios";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
@@ -502,13 +557,13 @@
 					"$(inherited)",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/cocos/platform/ios",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/cocos/platform/ios/Simulation",
+					/Users/KlaraMariaDersche/Desktop/CocosProject/cocos2d/external/Box2D,
+					"/Users/KlaraMariaDersche/Desktop/Multimedia_Programmierung/cocos2d-x-3.15/external/box2d",
+					"/Users/KlaraMariaDersche/Desktop/Multimedia_Programmierung/cocos2d-x-3.15/external/Box2D",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/prebuilt\\ios",
-				);
+				LIBRARY_SEARCH_PATHS = " /Applications/Cocos/frameworks/cocos2d-x-3.8.1/prebuilt\\ios";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
@@ -544,10 +599,7 @@
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/external/glfw3/include/mac",
 				);
 				INFOPLIST_FILE = mac/Info.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/prebuilt\\mac",
-				);
+				LIBRARY_SEARCH_PATHS = " /Applications/Cocos/frameworks/cocos2d-x-3.8.1/prebuilt\\mac";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
@@ -578,10 +630,7 @@
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/external/glfw3/include/mac",
 				);
 				INFOPLIST_FILE = mac/Info.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/prebuilt\\mac",
-				);
+				LIBRARY_SEARCH_PATHS = " /Applications/Cocos/frameworks/cocos2d-x-3.8.1/prebuilt\\mac";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
@@ -613,6 +662,9 @@
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/extensions",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/external",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/external/chipmunk/include/chipmunk",
+					/Users/KlaraMariaDersche/Desktop/CocosProject,
+					"/Users/KlaraMariaDersche/Desktop/Multimedia_Programmierung/cocos2d-x-3.15",
+					"/Users/KlaraMariaDersche/Desktop/Multimedia_Programmierung/cocos2d-x-3.15/build/cocos2d_libs.xcodeproj",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
@@ -642,6 +694,9 @@
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/extensions",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/external",
 					"/Applications/Cocos/frameworks/cocos2d-x-3.8.1/external/chipmunk/include/chipmunk",
+					/Users/KlaraMariaDersche/Desktop/CocosProject,
+					"/Users/KlaraMariaDersche/Desktop/Multimedia_Programmierung/cocos2d-x-3.15",
+					"/Users/KlaraMariaDersche/Desktop/Multimedia_Programmierung/cocos2d-x-3.15/build/cocos2d_libs.xcodeproj",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
