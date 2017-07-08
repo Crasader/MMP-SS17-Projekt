@@ -9,7 +9,6 @@
 
 USING_NS_CC;
 
-using namespace cocostudio::timeline;
 
 Scene* MainMenuScene::createScene()
 {
@@ -77,21 +76,18 @@ bool MainMenuScene::init()
 
 void MainMenuScene::goToMainLevel1Scene(cocos2d::Ref *sender)
 {
-	levelName = level1;
 	auto scene = LevelEasyScene::createScene();
 	Director::getInstance()->replaceScene(TransitionFade::create(transitionDuration, scene));
 }
 
 void MainMenuScene::goToMainLevel2Scene(cocos2d::Ref *sender)
 {
-	levelName = level2;
 	auto scene = LevelMediumScene::createScene();
 	Director::getInstance()->replaceScene(TransitionFade::create(transitionDuration, scene));
 }
 
 void MainMenuScene::goToMainLevel3Scene(cocos2d::Ref *sender)
 {
-	levelName = level3;
 	auto scene = LevelHardScene::createScene();
 	Director::getInstance()->replaceScene(TransitionFade::create(transitionDuration, scene));
 }

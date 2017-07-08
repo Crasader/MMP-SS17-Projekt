@@ -2,9 +2,8 @@
 #define __LEVELHARD_SCENE_H__
 
 #include "cocos2d.h"
-#include "GenericLevelScene.h"
 
-class LevelHardScene : public ::GenericLevelScene
+class LevelHardScene : public cocos2d::LayerColor
 {
 public:
 	// there's no 'id' in cpp, so we recommend returning the class instance pointer
@@ -17,6 +16,7 @@ public:
 	CREATE_FUNC(LevelHardScene);
 
 private:
+	void goToMainMenuScene(cocos2d::Ref *sender);
 
 };
 

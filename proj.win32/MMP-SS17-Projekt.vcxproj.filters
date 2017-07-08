@@ -27,9 +27,6 @@
     <ClCompile Include="..\Classes\GlobalValues.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\GenericLevelScene.cpp">
-      <Filter>src\Level</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\LevelEasyScene.cpp">
       <Filter>src\Level</Filter>
     </ClCompile>
@@ -55,9 +52,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\GlobalValues.h">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\GenericLevelScene.h">
-      <Filter>src\Level</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\LevelEasyScene.h">
       <Filter>src\Level</Filter>

@@ -6,8 +6,6 @@
 
 USING_NS_CC;
 
-using namespace cocostudio::timeline;
-
 Scene* StartMenuScene::createScene()
 {
     // 'scene' is an autorelease object
