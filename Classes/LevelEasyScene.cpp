@@ -32,15 +32,16 @@ bool LevelEasyScene::init()
 
 
 	// Ramp
+	//auto rampBody2 = PhysicsBody::createPolygon();
 	auto rampBody = PhysicsBody::createBox(
 		Size(32.0f, 32.0f),
-		PhysicsMaterial(0.1f, 0.1f, 0.5f)
+		PHYSICSBODY_MATERIAL_DEFAULT
 	);
-	auto ramp = Sprite::create(obstacleSlope);
+	auto ramp = Sprite::create(spriteObstacleSlope);
 	ramp->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.8));
-	this->addChild(ramp);
 	rampBody->setDynamic(false);
 	ramp->setPhysicsBody(rampBody);
+	this->addChild(ramp);
 
 	// Add more obstacles and helper objects
 

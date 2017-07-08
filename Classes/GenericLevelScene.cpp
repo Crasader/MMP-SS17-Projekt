@@ -25,13 +25,13 @@ bool GenericLevelScene::init()
 	this->addChild(backGround);
 
 	// Back Button
-	auto backButtonMenuItem = MenuItemImage::create(backButton, backButton,
+	auto backButtonMenuItem = MenuItemImage::create(spriteBackButton, spriteBackButton,
 		CC_CALLBACK_1(GenericLevelScene::goToMainMenuScene, this));
 	backButtonMenuItem->setPosition(Point(visibleSize.width * bottomButtonBarLeft + origin.x,
 		visibleSize.height * bottomButtonBarVerticalFactor + origin.y));
 
 	// Drop Button
-	auto dropButtonMenuItem = MenuItemImage::create(dropButton, dropButton,
+	auto dropButtonMenuItem = MenuItemImage::create(spriteDropButton, spriteDropButton,
 		CC_CALLBACK_1(GenericLevelScene::dropAction, this));
 	dropButtonMenuItem->setPosition(Point(visibleSize.width * bottomButtonBarMiddle + origin.x,
 		visibleSize.height * bottomButtonBarVerticalFactor + origin.y));
@@ -42,28 +42,41 @@ bool GenericLevelScene::init()
 
 
 
-	//Ground
+	// EdgeBorder
+	auto edgeBody = PhysicsBody::createEdgeBox(visibleSize, PHYSICSBODY_MATERIAL_DEFAULT, 2);
+	auto edgeNode = Node::create();
+	edgeNode->setPosition(Point(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+	edgeNode->setPhysicsBody(edgeBody);
+	this->addChild(edgeNode);
+
+	// Ground
 	auto groundBody = PhysicsBody::createBox(
 		Size(visibleSize.width, 32.0f),
-		PhysicsMaterial(0.1f, 1.0f, 0.5f)
+		PHYSICSBODY_MATERIAL_DEFAULT
 	);
-	ground = Sprite::create(bottom);
+	auto ground = Node::create();
 	ground->setPosition(Point(visibleSize.width * 0.5 + origin.x, bottomBarOffset + 50));
-	this->addChild(ground);
 	groundBody->setDynamic(false);
+	groundBody->setCollisionBitmask(colBitMaskGround);
+	groundBody->setContactTestBitmask(true);
 	ground->setPhysicsBody(groundBody);
+	this->addChild(ground);
 
 	//Target
-	target = Sprite::create(basket);
+	// TODO make collsion body smaller. 
+	// Maybe just create a new node with the size of the bin and don't give the sprite itself a body
+	target = Sprite::create(spriteBasket);
 	target->setScale(0.6f);
 	auto targetBody = PhysicsBody::createBox(
 		Size(target->getBoundingBox().size.width * 1.6f, target->getBoundingBox().size.height * 1.6f),
-		PhysicsMaterial(0.1f, 1.0f, 0.5f)
+		PHYSICSBODY_MATERIAL_DEFAULT
 	);
 	target->setPosition(Point(visibleSize.width * 0.9 + origin.x, bottomBarOffset + 155));
-	this->addChild(target);
 	targetBody->setDynamic(false);
+	targetBody->setCollisionBitmask(colBitMaskTarget);
+	targetBody->setContactTestBitmask(true);
 	target->setPhysicsBody(targetBody);
+	this->addChild(target);
 
 	//ball / Player
 	auto ballBody = PhysicsBody::createCircle(
@@ -73,13 +86,20 @@ bool GenericLevelScene::init()
 	ballBody->setMass(10.0f);
 	player = Sprite::create("ball.png");
 	player->setPosition(Vec2(visibleSize.width * 0.1f, visibleSize.height * 0.95f));
-	this->addChild(player);
 	ballBody->setDynamic(false);
+	ballBody->setCollisionBitmask(colBitMaskPlayer);
+	ballBody->setContactTestBitmask(true);
 	player->setPhysicsBody(ballBody);
+	this->addChild(player);
 
 	// Initialise Vectors for child classes (if size ever my be necessary, move initialisation to child classes)
 	obstacleObjects = Vector<Sprite*>();
 	helperObjects = Vector<Sprite*>();
+
+	// Collision Detection
+	auto contactListener = EventListenerPhysicsContact::create();
+	contactListener->onContactBegin = CC_CALLBACK_1(GenericLevelScene::onContact, this);
+	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);
 
 	return true;
 }
@@ -101,4 +121,37 @@ void GenericLevelScene::dropAction(cocos2d::Ref * sender)
 	//obstacleObjects.at(0)->getPhysicsBody()->setDynamic(true);
 
 	// TODO Lock Movement of helper objects
+}
+
+bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
+{
+	PhysicsBody *bodyA = contact.getShapeA()->getBody();
+	PhysicsBody *bodyB = contact.getShapeB()->getBody();
+
+	// Check if player collided with ground
+	if ((bodyA->getCollisionBitmask() == colBitMaskGround && bodyB->getCollisionBitmask() == colBitMaskPlayer) ||
+		(bodyB->getCollisionBitmask() == colBitMaskGround && bodyA->getCollisionBitmask() == colBitMaskPlayer)) 
+	{
+		CCLOG(">>> GAME LOST");
+	}
+
+	// Check if player collided with target
+	else if ((bodyA->getCollisionBitmask() == colBitMaskTarget && bodyB->getCollisionBitmask() == colBitMaskPlayer) ||
+		(bodyB->getCollisionBitmask() == colBitMaskTarget && bodyA->getCollisionBitmask() == colBitMaskPlayer))
+	{
+		CCLOG(">>> GAME WOM");
+	}
+
+	// Check if player collided with bumper (necessary for bumper animation)
+	else if ((bodyA->getCollisionBitmask() == colBitMaskBumper && bodyB->getCollisionBitmask() == colBitMaskPlayer) ||
+		(bodyB->getCollisionBitmask() == colBitMaskBumper && bodyA->getCollisionBitmask() == colBitMaskPlayer))
+	{
+		CCLOG(">>> Bumper Collision");
+	}
+
+	// Check if player collided with slope / ramp (for player animation)
+
+	// Check other collision that should cause any animation
+
+	return true;
 }

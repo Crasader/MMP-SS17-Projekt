@@ -19,6 +19,8 @@ private:
 
 	void dropAction(cocos2d::Ref *sender);
 
+	bool onContact(cocos2d::PhysicsContact &contact);
+
 protected:
 	Vector<Sprite*> obstacleObjects;
 	Vector<Sprite*> helperObjects;

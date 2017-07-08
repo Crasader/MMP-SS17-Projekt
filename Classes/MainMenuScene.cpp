@@ -39,28 +39,28 @@ bool MainMenuScene::init()
 	auto origin = Director::getInstance()->getVisibleOrigin();
 
 	// Easy Button
-	auto easyButtonMenuItem = MenuItemImage::create(easyButton, easyButton,
+	auto easyButtonMenuItem = MenuItemImage::create(spriteEasyButton, spriteEasyButton,
 		CC_CALLBACK_1(MainMenuScene::goToMainLevel1Scene, this));
 	easyButtonMenuItem->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.5 + origin.y + 150));
 
 	// Medium Button
-	auto mediumButtonMenuItem = MenuItemImage::create(mediumButton, mediumButton,
+	auto mediumButtonMenuItem = MenuItemImage::create(spriteMediumButton, spriteMediumButton,
 		CC_CALLBACK_1(MainMenuScene::goToMainLevel2Scene, this));
 	mediumButtonMenuItem->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.5 + origin.y));
 
 	// Hard Button
-	auto hardButtonMenuItem = MenuItemImage::create(hardButton, hardButton,
+	auto hardButtonMenuItem = MenuItemImage::create(spriteHardButton, spriteHardButton,
 		CC_CALLBACK_1(MainMenuScene::goToMainLevel3Scene, this));
 	hardButtonMenuItem->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.5 + origin.y - 150));
 
 	// Guide Button
-	auto guideButtonMenuItem = MenuItemImage::create(questionButton, questionButton,
+	auto guideButtonMenuItem = MenuItemImage::create(spriteQuestionButton, spriteQuestionButton,
 		CC_CALLBACK_1(MainMenuScene::goToGuideScene, this));
 	guideButtonMenuItem->setPosition(Point(visibleSize.width * bottomButtonBarRight + origin.x,
 		visibleSize.height * bottomButtonBarVerticalFactor + origin.y));
 
 	// Back Button
-	auto backButtonMenuItem = MenuItemImage::create(backButton, backButton,
+	auto backButtonMenuItem = MenuItemImage::create(spriteBackButton, spriteBackButton,
 		CC_CALLBACK_1(MainMenuScene::goToStartMenuScene, this));
 	backButtonMenuItem->setPosition(Point(visibleSize.width * bottomButtonBarLeft + origin.x,
 		visibleSize.height * bottomButtonBarVerticalFactor + origin.y));

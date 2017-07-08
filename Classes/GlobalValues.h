@@ -6,44 +6,51 @@ using namespace std;
 
 /* File for global values (Probably not best practice for CPP, but what do I know)*/
 
-// Buttons
-extern const string startButton;
-extern const string closeButton;
-
-extern const string easyButton;
-extern const string mediumButton;
-extern const string hardButton;
-extern const string questionButton;
-extern const string backButton;
-
-extern const string dropButton;
-extern const string resetButton;
-
 // Sprites
+// Buttons
+extern const string spriteStartButton;
+extern const string spriteCloseButton;
+
+extern const string spriteEasyButton;
+extern const string spriteMediumButton;
+extern const string spriteHardButton;
+extern const string spriteQuestionButton;
+extern const string spriteBackButton;
+
+extern const string spriteDropButton;
+extern const string spriteResetButton;
+
 // Obstacle
-extern const string obstacleBlock1;
-extern const string obstacleBlock2;
-extern const string obstacleBlock3;
-extern const string obstacleWall;
-extern const string obstacleRamp;
-extern const string obstacleSlope;
-extern const string obstacleBumper;
-extern const string obstacleBumperUsed;
+extern const string spriteObstacleBlock1;
+extern const string spriteObstacleBlock2;
+extern const string spriteObstacleBlock3;
+extern const string spriteObstacleWall;
+extern const string spriteObstacleRamp;
+extern const string spriteObstacleSlope;
+extern const string spriteObstacleBumper;
+extern const string spriteObstacleBumperUsed;
 
 // Helper
-extern const string helperBlock1;
-extern const string helperBlock2;
-extern const string helperBlock3;
-extern const string helperRamp;
-extern const string helperSlope;
-extern const string helperBumper;
-extern const string helperBumperUsed;
+extern const string spriteHelperBlock1;
+extern const string spriteHelperBlock2;
+extern const string spriteHelperBlock3;
+extern const string spriteHelperRamp;
+extern const string spriteHelperSlope;
+extern const string spriteHelperBumper;
+extern const string spriteHelperBumperUsed;
 
 // Target
-extern const string basket;
+extern const string spriteBasket;
 
 // Bottom
-extern const string bottom;
+extern const string spriteGround;
+
+// Collision Bitmasks
+extern const int colBitMaskPlayer;
+extern const int colBitMaskTarget;
+extern const int colBitMaskGround;
+extern const int colBitMaskBumper;
+extern const int colBitMaskSlopeRamp;
 
 // Position
 // Bottom Buttons

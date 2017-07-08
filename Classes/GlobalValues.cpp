@@ -1,43 +1,55 @@
 #include "GlobalValues.h"
 
-// Buttons
-extern const string startButton = "StartButton.png";
-extern const string closeButton = "CloseButton.png";
-
-extern const string easyButton = "EasyButton.png";
-extern const string mediumButton = "MediumButton.png";
-extern const string hardButton = "HardButton.png";
-extern const string questionButton = "QuestionButton.png";
-extern const string backButton = "BackArrowButton.png";
-
-extern const string dropButton = "DropButton.png";
-extern const string resetButton = "ResetButton.png";
-
 // Sprites
+// Buttons
+extern const string spriteStartButton = "StartButton.png";
+extern const string spriteCloseButton = "CloseButton.png";
+
+extern const string spriteEasyButton = "EasyButton.png";
+extern const string spriteMediumButton = "MediumButton.png";
+extern const string spriteHardButton = "HardButton.png";
+extern const string spriteQuestionButton = "QuestionButton.png";
+extern const string spriteBackButton = "BackArrowButton.png";
+
+extern const string spriteDropButton = "DropButton.png";
+extern const string spriteResetButton = "ResetButton.png";
+
+// Level Backgrounds
+extern const string level1 = "Level1.png";
+extern const string level2 = "level2.png";
+extern const string level3 = "Level3.png";
+
 // Obstacle
-extern const string obstacleBlock1 = "Block1.png";
-extern const string obstacleBlock2 = "Block2.png";
-extern const string obstacleBlock3 = "Block3.png";
-extern const string obstacleWall = "wall.png";
-extern const string obstacleRamp = "Rampe.png";
-extern const string obstacleSlope = "Schraege.png";
-extern const string obstacleBumper = "Bumper.png";
-extern const string obstacleBumperUsed = "BumperBenutzt.png";
+extern const string spriteObstacleBlock1 = "Block1.png";
+extern const string spriteObstacleBlock2 = "Block2.png";
+extern const string spriteObstacleBlock3 = "Block3.png";
+extern const string spriteObstacleWall = "wall.png";
+extern const string spriteObstacleRamp = "Rampe.png";
+extern const string spriteObstacleSlope = "Schraege.png";
+extern const string spriteObstacleBumper = "Bumper.png";
+extern const string spriteObstacleBumperUsed = "BumperBenutzt.png";
 
 // Helper
-extern const string helperBlock1 = "Block1.png";
-extern const string helperBlock2 = "Block2.png";
-extern const string helperBlock3 = "Block3.png";
-extern const string helperRamp = "Rampe.png";
-extern const string helperSlope = "Schraege.png";
-extern const string helperBumper = "Bumper.png";
-extern const string helperBumperUsed = "BumperBenutzt.png";
+extern const string spriteHelperBlock1 = "Block1.png";
+extern const string spriteHelperBlock2 = "Block2.png";
+extern const string spriteHelperBlock3 = "Block3.png";
+extern const string spriteHelperRamp = "Rampe.png";
+extern const string spriteHelperSlope = "Schraege.png";
+extern const string spriteHelperBumper = "Bumper.png";
+extern const string spriteHelperBumperUsed = "BumperBenutzt.png";
 
 // Target
-extern const string basket = "korb.png";
+extern const string spriteBasket = "korb.png";
 
 // Bottom
-extern const string bottom = "dummyPNG.png";
+extern const string spriteGround = "dummyPNG.png";
+
+// Collision Bitmasks
+extern const int colBitMaskPlayer = 1;
+extern const int colBitMaskTarget = 2;
+extern const int colBitMaskGround = 3;
+extern const int colBitMaskBumper = 4;
+extern const int colBitMaskSlopeRamp = 5;
 
 // Position
 // Bottom Buttons
@@ -69,11 +81,6 @@ extern const string logoFont = "Helvetica";
 extern const int bottomBarOffset = 150; // Sizeadjustment. Makes some space to place buttons below the level background
 
 extern const float gravity = -200.0f;
-
-// Level Backgrounds
-extern const string level1 = "Level1.png";
-extern const string level2 = "level2.png";
-extern const string level3 = "Level3.png";
 
 // Current Level
 extern string currentLevelName = "";
