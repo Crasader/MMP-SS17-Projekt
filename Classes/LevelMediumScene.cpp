@@ -53,6 +53,28 @@ bool LevelMediumScene::init()
 	menu->setPosition(Point::ZERO);
 	this->addChild(menu);
 
+	//Ground
+	auto groundBody = PhysicsBody::createBox(
+		Size(visibleSize.width, 32.0f),
+		PhysicsMaterial(0.1f, 1.0f, 0.5f)
+	);
+	auto ground = Sprite::create(bottom);
+	ground->setPosition(Point(visibleSize.width * 0.5 + origin.x, bottomBarOffset + 50));
+	this->addChild(ground);
+	groundBody->setDynamic(false);
+	ground->setPhysicsBody(groundBody);
+
+	//Target
+	auto target = Sprite::create(basket);
+	target->setScale(0.6f);
+	auto targetBody = PhysicsBody::createBox(
+		Size(target->getBoundingBox().size.width * 1.6f, target->getBoundingBox().size.height * 1.6f),
+		PhysicsMaterial(0.1f, 1.0f, 0.5f)
+	);
+	target->setPosition(Point(visibleSize.width * 0.9 + origin.x, bottomBarOffset + 155));
+	this->addChild(target);
+	targetBody->setDynamic(false);
+	target->setPhysicsBody(targetBody);
 
 	//Small box Physiks Example
 	auto boxBody = PhysicsBody::createBox(

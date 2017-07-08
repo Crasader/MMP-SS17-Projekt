@@ -13,6 +13,32 @@ extern const string backButton = "BackArrowButton.png";
 extern const string dropButton = "DropButton.png";
 extern const string resetButton = "ResetButton.png";
 
+// Sprites
+// Obstacle
+extern const string obstacleBlock1 = "Block1.png";
+extern const string obstacleBlock2 = "Block2.png";
+extern const string obstacleBlock3 = "Block3.png";
+extern const string obstacleWall = "wall.png";
+extern const string obstacleRamp = "Rampe.png";
+extern const string obstacleSlope = "Schraege.png";
+extern const string obstacleBumper = "Bumper.png";
+extern const string obstacleBumperUsed = "BumperBenutzt.png";
+
+// Helper
+extern const string helperBlock1 = "Block1.png";
+extern const string helperBlock2 = "Block2.png";
+extern const string helperBlock3 = "Block3.png";
+extern const string helperRamp = "Rampe.png";
+extern const string helperSlope = "Schraege.png";
+extern const string helperBumper = "Bumper.png";
+extern const string helperBumperUsed = "BumperBenutzt.png";
+
+// Target
+extern const string basket = "korb.png";
+
+// Bottom
+extern const string bottom = "dummyPNG.png";
+
 // Position
 // Bottom Buttons
 extern const double bottomButtonBarVerticalFactor = 0.1;
