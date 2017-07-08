@@ -10,11 +10,17 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Menu">
-      <UniqueIdentifier>{4998808c-4ddf-45f0-bee6-3c8d9733739b}</UniqueIdentifier>
+    <Filter Include="src\LevelTest">
+      <UniqueIdentifier>{f7d44de0-839f-4335-9898-621d5aba0ae1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Level">
+    <Filter Include="src\Scenes">
+      <UniqueIdentifier>{b389c632-90db-468d-b757-2052efdd5ec4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scenes\Level">
       <UniqueIdentifier>{cb924361-6831-4c0e-8f1c-1e79c8a68c85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scenes\Menu">
+      <UniqueIdentifier>{4998808c-4ddf-45f0-bee6-3c8d9733739b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -28,19 +34,22 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\LevelEasyScene.cpp">
-      <Filter>src\Level</Filter>
+      <Filter>src\Scenes\Level</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\LevelHardScene.cpp">
-      <Filter>src\Level</Filter>
+      <Filter>src\Scenes\Level</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\LevelMediumScene.cpp">
-      <Filter>src\Level</Filter>
+      <Filter>src\Scenes\Level</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\StartMenuScene.cpp">
-      <Filter>src\Menu</Filter>
+      <Filter>src\Scenes\Menu</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\MainMenuScene.cpp">
-      <Filter>src\Menu</Filter>
+      <Filter>src\Scenes\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GenericLevelScene.cpp">
+      <Filter>src\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -54,19 +63,22 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\LevelEasyScene.h">
-      <Filter>src\Level</Filter>
+      <Filter>src\Scenes\Level</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\LevelHardScene.h">
-      <Filter>src\Level</Filter>
+      <Filter>src\Scenes\Level</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\LevelMediumScene.h">
-      <Filter>src\Level</Filter>
+      <Filter>src\Scenes\Level</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\MainMenuScene.h">
-      <Filter>src\Menu</Filter>
+      <Filter>src\Scenes\Menu</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\StartMenuScene.h">
-      <Filter>src\Menu</Filter>
+      <Filter>src\Scenes\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GenericLevelScene.h">
+      <Filter>src\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

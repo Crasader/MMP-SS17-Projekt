@@ -2,8 +2,9 @@
 #define __LEVELMEDIUM_SCENE_H__
 
 #include "cocos2d.h"
+#include "GenericLevelScene.h"
 
-class LevelMediumScene : public cocos2d::LayerColor
+class LevelMediumScene : public ::GenericLevelScene
 {
 
 public:
@@ -17,7 +18,6 @@ public:
 	CREATE_FUNC(LevelMediumScene);
 
 private:
-	void goToMainMenuScene(cocos2d::Ref *sender);
 
 };
 

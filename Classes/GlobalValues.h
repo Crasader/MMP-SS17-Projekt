@@ -74,13 +74,15 @@ extern const string logoText;
 extern const string logoFont;
 extern const int bottomBarOffset;
 
+extern const float gravity;
+
 // Level Backgrounds
 extern const string level1;
 extern const string level2;
 extern const string level3;
 
 // Current Level
-extern string levelName;
+extern string currentLevelName;
 
 #endif // _GLOBALVALUES_H_
 

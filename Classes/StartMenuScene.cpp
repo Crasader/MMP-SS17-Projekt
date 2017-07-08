@@ -41,12 +41,12 @@ bool StartMenuScene::init()
 	addChild(gameName);
 
 	// Start Button
-	auto startButtonMenuItem = MenuItemImage::create(startButton, "Start Button clicked",
+	auto startButtonMenuItem = MenuItemImage::create(startButton, startButton,
 		CC_CALLBACK_1(StartMenuScene::goToMainMenuScene, this));
 	startButtonMenuItem->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height / 2 + origin.y));
 
 	// Close Button
-	auto closeButtonMenuItem = MenuItemImage::create(closeButton, "Close Button clicked",
+	auto closeButtonMenuItem = MenuItemImage::create(closeButton, closeButton,
 		// Note: CC_CALLBACK_1 only works when when function takes an argument?
 		CC_CALLBACK_1(StartMenuScene::closeApplication, this));
 	closeButtonMenuItem->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height / 2 + origin.y - 125));
