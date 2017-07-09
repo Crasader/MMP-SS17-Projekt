@@ -2,6 +2,7 @@
 #define __GENERICLEVEL_SCENE_H__
 
 #include "cocos2d.h"
+#include "GenericSprite.h"
 
 using namespace cocos2d;
 
@@ -22,14 +23,22 @@ private:
 	bool onContact(cocos2d::PhysicsContact &contact);
 
 protected:
+	void onTouchesBegan(const std::vector<Touch*> &touches, Event* event);
+	void onTouchesMoved(const std::vector<Touch*> &touches, Event* event);
+	void onTouchesEnded(const std::vector<Touch*> &touches, Event* event);
+
 	Vector<Sprite*> obstacleObjects;
-	Vector<Sprite*> helperObjects;
+	Vector<GenericSprite*> helperObjects;
 
 	Sprite* ground;
 	
 	Sprite* player;
 
 	Node* target;
+
+	Size visibleSize;
+	Vec2 origin;
+
 };
 
 #endif // __GENERICLEVEL_SCENE_H__

@@ -5,6 +5,7 @@
 
 using namespace cocos2d;
 
+// Does not inherit Generic sprite because wall is never moveable
 class WallSprite : public Sprite
 {
 public:

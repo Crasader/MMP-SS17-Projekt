@@ -2,10 +2,11 @@
 #ifndef __SLOPESPRITE_H__
 #define __SLOPESPRITE_H__
 #include "cocos2d.h"
+#include "GenericSprite.h"
 
 using namespace cocos2d;
 
-class SlopeSprite : public Sprite
+class SlopeSprite : public GenericSprite
 {
 public:
 	virtual ~SlopeSprite();

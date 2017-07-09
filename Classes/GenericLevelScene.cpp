@@ -17,8 +17,8 @@ bool GenericLevelScene::init()
 		return false;
 	}
 
-	auto visibleSize = Director::getInstance()->getVisibleSize();
-	auto origin = Director::getInstance()->getVisibleOrigin();
+	visibleSize = Director::getInstance()->getVisibleSize();
+	origin = Director::getInstance()->getVisibleOrigin();
 
 	auto backGround = Sprite::create(currentLevelName);
 	backGround->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.5 + origin.y + bottomBarOffset / 2));
@@ -97,14 +97,96 @@ bool GenericLevelScene::init()
 
 	// Initialise Vectors for child classes (if size ever my be necessary, move initialisation to child classes)
 	obstacleObjects = Vector<Sprite*>();
-	helperObjects = Vector<Sprite*>();
+	helperObjects = Vector<GenericSprite*>();
 
 	// Collision Detection
 	auto contactListener = EventListenerPhysicsContact::create();
 	contactListener->onContactBegin = CC_CALLBACK_1(GenericLevelScene::onContact, this);
 	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, this);
 
+	// TouchListener
+	auto listener = EventListenerTouchAllAtOnce::create();
+	listener->onTouchesBegan = CC_CALLBACK_2(GenericLevelScene::onTouchesBegan, this);
+	listener->onTouchesMoved = CC_CALLBACK_2(GenericLevelScene::onTouchesMoved, this);
+	listener->onTouchesEnded = CC_CALLBACK_2(GenericLevelScene::onTouchesEnded, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
 	return true;
+}
+
+void GenericLevelScene::onTouchesBegan(const std::vector<Touch*>& touches, Event * event)
+{
+	for (auto touch : touches) {
+		if (touch != nullptr) {
+			auto tap = touch->getLocation();
+			for (auto helperObject : helperObjects) {
+				if (helperObject->boundingBox().containsPoint(tap)) {
+					helperObject->setTouch(touch);
+				}
+			}
+		}
+	}
+}
+
+void GenericLevelScene::onTouchesMoved(const std::vector<Touch*>& touches, Event * event)
+{
+	for (auto touch : touches) 
+	{
+		if (touch != nullptr) 
+		{
+			auto tap = touch->getLocation();
+			for (auto helperObject : helperObjects) 
+			{
+				if (helperObject->getTouch() != nullptr && helperObject->getTouch() == touch) 
+				{
+					Point touchPosition = tap;
+					auto halfWidth = helperObject->getBoundingBox().size.width / 2;
+					auto halfHeight = helperObject->getBoundingBox().size.height / 2;
+
+					// Left Side
+					if (touchPosition.x < halfWidth)
+					{
+						touchPosition.x = halfWidth;
+					}
+					// Right side
+					if (touchPosition.x > visibleSize.width - halfWidth)
+					{
+						touchPosition.x = visibleSize.width - halfWidth;
+					}
+
+					// Ground
+					if (touchPosition.y < halfHeight + bottomBarOffset + 65)
+					{
+						touchPosition.y = halfHeight + bottomBarOffset + 65;
+					}
+					// Top
+					if (touchPosition.y > visibleSize.height - halfHeight)
+					{
+						touchPosition.y = visibleSize.height - halfHeight;
+					}
+			
+					helperObject->setPosition(touchPosition);
+				}
+			}
+		}
+	}
+}
+
+
+void GenericLevelScene::onTouchesEnded(const std::vector<Touch*>& touches, Event * event)
+{
+	for (auto touch : touches) {
+		if (touch != nullptr) {
+			auto tap = touch->getLocation();
+			for (auto helperObject : helperObjects) {
+				if (helperObject->getTouch() != nullptr && helperObject->getTouch() == touch) {
+					//if touch ending belongs to this player, clear it
+					helperObject->setTouch(nullptr);
+					//player->setVector(Vec2(0, 0));
+				}
+			}
+		}
+	}
 }
 
 void GenericLevelScene::goToMainMenuScene(cocos2d::Ref * sender)
@@ -158,3 +240,5 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 
 	return true;
 }
+
+

@@ -32,11 +32,8 @@ bool LevelEasyScene::init()
 	{
 		return false;
 	}
-	auto visibleSize = Director::getInstance()->getVisibleSize();
-	auto origin = Director::getInstance()->getVisibleOrigin();
 
-
-	// SLOPE EXAMPLE
+	// SLOPE EXAMPLE (old)
 	/*
 	auto rampBody = PhysicsBody::createBox(
 		Size(32.0f, 32.0f),
@@ -49,12 +46,11 @@ bool LevelEasyScene::init()
 	this->addChild(ramp);
 	*/
 
-	// This does the same as the lines above (35 - 46)
-	auto slope = SlopeSprite::createSlopeSprite(false);
+	auto slope = SlopeSprite::createSlopeSprite(true);
 	slope->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.8));
 	this->addChild(slope);
 
-	auto bumper = BumperSprite::createBumperSprite(false);
+	auto bumper = BumperSprite::createBumperSprite(true);
 	bumper->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.4));
 	this->addChild(bumper);
 
@@ -62,26 +58,25 @@ bool LevelEasyScene::init()
 	wall->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.5));
 	this->addChild(wall);
 
-	auto block = BlockSprite::createBlockSprite(false, 1);
+	auto block = BlockSprite::createBlockSprite(true, 1);
 	block->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.9));
 	this->addChild(block);
 
-	auto ramp = RampSprite::createRampSprite(false);
+	auto ramp = RampSprite::createRampSprite(true);
 	ramp->setPosition(Point(visibleSize.width * 0.85 + origin.x, visibleSize.height * 0.9));
 	this->addChild(ramp);
 
 	// Add more obstacles and helper objects
 
 
-	// Add all obstacles to the obstacleObjects Vector
-	GenericLevelScene::obstacleObjects.pushBack(slope);
-	GenericLevelScene::obstacleObjects.pushBack(bumper);
-	GenericLevelScene::obstacleObjects.pushBack(wall);
-	GenericLevelScene::obstacleObjects.pushBack(block);
-	GenericLevelScene::obstacleObjects.pushBack(ramp);
+	// Add all help to the obstacleObjects Vector
+	GenericLevelScene::helperObjects.pushBack(slope);
+	GenericLevelScene::helperObjects.pushBack(bumper);
+	GenericLevelScene::helperObjects.pushBack(block);
+	GenericLevelScene::helperObjects.pushBack(ramp);
 
-	// Add all help object to the helperObjects Vector
-	//GenericLevelScene::helperObjects.pushBack(NULL);
+	// Add all obstacle object to the helperObjects Vector
+	GenericLevelScene::obstacleObjects.pushBack(wall);
 
 	return true;
 }

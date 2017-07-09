@@ -27,8 +27,6 @@ bool LevelHardScene::init()
 	{
 		return false;
 	}
-	auto visibleSize = Director::getInstance()->getVisibleSize();
-	auto origin = Director::getInstance()->getVisibleOrigin();
 
 
 	// Ramp
