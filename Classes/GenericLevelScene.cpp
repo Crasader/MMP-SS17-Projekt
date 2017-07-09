@@ -65,17 +65,20 @@ bool GenericLevelScene::init()
 	//Target
 	// TODO make collsion body smaller. 
 	// Maybe just create a new node with the size of the bin and don't give the sprite itself a body
-	target = Sprite::create(spriteBasket);
-	target->setScale(0.6f);
+	auto targetSprite = Sprite::create(spriteBasket);
+	target = Node::create();
+	targetSprite->setScale(0.6f);
 	auto targetBody = PhysicsBody::createBox(
-		Size(target->getBoundingBox().size.width * 1.6f, target->getBoundingBox().size.height * 1.6f),
+		Size(targetSprite->getBoundingBox().size.width, targetSprite->getBoundingBox().size.height * 0.4f),
 		PHYSICSBODY_MATERIAL_DEFAULT
 	);
-	target->setPosition(Point(visibleSize.width * 0.9 + origin.x, bottomBarOffset + 155));
+	targetSprite->setPosition(Point(visibleSize.width * 0.9 + origin.x, bottomBarOffset + 155));
+	target->setPosition(Point(visibleSize.width * 0.9 + origin.x, bottomBarOffset + 100));
 	targetBody->setDynamic(false);
 	targetBody->setCollisionBitmask(colBitMaskTarget);
 	targetBody->setContactTestBitmask(true);
 	target->setPhysicsBody(targetBody);
+	this->addChild(targetSprite);
 	this->addChild(target);
 
 	//ball / Player

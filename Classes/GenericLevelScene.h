@@ -29,7 +29,7 @@ protected:
 	
 	Sprite* player;
 
-	Sprite* target;
+	Node* target;
 };
 
 #endif // __GENERICLEVEL_SCENE_H__
