@@ -10,9 +10,6 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\LevelTest">
-      <UniqueIdentifier>{f7d44de0-839f-4335-9898-621d5aba0ae1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Scenes">
       <UniqueIdentifier>{b389c632-90db-468d-b757-2052efdd5ec4}</UniqueIdentifier>
     </Filter>
@@ -21,6 +18,9 @@
     </Filter>
     <Filter Include="src\Scenes\Menu">
       <UniqueIdentifier>{4998808c-4ddf-45f0-bee6-3c8d9733739b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Sprite">
+      <UniqueIdentifier>{6afa35ec-c599-4e25-b664-968b1eaa95fc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +51,21 @@
     <ClCompile Include="..\Classes\GenericLevelScene.cpp">
       <Filter>src\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\SlopeSprite.cpp">
+      <Filter>src\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RampSprite.cpp">
+      <Filter>src\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BumperSprite.cpp">
+      <Filter>src\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\WallSprite.cpp">
+      <Filter>src\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BlockSprite.cpp">
+      <Filter>src\Sprite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -79,6 +94,21 @@
     </ClInclude>
     <ClInclude Include="..\Classes\GenericLevelScene.h">
       <Filter>src\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SlopeSprite.h">
+      <Filter>src\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RampSprite.h">
+      <Filter>src\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BumperSprite.h">
+      <Filter>src\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WallSprite.h">
+      <Filter>src\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BlockSprite.h">
+      <Filter>src\Sprite</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -147,24 +147,34 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\BlockSprite.cpp" />
+    <ClCompile Include="..\Classes\BumperSprite.cpp" />
     <ClCompile Include="..\Classes\GenericLevelScene.cpp" />
     <ClCompile Include="..\Classes\GlobalValues.cpp" />
     <ClCompile Include="..\Classes\LevelEasyScene.cpp" />
     <ClCompile Include="..\Classes\LevelHardScene.cpp" />
     <ClCompile Include="..\Classes\LevelMediumScene.cpp" />
     <ClCompile Include="..\Classes\MainMenuScene.cpp" />
+    <ClCompile Include="..\Classes\RampSprite.cpp" />
+    <ClCompile Include="..\Classes\SlopeSprite.cpp" />
     <ClCompile Include="..\Classes\StartMenuScene.cpp" />
+    <ClCompile Include="..\Classes\WallSprite.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\BlockSprite.h" />
+    <ClInclude Include="..\Classes\BumperSprite.h" />
     <ClInclude Include="..\Classes\GenericLevelScene.h" />
     <ClInclude Include="..\Classes\GlobalValues.h" />
     <ClInclude Include="..\Classes\LevelEasyScene.h" />
     <ClInclude Include="..\Classes\LevelHardScene.h" />
     <ClInclude Include="..\Classes\LevelMediumScene.h" />
     <ClInclude Include="..\Classes\MainMenuScene.h" />
+    <ClInclude Include="..\Classes\RampSprite.h" />
+    <ClInclude Include="..\Classes\SlopeSprite.h" />
     <ClInclude Include="..\Classes\StartMenuScene.h" />
+    <ClInclude Include="..\Classes\WallSprite.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
