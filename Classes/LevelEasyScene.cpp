@@ -3,6 +3,11 @@
 #include "GlobalValues.h"
 #include "LevelEasyScene.h"
 #include "MainMenuScene.h"
+#include "SlopeSprite.h"
+#include "BumperSprite.h"
+#include "WallSprite.h"
+#include "BlockSprite.h"
+#include "RampSprite.h"
 
 USING_NS_CC;
 
@@ -31,8 +36,8 @@ bool LevelEasyScene::init()
 	auto origin = Director::getInstance()->getVisibleOrigin();
 
 
-	// Ramp
-	//auto rampBody2 = PhysicsBody::createPolygon();
+	// SLOPE EXAMPLE
+	/*
 	auto rampBody = PhysicsBody::createBox(
 		Size(32.0f, 32.0f),
 		PHYSICSBODY_MATERIAL_DEFAULT
@@ -42,11 +47,37 @@ bool LevelEasyScene::init()
 	rampBody->setDynamic(false);
 	ramp->setPhysicsBody(rampBody);
 	this->addChild(ramp);
+	*/
+
+	// This does the same as the lines above (35 - 46)
+	auto slope = SlopeSprite::createSlopeSprite(false);
+	slope->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.8));
+	this->addChild(slope);
+
+	auto bumper = BumperSprite::createBumperSprite(false);
+	bumper->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.4));
+	this->addChild(bumper);
+
+	auto wall = WallSprite::createWallSprite();
+	wall->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.5));
+	this->addChild(wall);
+
+	auto block = BlockSprite::createBlockSprite(false, 1);
+	block->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.9));
+	this->addChild(block);
+
+	auto ramp = RampSprite::createRampSprite(false);
+	ramp->setPosition(Point(visibleSize.width * 0.85 + origin.x, visibleSize.height * 0.9));
+	this->addChild(ramp);
 
 	// Add more obstacles and helper objects
 
 
 	// Add all obstacles to the obstacleObjects Vector
+	GenericLevelScene::obstacleObjects.pushBack(slope);
+	GenericLevelScene::obstacleObjects.pushBack(bumper);
+	GenericLevelScene::obstacleObjects.pushBack(wall);
+	GenericLevelScene::obstacleObjects.pushBack(block);
 	GenericLevelScene::obstacleObjects.pushBack(ramp);
 
 	// Add all help object to the helperObjects Vector

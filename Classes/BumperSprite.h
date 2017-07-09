@@ -1,0 +1,22 @@
+#pragma once
+#ifndef __BUMPERSPRITE_H__
+#define __BUMPERSPRITE_H__
+#include "cocos2d.h"
+
+using namespace cocos2d;
+
+class BumperSprite : public Sprite
+{
+public:
+	virtual ~BumperSprite();
+	static BumperSprite* createBumperSprite(bool isHelper);
+
+	virtual void setPosition(const Point& pos) override;
+
+private:
+	BumperSprite(bool isHelper);
+	bool isHelper;
+};
+
+#endif //__BUMPERSPRITE_H__
+

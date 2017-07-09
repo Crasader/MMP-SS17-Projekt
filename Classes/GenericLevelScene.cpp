@@ -52,7 +52,7 @@ bool GenericLevelScene::init()
 	// Ground
 	auto groundBody = PhysicsBody::createBox(
 		Size(visibleSize.width, 32.0f),
-		PHYSICSBODY_MATERIAL_DEFAULT
+		PhysicsMaterial(1.0f, 0.0f, 1.0f)
 	);
 	auto ground = Node::create();
 	ground->setPosition(Point(visibleSize.width * 0.5 + origin.x, bottomBarOffset + 50));
@@ -81,7 +81,7 @@ bool GenericLevelScene::init()
 	//ball / Player
 	auto ballBody = PhysicsBody::createCircle(
 		17.5f,
-		PhysicsMaterial(0.5f, 0.4f, 1.0f)
+		PHYSICSBODY_MATERIAL_DEFAULT
 	);
 	ballBody->setMass(10.0f);
 	player = Sprite::create("ball.png");
