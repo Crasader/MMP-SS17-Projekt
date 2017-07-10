@@ -27,10 +27,8 @@ RampSprite * RampSprite::createRampSprite(bool isHelper)
 		MyBodyParser::getInstance()->parseJsonFile(jsonRamp);
 		auto rampBody = MyBodyParser::getInstance()->bodyFormJson(ramp, jsonNameRamp, PHYSICSBODY_MATERIAL_DEFAULT);
 
-		CCLOG(">>> Ramp");
 		if (rampBody != nullptr)
 		{
-			CCLOG(">>> No Ramp");
 			rampBody->setDynamic(false);
 			ramp->setPhysicsBody(rampBody);
 		}

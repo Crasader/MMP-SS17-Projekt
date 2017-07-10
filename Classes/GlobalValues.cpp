@@ -52,11 +52,11 @@ extern const int colBitMaskBumper = 4;
 extern const int colBitMaskSlopeRamp = 5;
 
 // JSON Files
-extern const string jsonSlope = "res/Schraege.json";
-extern const string jsonRamp = "res/Rampe.json";
+extern const string jsonSlope = "Schraege.json";
+extern const string jsonRamp = "Rampe.json";
 
 extern const string jsonNameSlope = "Schraege";
-extern const string jsonNameRamp = "Slope";
+extern const string jsonNameRamp = "Rampe";
 
 // Position
 // Bottom Buttons

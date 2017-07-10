@@ -24,11 +24,11 @@ SlopeSprite * SlopeSprite::createSlopeSprite(bool isHelper)
 	if (slope && slope->initWithFile(spritePNG)) {
 		slope->autorelease();
 		
-		bool b = MyBodyParser::getInstance()->parseJsonFile(jsonRamp);
+		bool b = MyBodyParser::getInstance()->parseJsonFile(jsonSlope);
 		if (b) {
 			CCLOG(">>> TRUE");
 		}
-		auto sloepBody = MyBodyParser::getInstance()->bodyFormJson(slope, jsonNameRamp, PHYSICSBODY_MATERIAL_DEFAULT);
+		auto sloepBody = MyBodyParser::getInstance()->bodyFormJson(slope, jsonNameSlope, PHYSICSBODY_MATERIAL_DEFAULT);
 		CCLOG(">>> SLOPE");
 		if (sloepBody != nullptr)
 		{
