@@ -1,0 +1,1 @@
+{"rigidBodies":[{"name":"Schraege2","imagePath":"Schraege2.png","origin":{"x":0,"y":0},"polygons":[[{"x":1,"y":0},{"x":0,"y":0.14499999582767487},{"x":0,"y":0}]],"circles":[],"shapes":[{"type":"POLYGON","vertices":[{"x":0,"y":0},{"x":0,"y":0.14499999582767487},{"x":1,"y":0}]}]}],"dynamicObjects":[]}
