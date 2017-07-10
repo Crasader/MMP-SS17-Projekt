@@ -1,5 +1,6 @@
 #include "RampSprite.h"
 #include "GlobalValues.h"
+#include "MyBodyParser.h"
 
 RampSprite::RampSprite(bool isHelper)
 {
@@ -18,18 +19,22 @@ RampSprite * RampSprite::createRampSprite(bool isHelper)
 		spritePNG = spriteObstacleRamp;
 	}
 
-	auto rampBody = PhysicsBody::createBox(
-		Size(32.0f, 32.0f),
-		PHYSICSBODY_MATERIAL_DEFAULT
-	);
-
-	rampBody->setDynamic(false);
-
 	auto ramp = new RampSprite(isHelper);
 
 	if (ramp && ramp->initWithFile(spritePNG)) {
 		ramp->autorelease();
-		ramp->setPhysicsBody(rampBody);
+
+		MyBodyParser::getInstance()->parseJsonFile(jsonRamp);
+		auto rampBody = MyBodyParser::getInstance()->bodyFormJson(ramp, jsonNameRamp, PHYSICSBODY_MATERIAL_DEFAULT);
+
+		CCLOG(">>> Ramp");
+		if (rampBody != nullptr)
+		{
+			CCLOG(">>> No Ramp");
+			rampBody->setDynamic(false);
+			ramp->setPhysicsBody(rampBody);
+		}
+
 		return ramp;
 	}
 	CC_SAFE_DELETE(ramp);

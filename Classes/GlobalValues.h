@@ -52,6 +52,13 @@ extern const int colBitMaskGround;
 extern const int colBitMaskBumper;
 extern const int colBitMaskSlopeRamp;
 
+// JSON Files
+extern const string jsonSlope;
+extern const string jsonRamp;
+
+extern const string jsonNameSlope;
+extern const string jsonNameRamp;
+
 // Position
 // Bottom Buttons
 extern const double bottomButtonBarVerticalFactor;

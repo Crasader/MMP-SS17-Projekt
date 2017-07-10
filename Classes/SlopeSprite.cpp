@@ -1,5 +1,6 @@
 #include "SlopeSprite.h"
 #include "GlobalValues.h"
+#include "MyBodyParser.h"
 
 SlopeSprite::SlopeSprite(bool isHelper)
 {
@@ -17,18 +18,25 @@ SlopeSprite * SlopeSprite::createSlopeSprite(bool isHelper)
 	{
 		spritePNG = spriteObstacleSlope;
 	}
-
-	auto slopeBody = PhysicsBody::createBox(
-		Size(32.0f, 32.0f),
-		PHYSICSBODY_MATERIAL_DEFAULT
-	);
-	slopeBody->setDynamic(false);
 	
 	auto slope = new SlopeSprite(isHelper);
 
 	if (slope && slope->initWithFile(spritePNG)) {
 		slope->autorelease();
-		slope->setPhysicsBody(slopeBody);
+		
+		bool b = MyBodyParser::getInstance()->parseJsonFile(jsonRamp);
+		if (b) {
+			CCLOG(">>> TRUE");
+		}
+		auto sloepBody = MyBodyParser::getInstance()->bodyFormJson(slope, jsonNameRamp, PHYSICSBODY_MATERIAL_DEFAULT);
+		CCLOG(">>> SLOPE");
+		if (sloepBody != nullptr)
+		{
+			CCLOG(">>> No Slope");
+			sloepBody->setDynamic(false);
+			slope->setPhysicsBody(sloepBody);
+		}
+
 		return slope;
 	}
 	CC_SAFE_DELETE(slope);

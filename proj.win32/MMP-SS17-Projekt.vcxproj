@@ -14,6 +14,7 @@
     <ProjectGuid>{76A39BB2-9B84-4C65-98A5-654D86B86F2A}</ProjectGuid>
     <RootNamespace>test_win32</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -155,6 +156,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\LevelHardScene.cpp" />
     <ClCompile Include="..\Classes\LevelMediumScene.cpp" />
     <ClCompile Include="..\Classes\MainMenuScene.cpp" />
+    <ClCompile Include="..\Classes\MyBodyParser.cpp" />
     <ClCompile Include="..\Classes\RampSprite.cpp" />
     <ClCompile Include="..\Classes\SlopeSprite.cpp" />
     <ClCompile Include="..\Classes\StartMenuScene.cpp" />
@@ -166,11 +168,13 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\BlockSprite.h" />
     <ClInclude Include="..\Classes\BumperSprite.h" />
     <ClInclude Include="..\Classes\GenericLevelScene.h" />
+    <ClInclude Include="..\Classes\GenericSprite.h" />
     <ClInclude Include="..\Classes\GlobalValues.h" />
     <ClInclude Include="..\Classes\LevelEasyScene.h" />
     <ClInclude Include="..\Classes\LevelHardScene.h" />
     <ClInclude Include="..\Classes\LevelMediumScene.h" />
     <ClInclude Include="..\Classes\MainMenuScene.h" />
+    <ClInclude Include="..\Classes\MyBodyParser.h" />
     <ClInclude Include="..\Classes\RampSprite.h" />
     <ClInclude Include="..\Classes\SlopeSprite.h" />
     <ClInclude Include="..\Classes\StartMenuScene.h" />
