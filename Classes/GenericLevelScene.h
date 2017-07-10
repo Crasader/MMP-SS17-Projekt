@@ -22,6 +22,11 @@ private:
 
 	bool onContact(cocos2d::PhysicsContact &contact);
 
+
+	ui::TextField* textFieldTime;
+	float time;
+	virtual void update(float delta);
+
 protected:
 	void onTouchesBegan(const std::vector<Touch*> &touches, Event* event);
 	void onTouchesMoved(const std::vector<Touch*> &touches, Event* event);

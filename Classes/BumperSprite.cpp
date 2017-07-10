@@ -23,7 +23,7 @@ BumperSprite * BumperSprite::createBumperSprite(bool isHelper)
 	if (bumper && bumper->initWithFile(spritePNG)) {
 		auto bumperBody = PhysicsBody::createBox(
 			Size(bumper->getBoundingBox().size.width, bumper->getBoundingBox().size.height),
-			PhysicsMaterial(0.1f, 1.5f, 0.5f)
+			PhysicsMaterial(0.1f, 1.8f, 0.5f)
 		);
 
 		bumperBody->setDynamic(false);

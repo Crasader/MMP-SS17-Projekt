@@ -40,6 +40,16 @@ bool GenericLevelScene::init()
 	menu->setPosition(Point::ZERO);
 	this->addChild(menu);
 
+	// Time Field
+	time = 0.0f;
+
+	textFieldTime = ui::TextField::create();
+	textFieldTime->setText("00:00");
+	textFieldTime->setFontSize(60);
+	textFieldTime->setContentSize(CCSize(300, 300));
+	textFieldTime->setPosition(Point(visibleSize.width * bottomButtonBarRight + origin.x,
+		visibleSize.height * bottomButtonBarVerticalFactor + origin.y));
+	this->addChild(textFieldTime);
 
 
 	// EdgeBorder
@@ -111,7 +121,38 @@ bool GenericLevelScene::init()
 	listener->onTouchesEnded = CC_CALLBACK_2(GenericLevelScene::onTouchesEnded, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
+
+	scheduleUpdate();
+
 	return true;
+}
+
+void GenericLevelScene::update(float delta)
+{
+	int minutes = 0;
+	int seconds = 0;
+
+	time += delta;
+
+	seconds = (int)time;
+	if ((seconds / 60) > 0) 
+	{
+		minutes = seconds / 60;
+		seconds = seconds % 60;
+	}
+
+	string leadingSecondZero = "";
+	string leadingMinuteZero = "";
+	if (seconds < 10) 
+	{
+		leadingSecondZero = "0";
+	}
+	if (minutes < 10)
+	{
+		leadingMinuteZero = "0";
+	}
+
+	textFieldTime->setText(leadingMinuteZero + to_string(minutes) + ":" + leadingSecondZero + to_string(seconds));
 }
 
 void GenericLevelScene::onTouchesBegan(const std::vector<Touch*>& touches, Event * event)
