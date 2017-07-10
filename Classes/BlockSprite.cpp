@@ -18,14 +18,35 @@ BlockSprite* BlockSprite::createBlockSprite(int type)
 		
 	switch (type)
 	{
-	case 1:
+	case TYPE_SQUARE_EARTH:
 		blockPNG = spriteObstacleBlock1;
 		break;
-	case 2:
+	case TYPE_VERTICAL_EARTH:
+		blockPNG = spriteObstacleBlock12;
+		break;
+	case TYPE_HORIZONTAL_EARTH:
+		blockPNG = spriteObstacleBlock13;
+		break;
+	case TYPE_SQUARE_CITY:
 		blockPNG = spriteObstacleBlock2;
 		break;
-	default:
+	case TYPE_VERTICAL_CITY:
+		blockPNG = spriteObstacleBlock22;
+		break;
+	case TYPE_HORIZONTAL_CITY:
+		blockPNG = spriteObstacleBlock23;
+		break;
+	case TYPE_SQUARE_SAND:
 		blockPNG = spriteObstacleBlock3;
+		break;
+	case TYPE_VERTICAL_SAND:
+		blockPNG = spriteObstacleBlock32;
+		break;
+	case TYPE_HORIZONTAL_SAND:
+		blockPNG = spriteObstacleBlock33;
+		break;
+	default:
+		break;
 	}
 
 	if (block && block->initWithFile(blockPNG)) {

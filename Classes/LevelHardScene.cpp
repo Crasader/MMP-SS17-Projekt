@@ -29,22 +29,14 @@ bool LevelHardScene::init()
 	}
 
 
-	// Ramp
-	auto rampBody = PhysicsBody::createBox(
-		Size(32.0f, 32.0f),
-		PhysicsMaterial(0.1f, 0.1f, 0.5f)
-	);
-	auto ramp = Sprite::create(spriteHelperSlopeMedium);
-	ramp->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.5));
-	this->addChild(ramp);
-	rampBody->setDynamic(false);
-	ramp->setPhysicsBody(rampBody);
-
-	// Add more obstacles and helper objects
-
+	// Add obstacles and helper objects
 
 	// Add all obstacles to the obstacleObjects Vector
-	GenericLevelScene::obstacleObjects.pushBack(ramp);
+	//GenericLevelScene::obstacleObjects.pushBack(NULL);
+
+
+
+	// Add helper objects
 
 	// Add all help object to the helperObjects Vector;
 	//GenericLevelScene::helperObjects.pushBack(NULL);

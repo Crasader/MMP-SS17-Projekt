@@ -10,10 +10,15 @@ class SlopeSprite : public GenericSprite
 {
 public:
 	virtual ~SlopeSprite();
-	static SlopeSprite* createSlopeSprite();
+	static SlopeSprite* createSlopeSprite(int type);
+
+	const static int TYPE_STEEP = 3;
+	const static int TYPE_MEDIUM = 1;
+	const static int TYPE_FLAT = 2;
 
 private:
-	SlopeSprite();
+	SlopeSprite(int type);
+	int type;
 };
 
 #endif //__SLOPESPRITE_H__

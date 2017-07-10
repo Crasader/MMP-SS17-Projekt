@@ -24,16 +24,16 @@ extern const string level3 = "Level3.png";
 
 // Obstacle
 extern const string spriteObstacleBlock1 = "Block1.png";
-extern const string spriteObstacleBlock12 = "Block12.png";
-extern const string spriteObstacleBlock13 = "Block13.png";
+extern const string spriteObstacleBlock12 = "Box12.png";
+extern const string spriteObstacleBlock13 = "Box13.png";
 
 extern const string spriteObstacleBlock2 = "Block2.png";
-extern const string spriteObstacleBlock22 = "Block22.png";
-extern const string spriteObstacleBlock23 = "Block23.png";
+extern const string spriteObstacleBlock22 = "Box22.png";
+extern const string spriteObstacleBlock23 = "Box23.png";
 
 extern const string spriteObstacleBlock3 = "Block3.png";
-extern const string spriteObstacleBlock32 = "Block32.png";
-extern const string spriteObstacleBlock33 = "Block33.png";
+extern const string spriteObstacleBlock32 = "Box32.png";
+extern const string spriteObstacleBlock33 = "Box33.png";
 
 extern const string spriteObstacleWall = "wall.png";
 
@@ -108,7 +108,7 @@ extern const string logoText = "DUNK THE TRUMP";
 extern const string logoFont = "Helvetica";
 extern const int bottomBarOffset = 150; // Sizeadjustment. Makes some space to place buttons below the level background
 
-extern const float gravity = -500.0f;
+extern const float gravity = -700.0f;
 
 // Current Level
 extern string currentLevelName = "";

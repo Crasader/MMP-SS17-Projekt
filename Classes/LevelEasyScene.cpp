@@ -46,7 +46,9 @@ bool LevelEasyScene::init()
 	this->addChild(ramp);
 	*/
 
-	auto slope = SlopeSprite::createSlopeSprite();
+	// Examples:
+	// Add helper objects
+	auto slope = SlopeSprite::createSlopeSprite(SlopeSprite::TYPE_MEDIUM);
 	slope->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.8));
 	this->addChild(slope);
 
@@ -54,29 +56,30 @@ bool LevelEasyScene::init()
 	bumper->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.4));
 	this->addChild(bumper);
 
+	auto ramp = RampSprite::createRampSprite(RampSprite::TYPE_STEEP);
+	ramp->setPosition(Point(visibleSize.width * 0.85 + origin.x, visibleSize.height * 0.9));
+	this->addChild(ramp);
+
+	// Add all helper objects to the helperObjects Vector
+	GenericLevelScene::helperObjects.pushBack(slope);
+	GenericLevelScene::helperObjects.pushBack(bumper);
+	GenericLevelScene::helperObjects.pushBack(ramp);
+
+
+
+
+	// Add obstacles
 	auto wall = WallSprite::createWallSprite();
 	wall->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.5));
 	this->addChild(wall);
 
-	auto block = BlockSprite::createBlockSprite(1);
+	auto block = BlockSprite::createBlockSprite(BlockSprite::TYPE_SQUARE_EARTH);
 	block->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.9));
 	this->addChild(block);
 
-	auto ramp = RampSprite::createRampSprite();
-	ramp->setPosition(Point(visibleSize.width * 0.85 + origin.x, visibleSize.height * 0.9));
-	this->addChild(ramp);
-
-	// Add more obstacles and helper objects
-
-
-	// Add all help to the obstacleObjects Vector
-	GenericLevelScene::helperObjects.pushBack(slope);
-	GenericLevelScene::helperObjects.pushBack(bumper);
-	GenericLevelScene::helperObjects.pushBack(block);
-	GenericLevelScene::helperObjects.pushBack(ramp);
-
 	// Add all obstacle object to the helperObjects Vector
 	GenericLevelScene::obstacleObjects.pushBack(wall);
+	GenericLevelScene::obstacleObjects.pushBack(block);
 
 	return true;
 }

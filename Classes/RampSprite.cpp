@@ -2,25 +2,46 @@
 #include "GlobalValues.h"
 #include "MyBodyParser.h"
 
-RampSprite::RampSprite()
+RampSprite::RampSprite(int type)
 {
+	this->type = type;
 }
 
 RampSprite::~RampSprite()
 {
 }
 
-RampSprite * RampSprite::createRampSprite()
+RampSprite * RampSprite::createRampSprite(int type)
 {
 	auto spritePNG = spriteHelperRampMedium;
+	auto jsonFile = jsonRamp;
+	auto jsonName = jsonNameRamp;
 
-	auto ramp = new RampSprite();
+	switch (type)
+	{
+	case TYPE_MEDIUM:
+		break;
+	case TYPE_STEEP:
+		spritePNG = spriteHelperRampExtreme;
+		jsonFile = jsonRamp3;
+		jsonName = jsonNameRamp3;
+		break;
+	case TYPE_FLAT:
+		spritePNG = spriteHelperRampFlat;
+		jsonFile = jsonRamp2;
+		jsonName = jsonNameRamp2;
+		break;
+	default:
+		break;
+	}
+
+	auto ramp = new RampSprite(type);
 
 	if (ramp && ramp->initWithFile(spritePNG)) {
 		ramp->autorelease();
 
-		MyBodyParser::getInstance()->parseJsonFile(jsonRamp);
-		auto rampBody = MyBodyParser::getInstance()->bodyFormJson(ramp, jsonNameRamp, PHYSICSBODY_MATERIAL_DEFAULT);
+		MyBodyParser::getInstance()->parseJsonFile(jsonFile);
+		auto rampBody = MyBodyParser::getInstance()->bodyFormJson(ramp, jsonName, PHYSICSBODY_MATERIAL_DEFAULT);
 
 		if (rampBody != nullptr)
 		{

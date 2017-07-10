@@ -2,32 +2,49 @@
 #include "GlobalValues.h"
 #include "MyBodyParser.h"
 
-SlopeSprite::SlopeSprite()
+SlopeSprite::SlopeSprite(int type)
 {
+	this->type = type;
 }
 
 SlopeSprite::~SlopeSprite()
 {
 }
 
-SlopeSprite * SlopeSprite::createSlopeSprite()
+SlopeSprite * SlopeSprite::createSlopeSprite(int type)
 {
 	auto spritePNG = spriteHelperSlopeMedium;
+	auto jsonFile = jsonSlope;
+	auto jsonName = jsonNameSlope;
+
+	switch (type)
+	{
+	case TYPE_MEDIUM:
+		break;
+	case TYPE_STEEP:
+		spritePNG = spriteHelperSlopeExtreme;
+		jsonFile = jsonSlope3;
+		jsonName = jsonNameSlope3;
+		break;
+	case TYPE_FLAT:
+		spritePNG = spriteHelperSlopeFlat;
+		jsonFile = jsonSlope2;
+		jsonName = jsonNameSlope2;
+		break;
+	default:
+		break;
+	}
 	
-	auto slope = new SlopeSprite();
+	auto slope = new SlopeSprite(type);
 
 	if (slope && slope->initWithFile(spritePNG)) {
 		slope->autorelease();
 		
-		bool b = MyBodyParser::getInstance()->parseJsonFile(jsonSlope);
-		if (b) {
-			CCLOG(">>> TRUE");
-		}
-		auto sloepBody = MyBodyParser::getInstance()->bodyFormJson(slope, jsonNameSlope, PHYSICSBODY_MATERIAL_DEFAULT);
-		CCLOG(">>> SLOPE");
+		MyBodyParser::getInstance()->parseJsonFile(jsonFile);
+
+		auto sloepBody = MyBodyParser::getInstance()->bodyFormJson(slope, jsonName, PHYSICSBODY_MATERIAL_DEFAULT);
 		if (sloepBody != nullptr)
 		{
-			CCLOG(">>> No Slope");
 			sloepBody->setDynamic(false);
 			slope->setPhysicsBody(sloepBody);
 		}

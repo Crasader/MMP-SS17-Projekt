@@ -10,10 +10,15 @@ class RampSprite : public GenericSprite
 {
 public:
 	virtual ~RampSprite();
-	static RampSprite* createRampSprite();
+	static RampSprite* createRampSprite(int type);
+
+	const static int TYPE_STEEP = 3;
+	const static int TYPE_MEDIUM = 1;
+	const static int TYPE_FLAT = 2;
 
 private:
-	RampSprite();
+	RampSprite(int type);
+	int type;
 };
 
 #endif //__RAMPSPRITE_H__
