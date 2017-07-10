@@ -60,9 +60,4 @@ BlockSprite* BlockSprite::createBlockSprite(bool isHelper, int type)
 	return block = nullptr;
 }
 
-void BlockSprite::setPosition(const Point & pos)
-{
-	Sprite::setPosition(pos);
-}
-
 

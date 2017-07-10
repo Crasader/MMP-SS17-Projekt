@@ -43,12 +43,5 @@ SlopeSprite * SlopeSprite::createSlopeSprite(bool isHelper)
 	return slope = nullptr;
 }
 
-void SlopeSprite::setPosition(const Point& pos) {
-	Sprite::setPosition(pos);
-	//if (!_nextPosition.equals(pos)) {
-	//	_nextPosition = pos;
-	//}
-}
-
 
 

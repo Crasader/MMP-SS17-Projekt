@@ -12,8 +12,6 @@ public:
 	virtual ~SlopeSprite();
 	static SlopeSprite* createSlopeSprite(bool isHelper);
 
-	virtual void setPosition(const Point& pos) override;
-
 private:
 	SlopeSprite(bool isHelper);
 	bool isHelper;

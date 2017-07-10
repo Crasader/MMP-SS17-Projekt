@@ -37,12 +37,5 @@ BumperSprite * BumperSprite::createBumperSprite(bool isHelper)
 	return bumper = nullptr;
 }
 
-void BumperSprite::setPosition(const Point& pos) {
-	Sprite::setPosition(pos);
-	//if (!_nextPosition.equals(pos)) {
-	//	_nextPosition = pos;
-	//}
-}
-
 
 

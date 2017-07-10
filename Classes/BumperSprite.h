@@ -12,8 +12,6 @@ public:
 	virtual ~BumperSprite();
 	static BumperSprite* createBumperSprite(bool isHelper);
 
-	virtual void setPosition(const Point& pos) override;
-
 private:
 	BumperSprite(bool isHelper);
 	bool isHelper;

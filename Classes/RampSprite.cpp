@@ -39,12 +39,5 @@ RampSprite * RampSprite::createRampSprite(bool isHelper)
 	return ramp = nullptr;
 }
 
-void RampSprite::setPosition(const Point& pos) {
-	Sprite::setPosition(pos);
-	//if (!_nextPosition.equals(pos)) {
-	//	_nextPosition = pos;
-	//}
-}
-
 
 

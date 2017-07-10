@@ -12,8 +12,6 @@ public:
 	virtual ~RampSprite();
 	static RampSprite* createRampSprite(bool isHelper);
 
-	virtual void setPosition(const Point& pos) override;
-
 private:
 	RampSprite(bool isHelper);
 	bool isHelper;

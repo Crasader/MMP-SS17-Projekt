@@ -11,8 +11,6 @@ class BlockSprite : public GenericSprite
 public:
 	virtual ~BlockSprite();
 	static BlockSprite* createBlockSprite(bool isHelper, int type);
-	
-	virtual void setPosition(const Point& pos) override;
 
 private:
 	BlockSprite(bool isHelper, int type);
