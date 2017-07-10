@@ -34,11 +34,10 @@ bool StartMenuScene::init()
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto origin = Director::getInstance()->getVisibleOrigin();
 
-	// Logo/Name of the Game, could be replaced by sprite/graphic
-	auto gameName = CCLabelTTF::create(logoText, logoFont, logoFontSize, CCSizeMake(500, 100), kCCTextAlignmentCenter);
-	gameName->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.9 + origin.y));
-	gameName->setColor(ccc3(logoColorRed, logoColorGreen, logoColorBlue));
-	addChild(gameName);
+	// Logo
+	auto logo = Sprite::create(spriteLogo);
+	logo->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.8 + origin.y));
+	this->addChild(logo);
 
 	// Start Button
 	auto startButtonMenuItem = MenuItemImage::create(spriteStartButton, spriteStartButton,

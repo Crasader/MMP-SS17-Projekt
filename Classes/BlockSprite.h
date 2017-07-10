@@ -10,11 +10,10 @@ class BlockSprite : public GenericSprite
 {
 public:
 	virtual ~BlockSprite();
-	static BlockSprite* createBlockSprite(bool isHelper, int type);
+	static BlockSprite* createBlockSprite(int type);
 
 private:
-	BlockSprite(bool isHelper, int type);
-	bool isHelper;
+	BlockSprite(int type);
 	int blockType;
 };
 

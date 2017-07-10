@@ -2,24 +2,19 @@
 #include "GlobalValues.h"
 #include "MyBodyParser.h"
 
-RampSprite::RampSprite(bool isHelper)
+RampSprite::RampSprite()
 {
-	this->isHelper = isHelper;
 }
 
 RampSprite::~RampSprite()
 {
 }
 
-RampSprite * RampSprite::createRampSprite(bool isHelper)
+RampSprite * RampSprite::createRampSprite()
 {
-	auto spritePNG = spriteHelperRamp;
-	if (!isHelper)
-	{
-		spritePNG = spriteObstacleRamp;
-	}
+	auto spritePNG = spriteHelperRampMedium;
 
-	auto ramp = new RampSprite(isHelper);
+	auto ramp = new RampSprite();
 
 	if (ramp && ramp->initWithFile(spritePNG)) {
 		ramp->autorelease();

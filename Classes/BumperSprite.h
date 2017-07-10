@@ -10,11 +10,10 @@ class BumperSprite : public GenericSprite
 {
 public:
 	virtual ~BumperSprite();
-	static BumperSprite* createBumperSprite(bool isHelper);
+	static BumperSprite* createBumperSprite();
 
 private:
-	BumperSprite(bool isHelper);
-	bool isHelper;
+	BumperSprite();
 };
 
 #endif //__BUMPERSPRITE_H__

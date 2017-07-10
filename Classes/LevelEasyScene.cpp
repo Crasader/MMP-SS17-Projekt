@@ -46,11 +46,11 @@ bool LevelEasyScene::init()
 	this->addChild(ramp);
 	*/
 
-	auto slope = SlopeSprite::createSlopeSprite(true);
+	auto slope = SlopeSprite::createSlopeSprite();
 	slope->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.8));
 	this->addChild(slope);
 
-	auto bumper = BumperSprite::createBumperSprite(true);
+	auto bumper = BumperSprite::createBumperSprite();
 	bumper->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.4));
 	this->addChild(bumper);
 
@@ -58,11 +58,11 @@ bool LevelEasyScene::init()
 	wall->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.5));
 	this->addChild(wall);
 
-	auto block = BlockSprite::createBlockSprite(true, 1);
+	auto block = BlockSprite::createBlockSprite(1);
 	block->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.9));
 	this->addChild(block);
 
-	auto ramp = RampSprite::createRampSprite(true);
+	auto ramp = RampSprite::createRampSprite();
 	ramp->setPosition(Point(visibleSize.width * 0.85 + origin.x, visibleSize.height * 0.9));
 	this->addChild(ramp);
 

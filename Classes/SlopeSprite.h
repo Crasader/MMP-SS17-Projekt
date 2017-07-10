@@ -10,11 +10,10 @@ class SlopeSprite : public GenericSprite
 {
 public:
 	virtual ~SlopeSprite();
-	static SlopeSprite* createSlopeSprite(bool isHelper);
+	static SlopeSprite* createSlopeSprite();
 
 private:
-	SlopeSprite(bool isHelper);
-	bool isHelper;
+	SlopeSprite();
 };
 
 #endif //__SLOPESPRITE_H__

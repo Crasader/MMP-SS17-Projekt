@@ -10,11 +10,10 @@ class RampSprite : public GenericSprite
 {
 public:
 	virtual ~RampSprite();
-	static RampSprite* createRampSprite(bool isHelper);
+	static RampSprite* createRampSprite();
 
 private:
-	RampSprite(bool isHelper);
-	bool isHelper;
+	RampSprite();
 };
 
 #endif //__RAMPSPRITE_H__

@@ -1,24 +1,18 @@
 #include "BumperSprite.h"
 #include "GlobalValues.h"
 
-BumperSprite::BumperSprite(bool isHelper)
+BumperSprite::BumperSprite()
 {
-	this->isHelper = isHelper;
 }
 
 BumperSprite::~BumperSprite()
 {
 }
 
-BumperSprite * BumperSprite::createBumperSprite(bool isHelper)
+BumperSprite * BumperSprite::createBumperSprite()
 {
-	auto bumper = new BumperSprite(isHelper);
+	auto bumper = new BumperSprite();
 	auto spritePNG = spriteHelperBumper;
-
-	if (!isHelper) 
-	{
-		spritePNG = spriteObstacleBumper;
-	} 
 
 	if (bumper && bumper->initWithFile(spritePNG)) {
 		auto bumperBody = PhysicsBody::createBox(

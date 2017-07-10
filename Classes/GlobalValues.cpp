@@ -1,6 +1,9 @@
 #include "GlobalValues.h"
 
 // Sprites
+
+extern const string spriteLogo = "Logo.png";
+
 // Buttons
 extern const string spriteStartButton = "StartButton.png";
 extern const string spriteCloseButton = "CloseButton.png";
@@ -21,20 +24,28 @@ extern const string level3 = "Level3.png";
 
 // Obstacle
 extern const string spriteObstacleBlock1 = "Block1.png";
+extern const string spriteObstacleBlock12 = "Block12.png";
+extern const string spriteObstacleBlock13 = "Block13.png";
+
 extern const string spriteObstacleBlock2 = "Block2.png";
+extern const string spriteObstacleBlock22 = "Block22.png";
+extern const string spriteObstacleBlock23 = "Block23.png";
+
 extern const string spriteObstacleBlock3 = "Block3.png";
+extern const string spriteObstacleBlock32 = "Block32.png";
+extern const string spriteObstacleBlock33 = "Block33.png";
+
 extern const string spriteObstacleWall = "wall.png";
-extern const string spriteObstacleRamp = "Rampe.png";
-extern const string spriteObstacleSlope = "Schraege.png";
-extern const string spriteObstacleBumper = "Bumper.png";
-extern const string spriteObstacleBumperUsed = "BumperBenutzt.png";
 
 // Helper
-extern const string spriteHelperBlock1 = "Block1.png";
-extern const string spriteHelperBlock2 = "Block2.png";
-extern const string spriteHelperBlock3 = "Block3.png";
-extern const string spriteHelperRamp = "Rampe.png";
-extern const string spriteHelperSlope = "Schraege.png";
+extern const string spriteHelperRampExtreme = "rampe3.png";
+extern const string spriteHelperRampMedium = "Rampe.png";
+extern const string spriteHelperRampFlat = "rampe2.png";
+
+extern const string spriteHelperSlopeExtreme = "Schraege3.png";
+extern const string spriteHelperSlopeMedium = "Schraege.png";
+extern const string spriteHelperSlopeFlat = "Schraege2.png";
+
 extern const string spriteHelperBumper = "Bumper.png";
 extern const string spriteHelperBumperUsed = "BumperBenutzt.png";
 
@@ -53,10 +64,20 @@ extern const int colBitMaskSlopeRamp = 5;
 
 // JSON Files
 extern const string jsonSlope = "Schraege.json";
+extern const string jsonSlope2 = "Schraege2.json";
+extern const string jsonSlope3 = "Schraege3.json";
+
 extern const string jsonRamp = "Rampe.json";
+extern const string jsonRamp2 = "Rampe2.json";
+extern const string jsonRamp3 = "Rampe3.json";
 
 extern const string jsonNameSlope = "Schraege";
+extern const string jsonNameSlope2 = "Schraege2";
+extern const string jsonNameSlope3 = "Schraege3";
+
 extern const string jsonNameRamp = "Rampe";
+extern const string jsonNameRamp2 = "rampe2";
+extern const string jsonNameRamp3 = "rampe3";
 
 // Position
 // Bottom Buttons

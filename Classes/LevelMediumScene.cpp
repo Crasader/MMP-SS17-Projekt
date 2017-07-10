@@ -35,7 +35,7 @@ bool LevelMediumScene::init()
 		Size(32.0f, 32.0f),
 		PhysicsMaterial(0.1f, 0.1f, 0.5f)
 	);
-	auto ramp = Sprite::create(spriteObstacleSlope);
+	auto ramp = Sprite::create(spriteHelperRampMedium);
 	ramp->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.3));
 	this->addChild(ramp);
 	rampBody->setDynamic(false);

@@ -7,6 +7,9 @@ using namespace std;
 /* File for global values (Probably not best practice for CPP, but what do I know)*/
 
 // Sprites
+
+extern const string spriteLogo;
+
 // Buttons
 extern const string spriteStartButton;
 extern const string spriteCloseButton;
@@ -22,20 +25,28 @@ extern const string spriteResetButton;
 
 // Obstacle
 extern const string spriteObstacleBlock1;
+extern const string spriteObstacleBlock12;
+extern const string spriteObstacleBlock13;
+
 extern const string spriteObstacleBlock2;
+extern const string spriteObstacleBlock22;
+extern const string spriteObstacleBlock23;
+
 extern const string spriteObstacleBlock3;
+extern const string spriteObstacleBlock32;
+extern const string spriteObstacleBlock33;
+
 extern const string spriteObstacleWall;
-extern const string spriteObstacleRamp;
-extern const string spriteObstacleSlope;
-extern const string spriteObstacleBumper;
-extern const string spriteObstacleBumperUsed;
 
 // Helper
-extern const string spriteHelperBlock1;
-extern const string spriteHelperBlock2;
-extern const string spriteHelperBlock3;
-extern const string spriteHelperRamp;
-extern const string spriteHelperSlope;
+extern const string spriteHelperRampExtreme;
+extern const string spriteHelperRampMedium;
+extern const string spriteHelperRampFlat;
+
+extern const string spriteHelperSlopeExtreme;
+extern const string spriteHelperSlopeMedium;
+extern const string spriteHelperSlopeFlat;
+
 extern const string spriteHelperBumper;
 extern const string spriteHelperBumperUsed;
 
@@ -54,10 +65,20 @@ extern const int colBitMaskSlopeRamp;
 
 // JSON Files
 extern const string jsonSlope;
+extern const string jsonSlope2;
+extern const string jsonSlope3;
+
 extern const string jsonRamp;
+extern const string jsonRamp2;
+extern const string jsonRamp3;
 
 extern const string jsonNameSlope;
+extern const string jsonNameSlope2;
+extern const string jsonNameSlope3;
+
 extern const string jsonNameRamp;
+extern const string jsonNameRamp2;
+extern const string jsonNameRamp3;
 
 // Position
 // Bottom Buttons

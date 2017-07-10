@@ -2,24 +2,19 @@
 #include "GlobalValues.h"
 #include "MyBodyParser.h"
 
-SlopeSprite::SlopeSprite(bool isHelper)
+SlopeSprite::SlopeSprite()
 {
-	this->isHelper = isHelper;
 }
 
 SlopeSprite::~SlopeSprite()
 {
 }
 
-SlopeSprite * SlopeSprite::createSlopeSprite(bool isHelper)
+SlopeSprite * SlopeSprite::createSlopeSprite()
 {
-	auto spritePNG = spriteHelperSlope;
-	if (!isHelper)
-	{
-		spritePNG = spriteObstacleSlope;
-	}
+	auto spritePNG = spriteHelperSlopeMedium;
 	
-	auto slope = new SlopeSprite(isHelper);
+	auto slope = new SlopeSprite();
 
 	if (slope && slope->initWithFile(spritePNG)) {
 		slope->autorelease();
