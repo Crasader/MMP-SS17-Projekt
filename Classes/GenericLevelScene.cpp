@@ -345,7 +345,22 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 			bumperSprite = (Sprite*)bodyB->getOwner();
 		}
 
-		// TODO DO fancy animation Stuf
+		Vector<SpriteFrame*> animFrames;
+
+		auto rect = Rect(0, 0, bumperSprite->getBoundingBox().size.width, bumperSprite->getBoundingBox().size.height);
+
+		animFrames.reserve(4);
+		animFrames.pushBack(SpriteFrame::create(spriteHelperBumper, rect));
+		animFrames.pushBack(SpriteFrame::create(spriteHelperBumperUsed, rect));
+		animFrames.pushBack(SpriteFrame::create(spriteHelperBumperUsed, rect));
+		animFrames.pushBack(SpriteFrame::create(spriteHelperBumperUsed, rect));
+		animFrames.pushBack(SpriteFrame::create(spriteHelperBumperUsed, rect));
+		animFrames.pushBack(SpriteFrame::create(spriteHelperBumper, rect));
+
+		Animation* animation = Animation::createWithSpriteFrames(animFrames, 0.08);
+		Animate* animate = Animate::create(animation);
+
+		bumperSprite->runAction(animate);
 
 		bumperSprite->setTexture(spriteHelperBumperUsed);
 	}
@@ -359,6 +374,7 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 
 void GenericLevelScene::playWinLoosAnimation(string spriteToAnimate)
 {
+	this->removeChild(winLooseSprite);
 	winLooseSprite = Sprite::create(spriteToAnimate);
 	winLooseSprite->setPosition(Vec2(visibleSize.width * 0.5f, (visibleSize.height + bottomBarOffset) * 0.5f));
 	winLooseSprite->setScale(0.0f);
