@@ -29,7 +29,7 @@ bool LevelHardScene::init()
 	}
 
 
-	// Add obstacles and helper objects
+	// Add obstacle objects
 
 	// Add all obstacles to the obstacleObjects Vector
 	//GenericLevelScene::obstacleObjects.pushBack(NULL);

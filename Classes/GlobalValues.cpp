@@ -108,7 +108,7 @@ extern const string logoText = "DUNK THE TRUMP";
 extern const string logoFont = "Helvetica";
 extern const int bottomBarOffset = 150; // Sizeadjustment. Makes some space to place buttons below the level background
 
-extern const float gravity = -700.0f;
+extern const float gravity = -400.0f;
 
 // Current Level
 extern string currentLevelName = "";

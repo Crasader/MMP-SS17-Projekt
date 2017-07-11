@@ -48,7 +48,7 @@ bool LevelEasyScene::init()
 
 	// Examples:
 	// Add helper objects
-	auto slope = SlopeSprite::createSlopeSprite(SlopeSprite::TYPE_MEDIUM);
+	auto slope = SlopeSprite::createSlopeSprite(SlopeSprite::TYPE_STEEP);
 	slope->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.8));
 	this->addChild(slope);
 
@@ -56,7 +56,7 @@ bool LevelEasyScene::init()
 	bumper->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.4));
 	this->addChild(bumper);
 
-	auto ramp = RampSprite::createRampSprite(RampSprite::TYPE_STEEP);
+	auto ramp = RampSprite::createRampSprite(RampSprite::TYPE_MEDIUM);
 	ramp->setPosition(Point(visibleSize.width * 0.85 + origin.x, visibleSize.height * 0.9));
 	this->addChild(ramp);
 
@@ -71,11 +71,11 @@ bool LevelEasyScene::init()
 	// Add obstacles
 	auto wall = WallSprite::createWallSprite();
 	wall->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.5));
-	this->addChild(wall);
+	//this->addChild(wall);
 
 	auto block = BlockSprite::createBlockSprite(BlockSprite::TYPE_SQUARE_EARTH);
 	block->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.9));
-	this->addChild(block);
+	//this->addChild(block);
 
 	// Add all obstacle object to the helperObjects Vector
 	GenericLevelScene::obstacleObjects.pushBack(wall);

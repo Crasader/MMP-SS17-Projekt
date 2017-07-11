@@ -96,7 +96,7 @@ bool GenericLevelScene::init()
 		17.5f,
 		PHYSICSBODY_MATERIAL_DEFAULT
 	);
-	ballBody->setMass(10.0f);
+	ballBody->setMass(120.0f);
 	player = Sprite::create("ball.png");
 	player->setPosition(Vec2(visibleSize.width * 0.1f, visibleSize.height * 0.95f));
 	ballBody->setDynamic(false);
