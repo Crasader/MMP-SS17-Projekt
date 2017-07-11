@@ -163,7 +163,7 @@ void GenericLevelScene::onTouchesBegan(const std::vector<Touch*>& touches, Event
 			if (touch != nullptr) {
 				auto tap = touch->getLocation();
 				for (auto helperObject : helperObjects) {
-					if (helperObject->boundingBox().containsPoint(tap)) {
+					if (helperObject->getBoundingBox().containsPoint(tap)) {
 						helperObject->setTouch(touch);
 					}
 				}
@@ -208,6 +208,46 @@ void GenericLevelScene::onTouchesMoved(const std::vector<Touch*>& touches, Event
 					{
 						touchPosition.y = visibleSize.height - halfHeight;
 					}
+
+					// Obstacle object
+					//for each (auto obstacle in obstacleObjects)
+					//{
+					//	// Y - AXIS
+					//	if (touchPosition.x < obstacle->getPosition().x + (obstacle->getBoundingBox().size.width / 2) + halfWidth
+					//		&& touchPosition.x > obstacle->getPosition().x - (obstacle->getBoundingBox().size.width / 2) - halfWidth)
+					//	{
+					//		// TOP CHECK
+					//		if ((touchPosition.y < obstacle->getPosition().y + (obstacle->getBoundingBox().size.height / 2) + halfHeight) 
+					//			&& (touchPosition.y > obstacle->getPosition().y))
+					//		{
+					//			touchPosition.y = obstacle->getPosition().y + (obstacle->getBoundingBox().size.height / 2) + halfHeight;
+					//		}
+					//		// BOTTOM CHECK
+					//		else if ((touchPosition.y > obstacle->getPosition().y - (obstacle->getBoundingBox().size.height / 2) - halfHeight)
+					//			&& (touchPosition.y < obstacle->getPosition().y))
+					//		{
+					//			touchPosition.y = obstacle->getPosition().y - (obstacle->getBoundingBox().size.height / 2) - halfHeight;
+					//		}
+					//	}
+
+					//	// X - AXIS
+					//	if (touchPosition.y < obstacle->getPosition().y + (obstacle->getBoundingBox().size.height / 2) + halfHeight
+					//		&& touchPosition.y > obstacle->getPosition().y - (obstacle->getBoundingBox().size.height / 2) - halfHeight)
+					//	{
+					//		// TOP CHECK
+					//		if ((touchPosition.x < obstacle->getPosition().x + (obstacle->getBoundingBox().size.width / 2) + halfWidth)
+					//			&& (touchPosition.x > obstacle->getPosition().x))
+					//		{
+					//			touchPosition.x = obstacle->getPosition().x + (obstacle->getBoundingBox().size.width / 2) + halfWidth;
+					//		}
+					//		// BOTTOM CHECK
+					//		else if ((touchPosition.x > obstacle->getPosition().x - (obstacle->getBoundingBox().size.width / 2) - halfWidth)
+					//			&& (touchPosition.x < obstacle->getPosition().x))
+					//		{
+					//			touchPosition.x = obstacle->getPosition().x - (obstacle->getBoundingBox().size.width / 2) - halfWidth;
+					//		}
+					//	}
+					//}
 			
 					helperObject->setPosition(touchPosition);
 				}
@@ -295,7 +335,19 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 	else if ((bodyA->getCollisionBitmask() == colBitMaskBumper && bodyB->getCollisionBitmask() == colBitMaskPlayer) ||
 		(bodyB->getCollisionBitmask() == colBitMaskBumper && bodyA->getCollisionBitmask() == colBitMaskPlayer))
 	{
-		CCLOG(">>> Bumper Collision");
+		Sprite* bumperSprite;
+		if (bodyA->getCollisionBitmask() == colBitMaskBumper)
+		{
+			bumperSprite = (Sprite*)bodyA->getOwner();
+		}
+		else
+		{
+			bumperSprite = (Sprite*)bodyB->getOwner();
+		}
+
+		// TODO DO fancy animation Stuf
+
+		bumperSprite->setTexture(spriteHelperBumperUsed);
 	}
 
 	// Check if player collided with slope / ramp (for player animation)
