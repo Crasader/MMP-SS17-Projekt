@@ -56,6 +56,12 @@ extern const string spriteBasket;
 // Bottom
 extern const string spriteGround;
 
+// Win / Lose Screen
+extern const string spriteWinScreen;
+extern const string spriteLooseScreen;
+
+
+
 // Collision Bitmasks
 extern const int colBitMaskPlayer;
 extern const int colBitMaskTarget;

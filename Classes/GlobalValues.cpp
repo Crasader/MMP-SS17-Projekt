@@ -49,6 +49,12 @@ extern const string spriteHelperSlopeFlat = "Schraege2.png";
 extern const string spriteHelperBumper = "Bumper.png";
 extern const string spriteHelperBumperUsed = "BumperBenutzt.png";
 
+// Win / Lose Screen
+extern const string spriteWinScreen = "WinFertig.png";
+extern const string spriteLooseScreen = "LostFertig.png";
+
+
+
 // Target
 extern const string spriteBasket = "korb.png";
 

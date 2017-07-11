@@ -22,6 +22,7 @@ private:
 
 	bool onContact(cocos2d::PhysicsContact &contact);
 
+	void playWinLoosAnimation(std::string spriteToAnimate);
 
 	ui::TextField* textFieldTime;
 	float time;
@@ -29,6 +30,8 @@ private:
 
 	MenuItemImage* dropButtonMenuItem;
 	bool isDroped;
+
+	Sprite* winLooseSprite;
 
 protected:
 	void onTouchesBegan(const std::vector<Touch*> &touches, Event* event);

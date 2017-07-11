@@ -253,8 +253,6 @@ void GenericLevelScene::dropAction(cocos2d::Ref * sender)
 		dropButtonMenuItem->setNormalImage(Sprite::create(spriteResetButton));
 
 		player->getPhysicsBody()->setDynamic(true);
-
-		// TODO Lock Movement of helper objects
 	}
 	else
 	{
@@ -263,6 +261,8 @@ void GenericLevelScene::dropAction(cocos2d::Ref * sender)
 
 		player->getPhysicsBody()->setDynamic(false);
 		player->setPosition(Vec2(visibleSize.width * 0.1f, visibleSize.height * 0.95f));
+
+		this->removeChild(winLooseSprite);
 	}
 }
 
@@ -275,14 +275,20 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 	if ((bodyA->getCollisionBitmask() == colBitMaskGround && bodyB->getCollisionBitmask() == colBitMaskPlayer) ||
 		(bodyB->getCollisionBitmask() == colBitMaskGround && bodyA->getCollisionBitmask() == colBitMaskPlayer)) 
 	{
-		CCLOG(">>> GAME LOST");
+		player->getPhysicsBody()->setAngularVelocity(0);
+		player->getPhysicsBody()->setVelocity(Vec2(0, 0));
+
+		playWinLoosAnimation(spriteLooseScreen);
 	}
 
 	// Check if player collided with target
 	else if ((bodyA->getCollisionBitmask() == colBitMaskTarget && bodyB->getCollisionBitmask() == colBitMaskPlayer) ||
 		(bodyB->getCollisionBitmask() == colBitMaskTarget && bodyA->getCollisionBitmask() == colBitMaskPlayer))
 	{
-		CCLOG(">>> GAME WOM");
+		player->getPhysicsBody()->setAngularVelocity(0);
+		player->getPhysicsBody()->setVelocity(Vec2(0, 0));
+
+		playWinLoosAnimation(spriteWinScreen);
 	}
 
 	// Check if player collided with bumper (necessary for bumper animation)
@@ -297,6 +303,17 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 	// Check other collision that should cause any animation
 
 	return true;
+}
+
+void GenericLevelScene::playWinLoosAnimation(string spriteToAnimate)
+{
+	winLooseSprite = Sprite::create(spriteToAnimate);
+	winLooseSprite->setPosition(Vec2(visibleSize.width * 0.5f, (visibleSize.height + bottomBarOffset) * 0.5f));
+	winLooseSprite->setScale(0.0f);
+	this->addChild(winLooseSprite);
+
+	auto scaleTo = ScaleTo::create(2.0f, 0.8f);
+	winLooseSprite->runAction(scaleTo);
 }
 
 
