@@ -31,14 +31,14 @@ bool GenericLevelScene::init()
 		visibleSize.height * bottomButtonBarVerticalFactor + origin.y));
 
 	// Drop Button
-	auto dropButtonMenuItem = MenuItemImage::create(spriteDropButton, spriteDropButton,
+	dropButtonMenuItem = MenuItemImage::create(spriteDropButton, spriteDropButton,
 		CC_CALLBACK_1(GenericLevelScene::dropAction, this));
 	dropButtonMenuItem->setPosition(Point(visibleSize.width * bottomButtonBarMiddle + origin.x,
 		visibleSize.height * bottomButtonBarVerticalFactor + origin.y));
-
 	auto menu = Menu::create(backButtonMenuItem, dropButtonMenuItem, NULL);
 	menu->setPosition(Point::ZERO);
 	this->addChild(menu);
+	isDroped = false;
 
 	// Time Field
 	time = 0.0f;
@@ -157,12 +157,15 @@ void GenericLevelScene::update(float delta)
 
 void GenericLevelScene::onTouchesBegan(const std::vector<Touch*>& touches, Event * event)
 {
-	for (auto touch : touches) {
-		if (touch != nullptr) {
-			auto tap = touch->getLocation();
-			for (auto helperObject : helperObjects) {
-				if (helperObject->boundingBox().containsPoint(tap)) {
-					helperObject->setTouch(touch);
+	if (!isDroped)
+	{
+		for (auto touch : touches) {
+			if (touch != nullptr) {
+				auto tap = touch->getLocation();
+				for (auto helperObject : helperObjects) {
+					if (helperObject->boundingBox().containsPoint(tap)) {
+						helperObject->setTouch(touch);
+					}
 				}
 			}
 		}
@@ -243,10 +246,24 @@ void GenericLevelScene::goToMainMenuScene(cocos2d::Ref * sender)
 
 void GenericLevelScene::dropAction(cocos2d::Ref * sender)
 {
-	player->getPhysicsBody()->setDynamic(true);
-	//obstacleObjects.at(0)->getPhysicsBody()->setDynamic(true);
+	isDroped = !isDroped;
+	if(isDroped)
+	{
+		dropButtonMenuItem->setSelectedImage(Sprite::create(spriteResetButton));
+		dropButtonMenuItem->setNormalImage(Sprite::create(spriteResetButton));
 
-	// TODO Lock Movement of helper objects
+		player->getPhysicsBody()->setDynamic(true);
+
+		// TODO Lock Movement of helper objects
+	}
+	else
+	{
+		dropButtonMenuItem->setSelectedImage(Sprite::create(spriteDropButton));
+		dropButtonMenuItem->setNormalImage(Sprite::create(spriteDropButton));
+
+		player->getPhysicsBody()->setDynamic(false);
+		player->setPosition(Vec2(visibleSize.width * 0.1f, visibleSize.height * 0.95f));
+	}
 }
 
 bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)

@@ -27,6 +27,9 @@ private:
 	float time;
 	virtual void update(float delta);
 
+	MenuItemImage* dropButtonMenuItem;
+	bool isDroped;
+
 protected:
 	void onTouchesBegan(const std::vector<Touch*> &touches, Event* event);
 	void onTouchesMoved(const std::vector<Touch*> &touches, Event* event);
