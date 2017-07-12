@@ -74,8 +74,8 @@ extern const string jsonSlope2 = "Schraege2.json";
 extern const string jsonSlope3 = "Schraege3.json";
 
 extern const string jsonRamp = "Rampe.json";
-extern const string jsonRamp2 = "Rampe2.json";
-extern const string jsonRamp3 = "Rampe3.json";
+extern const string jsonRamp2 = "rampe2.json";
+extern const string jsonRamp3 = "rampe3.json";
 
 extern const string jsonNameSlope = "Schraege";
 extern const string jsonNameSlope2 = "Schraege2";
