@@ -84,29 +84,30 @@ bool LevelMediumScene::init()
 	// Add helper objects
     
     auto slope = SlopeSprite::createSlopeSprite(SlopeSprite::TYPE_MEDIUM);
-    slope->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.8));
+    slope->setPosition(Point(visibleSize.width * 0.12+ origin.x, visibleSize.height * 0.8));
     slope->setScale(0.4,0.4);
     this->addChild(slope);
     
+    auto slope2 = SlopeSprite::createSlopeSprite(SlopeSprite::TYPE_MEDIUM);
+    slope2->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.8));
+    slope2->setScale(0.4,0.4);
+    this->addChild(slope2);
+    
+ 
     auto bumper = BumperSprite::createBumperSprite();
-    bumper->setPosition(Point(visibleSize.width * 0.4 + origin.x, visibleSize.height * 0.38));
+    bumper->setPosition(Point(visibleSize.width * 0.45 + origin.x, visibleSize.height * 0.38));
     bumper->setScale(0.4,0.4);
     this->addChild(bumper);
     
     auto bumper2 = BumperSprite::createBumperSprite();
-    bumper2->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.4));
-    bumper2->setScale(0.6,0.6);
+    bumper2->setPosition(Point(visibleSize.width * 0.55 + origin.x, visibleSize.height * 0.43));
+    bumper2->setScale(0.4,0.4);
     this->addChild(bumper2);
     
     auto bumper3 = BumperSprite::createBumperSprite();
-    bumper3->setPosition(Point(visibleSize.width * 0.55 + origin.x, visibleSize.height * 0.43));
+    bumper3->setPosition(Point(visibleSize.width * 0.65 + origin.x, visibleSize.height * 0.48));
     bumper3->setScale(0.4,0.4);
     this->addChild(bumper3);
-    
-    auto bumper4 = BumperSprite::createBumperSprite();
-    bumper4->setPosition(Point(visibleSize.width * 0.65 + origin.x, visibleSize.height * 0.48));
-    bumper4->setScale(0.4,0.4);
-    this->addChild(bumper4);
     
     auto ramp = RampSprite::createRampSprite(RampSprite::TYPE_STEEP);
     ramp->setPosition(Point(visibleSize.width * 0.8 + origin.x, visibleSize.height * 0.6));
@@ -115,10 +116,10 @@ bool LevelMediumScene::init()
 
 	// Add all help object to the helperObjects Vector;
     GenericLevelScene::helperObjects.pushBack(slope);
+    GenericLevelScene::helperObjects.pushBack(slope2);
     GenericLevelScene::helperObjects.pushBack(bumper);
     GenericLevelScene::helperObjects.pushBack(bumper2);
     GenericLevelScene::helperObjects.pushBack(bumper3);
-    GenericLevelScene::helperObjects.pushBack(bumper4);
     GenericLevelScene::helperObjects.pushBack(ramp);
 
 	return true;
