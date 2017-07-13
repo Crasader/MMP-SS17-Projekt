@@ -35,7 +35,6 @@ bool LevelHardScene::init()
 
 
 	// Add obstacle objects
-    
     auto block = BlockSprite::createBlockSprite(BlockSprite::TYPE_SQUARE_CITY);
     block->setPosition(Point(visibleSize.width * 0.1f, visibleSize.height * 0.6f));
     this->addChild(block);
@@ -79,7 +78,6 @@ bool LevelHardScene::init()
     this->addChild(wall2);
 
 	// Add all obstacles to the obstacleObjects Vector
-	//GenericLevelScene::obstacleObjects.pushBack(NULL);
     GenericLevelScene::obstacleObjects.pushBack(block);
     GenericLevelScene::obstacleObjects.pushBack(block2);
     GenericLevelScene::obstacleObjects.pushBack(block3);
@@ -93,7 +91,6 @@ bool LevelHardScene::init()
 
 
 	// Add helper objects
-    
     auto slope = SlopeSprite::createSlopeSprite(SlopeSprite::TYPE_MEDIUM);
     slope->setPosition(Point(visibleSize.width * 0.12f + origin.x, visibleSize.height * 0.8f));
     slope->setScale(0.4f, 0.4f);
@@ -119,7 +116,6 @@ bool LevelHardScene::init()
     this->addChild(ramp);
 
 	// Add all help object to the helperObjects Vector;
-	//GenericLevelScene::helperObjects.pushBack(NULL);
     GenericLevelScene::helperObjects.pushBack(slope);
     GenericLevelScene::helperObjects.pushBack(slope2);
     GenericLevelScene::helperObjects.pushBack(bumper);

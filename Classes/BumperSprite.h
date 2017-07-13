@@ -11,6 +11,7 @@ class BumperSprite : public GenericSprite
 public:
 	virtual ~BumperSprite();
 	static BumperSprite* createBumperSprite();
+	virtual void setScale(float x, float y) override;
 
 private:
 	BumperSprite();

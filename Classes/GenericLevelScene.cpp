@@ -348,7 +348,8 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 
 		Vector<SpriteFrame*> bumperAnimFrames;
 
-		auto rect = Rect(0, 0, bumperSprite->getBoundingBox().size.width, bumperSprite->getBoundingBox().size.height);
+		auto rect = Rect(0, 0, bumperSprite->getBoundingBox().size.width * (1 / bumperSprite->getScale()),
+			bumperSprite->getBoundingBox().size.height * (1 / bumperSprite->getScale()));
 
 		auto bumperUnused = SpriteFrame::create(spriteHelperBumper, rect);
 		auto bumperUsed = SpriteFrame::create(spriteHelperBumperUsed, rect);
@@ -362,10 +363,16 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 		bumperAnimFrames.pushBack(bumperUnused);
 
 		Animation* bumerAnimation = Animation::createWithSpriteFrames(bumperAnimFrames, 0.04f);
-		Animate* bumperAnimate = Animate::create(bumerAnimation);
-		if (player->getPhysicsBody()->getVelocity().getLength() > 150)
+		bumperAnimate = Animate::create(bumerAnimation);
+		if (player->getPhysicsBody()->getVelocity().getLength() > 100)
 		{
 			bumperSprite->runAction(bumperAnimate);
+		}
+		else
+		{
+			// Stop Ball from doing too many small bounces
+			// Maybe not the best way
+			player->getPhysicsBody()->setVelocity(Vec2(0, 0));
 		}
 	}
 

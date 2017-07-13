@@ -54,6 +54,7 @@ bool LevelEasyScene::init()
 
 	auto bumper = BumperSprite::createBumperSprite();
 	bumper->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.4));
+	bumper->setScale(0.8, 0.8);
 	this->addChild(bumper);
 
 	auto ramp = RampSprite::createRampSprite(RampSprite::TYPE_MEDIUM);
