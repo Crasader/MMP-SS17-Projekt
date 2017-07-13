@@ -65,7 +65,7 @@ bool GenericLevelScene::init()
 	// Ground
 	auto groundBody = PhysicsBody::createBox(
 		Size(visibleSize.width, 32.0f),
-		PhysicsMaterial(1.0f, 0.0f, 1.0f)
+		PhysicsMaterial(1.0f, 0.0f, 5.0f)
 	);
 	auto ground = Node::create();
 	ground->setPosition(Point(visibleSize.width * 0.5 + origin.x, bottomBarOffset + 50));
@@ -93,17 +93,19 @@ bool GenericLevelScene::init()
 	this->addChild(target);
 
 	//ball / Player
-	auto ballBody = PhysicsBody::createCircle(
-		17.5f,
-		PHYSICSBODY_MATERIAL_DEFAULT
+	player = Sprite::create("trumpfalling.png");
+	player->setScale(2.0, 2.0);
+	auto playerBody = PhysicsBody::createBox(
+		Size(player->getBoundingBox().size.width / 2, player->getBoundingBox().size.height / 2),
+		PhysicsMaterial(0.1f, 0.5f, 0.05f)
 	);
-	ballBody->setMass(120.0f);
-	player = Sprite::create("ball.png");
-	player->setPosition(Vec2(visibleSize.width * 0.1f, visibleSize.height * 0.95f));
-	ballBody->setDynamic(false);
-	ballBody->setCollisionBitmask(colBitMaskPlayer);
-	ballBody->setContactTestBitmask(true);
-	player->setPhysicsBody(ballBody);
+	playerBody->setMass(120.0f);
+	
+	player->setPosition(Vec2(visibleSize.width * 0.1f, visibleSize.height * 0.92f));
+	playerBody->setDynamic(false);
+	playerBody->setCollisionBitmask(colBitMaskPlayer);
+	playerBody->setContactTestBitmask(true);
+	player->setPhysicsBody(playerBody);
 	this->addChild(player);
 
 	// Collision Detection
@@ -127,6 +129,12 @@ bool GenericLevelScene::init()
 void GenericLevelScene::update(float delta)
 {
 	updateTimer(delta);
+
+	// Loose when ball stops
+	//if (player->getPhysicsBody()->getVelocity().getLength() == 0)
+	//{
+	//	playWinLoosAnimation(spriteLooseScreen);
+	//}
 }
 
 void GenericLevelScene::updateTimer(float delta)
@@ -301,7 +309,8 @@ void GenericLevelScene::dropAction(cocos2d::Ref * sender)
 		dropButtonMenuItem->setNormalImage(Sprite::create(spriteDropButton));
 
 		player->getPhysicsBody()->setDynamic(false);
-		player->setPosition(Vec2(visibleSize.width * 0.1f, visibleSize.height * 0.95f));
+		player->setPosition(Vec2(visibleSize.width * 0.1f, visibleSize.height * 0.92f));
+		player->setRotation(0);
 
 		this->removeChild(winLooseSprite);
 	}
@@ -316,8 +325,8 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 	if ((bodyA->getCollisionBitmask() == colBitMaskGround && bodyB->getCollisionBitmask() == colBitMaskPlayer) ||
 		(bodyB->getCollisionBitmask() == colBitMaskGround && bodyA->getCollisionBitmask() == colBitMaskPlayer)) 
 	{
-		player->getPhysicsBody()->setAngularVelocity(0);
-		player->getPhysicsBody()->setVelocity(Vec2(0, 0));
+		//player->getPhysicsBody()->setAngularVelocity(0);
+		//player->getPhysicsBody()->setVelocity(Vec2(0, 0));
 
 		playWinLoosAnimation(spriteLooseScreen);
 	}
@@ -326,8 +335,8 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 	else if ((bodyA->getCollisionBitmask() == colBitMaskTarget && bodyB->getCollisionBitmask() == colBitMaskPlayer) ||
 		(bodyB->getCollisionBitmask() == colBitMaskTarget && bodyA->getCollisionBitmask() == colBitMaskPlayer))
 	{
-		player->getPhysicsBody()->setAngularVelocity(0);
-		player->getPhysicsBody()->setVelocity(Vec2(0, 0));
+		//player->getPhysicsBody()->setAngularVelocity(0);
+		//player->getPhysicsBody()->setVelocity(Vec2(0, 0));
 
 		playWinLoosAnimation(spriteWinScreen);
 	}
@@ -346,6 +355,9 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 			bumperSprite = (Sprite*)bodyB->getOwner();
 		}
 
+		// Can't really put the creation of the Animation in the levelcreation, since you need the size of the bumper to animate
+		// Maybe it works by changing the Rect of every spriteframe in the animation?
+		// Still too much hassle and performs well enough anyway
 		Vector<SpriteFrame*> bumperAnimFrames;
 
 		auto rect = Rect(0, 0, bumperSprite->getBoundingBox().size.width * (1 / bumperSprite->getScale()),
@@ -363,7 +375,7 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 		bumperAnimFrames.pushBack(bumperUnused);
 
 		Animation* bumerAnimation = Animation::createWithSpriteFrames(bumperAnimFrames, 0.04f);
-		bumperAnimate = Animate::create(bumerAnimation);
+		Animate* bumperAnimate = Animate::create(bumerAnimation);
 		if (player->getPhysicsBody()->getVelocity().getLength() > 100)
 		{
 			bumperSprite->runAction(bumperAnimate);

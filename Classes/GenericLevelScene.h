@@ -35,8 +35,6 @@ private:
 
 	Sprite* winLooseSprite;
 
-	Animate* bumperAnimate;
-
 protected:
 	void onTouchesBegan(const std::vector<Touch*> &touches, Event* event);
 	void onTouchesMoved(const std::vector<Touch*> &touches, Event* event);
