@@ -28,6 +28,8 @@ private:
 	float time;
 	virtual void update(float delta);
 
+	void updateTimer(float delta);
+
 	MenuItemImage* dropButtonMenuItem;
 	bool isDroped;
 

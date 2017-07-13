@@ -17,9 +17,15 @@ bool GenericLevelScene::init()
 		return false;
 	}
 
+	// Initialize private / protected variables
 	visibleSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
+	obstacleObjects = Vector<Sprite*>();
+	helperObjects = Vector<GenericSprite*>();
+	time = 0.0f;
+	isDroped = false;
 
+	// Background
 	auto backGround = Sprite::create(currentLevelName);
 	backGround->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.5 + origin.y + bottomBarOffset / 2));
 	this->addChild(backGround);
@@ -38,13 +44,10 @@ bool GenericLevelScene::init()
 	auto menu = Menu::create(backButtonMenuItem, dropButtonMenuItem, NULL);
 	menu->setPosition(Point::ZERO);
 	this->addChild(menu);
-	isDroped = false;
 
 	// Time Field
-	time = 0.0f;
-
 	textFieldTime = ui::TextField::create();
-	textFieldTime->setText("00:00");
+	textFieldTime->setString("00:00");
 	textFieldTime->setFontSize(60);
 	textFieldTime->setContentSize(CCSize(300, 300));
 	textFieldTime->setPosition(Point(visibleSize.width * bottomButtonBarRight + origin.x,
@@ -73,8 +76,6 @@ bool GenericLevelScene::init()
 	this->addChild(ground);
 
 	//Target
-	// TODO make collsion body smaller. 
-	// Maybe just create a new node with the size of the bin and don't give the sprite itself a body
 	auto targetSprite = Sprite::create(spriteBasket);
 	target = Node::create();
 	targetSprite->setScale(0.6f);
@@ -105,10 +106,6 @@ bool GenericLevelScene::init()
 	player->setPhysicsBody(ballBody);
 	this->addChild(player);
 
-	// Initialise Vectors for child classes (if size ever my be necessary, move initialisation to child classes)
-	obstacleObjects = Vector<Sprite*>();
-	helperObjects = Vector<GenericSprite*>();
-
 	// Collision Detection
 	auto contactListener = EventListenerPhysicsContact::create();
 	contactListener->onContactBegin = CC_CALLBACK_1(GenericLevelScene::onContact, this);
@@ -129,13 +126,18 @@ bool GenericLevelScene::init()
 
 void GenericLevelScene::update(float delta)
 {
+	updateTimer(delta);
+}
+
+void GenericLevelScene::updateTimer(float delta)
+{
 	int minutes = 0;
 	int seconds = 0;
 
 	time += delta;
 
 	seconds = (int)time;
-	if ((seconds / 60) > 0) 
+	if ((seconds / 60) > 0)
 	{
 		minutes = seconds / 60;
 		seconds = seconds % 60;
@@ -143,7 +145,7 @@ void GenericLevelScene::update(float delta)
 
 	string leadingSecondZero = "";
 	string leadingMinuteZero = "";
-	if (seconds < 10) 
+	if (seconds < 10)
 	{
 		leadingSecondZero = "0";
 	}
@@ -152,7 +154,7 @@ void GenericLevelScene::update(float delta)
 		leadingMinuteZero = "0";
 	}
 
-	textFieldTime->setText(leadingMinuteZero + to_string(minutes) + ":" + leadingSecondZero + to_string(seconds));
+	textFieldTime->setString(leadingMinuteZero + to_string(minutes) + ":" + leadingSecondZero + to_string(seconds));
 }
 
 void GenericLevelScene::onTouchesBegan(const std::vector<Touch*>& touches, Event * event)
@@ -266,7 +268,6 @@ void GenericLevelScene::onTouchesEnded(const std::vector<Touch*>& touches, Event
 				if (helperObject->getTouch() != nullptr && helperObject->getTouch() == touch) {
 					//if touch ending belongs to this player, clear it
 					helperObject->setTouch(nullptr);
-					//player->setVector(Vec2(0, 0));
 				}
 			}
 		}
@@ -345,24 +346,27 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 			bumperSprite = (Sprite*)bodyB->getOwner();
 		}
 
-		Vector<SpriteFrame*> animFrames;
+		Vector<SpriteFrame*> bumperAnimFrames;
 
 		auto rect = Rect(0, 0, bumperSprite->getBoundingBox().size.width, bumperSprite->getBoundingBox().size.height);
 
-		animFrames.reserve(4);
-		animFrames.pushBack(SpriteFrame::create(spriteHelperBumper, rect));
-		animFrames.pushBack(SpriteFrame::create(spriteHelperBumperUsed, rect));
-		animFrames.pushBack(SpriteFrame::create(spriteHelperBumperUsed, rect));
-		animFrames.pushBack(SpriteFrame::create(spriteHelperBumperUsed, rect));
-		animFrames.pushBack(SpriteFrame::create(spriteHelperBumperUsed, rect));
-		animFrames.pushBack(SpriteFrame::create(spriteHelperBumper, rect));
+		auto bumperUnused = SpriteFrame::create(spriteHelperBumper, rect);
+		auto bumperUsed = SpriteFrame::create(spriteHelperBumperUsed, rect);
 
-		Animation* animation = Animation::createWithSpriteFrames(animFrames, 0.08);
-		Animate* animate = Animate::create(animation);
+		bumperAnimFrames.reserve(8);
+		bumperAnimFrames.pushBack(bumperUnused);
+		for (int i = 0; i < 6; i++) 
+		{
+			bumperAnimFrames.pushBack(bumperUsed);
+		}
+		bumperAnimFrames.pushBack(bumperUnused);
 
-		bumperSprite->runAction(animate);
-
-		bumperSprite->setTexture(spriteHelperBumperUsed);
+		Animation* bumerAnimation = Animation::createWithSpriteFrames(bumperAnimFrames, 0.04f);
+		Animate* bumperAnimate = Animate::create(bumerAnimation);
+		if (player->getPhysicsBody()->getVelocity().getLength() > 150)
+		{
+			bumperSprite->runAction(bumperAnimate);
+		}
 	}
 
 	// Check if player collided with slope / ramp (for player animation)
