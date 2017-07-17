@@ -35,6 +35,8 @@ private:
 
 	Sprite* winLooseSprite;
 
+	bool gameOver;
+
 protected:
 	void onTouchesBegan(const std::vector<Touch*> &touches, Event* event);
 	void onTouchesMoved(const std::vector<Touch*> &touches, Event* event);

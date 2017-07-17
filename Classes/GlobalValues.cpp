@@ -77,6 +77,10 @@ extern const string jsonRamp = "Rampe.json";
 extern const string jsonRamp2 = "rampe2.json";
 extern const string jsonRamp3 = "rampe3.json";
 
+extern const string jsonTarget = "korb.json";
+
+
+
 extern const string jsonNameSlope = "Schraege";
 extern const string jsonNameSlope2 = "Schraege2";
 extern const string jsonNameSlope3 = "Schraege3";
@@ -84,6 +88,8 @@ extern const string jsonNameSlope3 = "Schraege3";
 extern const string jsonNameRamp = "Rampe";
 extern const string jsonNameRamp2 = "rampe2";
 extern const string jsonNameRamp3 = "rampe3";
+
+extern const string jsonNameTarget = "Korb";
 
 // Position
 // Bottom Buttons

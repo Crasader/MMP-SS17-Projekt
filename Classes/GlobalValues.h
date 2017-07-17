@@ -78,6 +78,9 @@ extern const string jsonRamp;
 extern const string jsonRamp2;
 extern const string jsonRamp3;
 
+extern const string jsonTarget;
+
+
 extern const string jsonNameSlope;
 extern const string jsonNameSlope2;
 extern const string jsonNameSlope3;
@@ -85,6 +88,8 @@ extern const string jsonNameSlope3;
 extern const string jsonNameRamp;
 extern const string jsonNameRamp2;
 extern const string jsonNameRamp3;
+
+extern const string jsonNameTarget;
 
 // Position
 // Bottom Buttons

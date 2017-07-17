@@ -4,6 +4,7 @@
 #include "GenericLevelScene.h"
 #include "MainMenuScene.h"
 #include "GenericLevelScene.h"
+#include "MyBodyParser.h"
 
 USING_NS_CC;
 
@@ -24,6 +25,7 @@ bool GenericLevelScene::init()
 	helperObjects = Vector<GenericSprite*>();
 	time = 0.0f;
 	isDroped = false;
+	gameOver = false;
 
 	// Background
 	auto backGround = Sprite::create(currentLevelName);
@@ -75,38 +77,48 @@ bool GenericLevelScene::init()
 	ground->setPhysicsBody(groundBody);
 	this->addChild(ground);
 
-	//Target
-	auto targetSprite = Sprite::create(spriteBasket);
-	target = Node::create();
-	targetSprite->setScale(0.6f);
-	auto targetBody = PhysicsBody::createBox(
-		Size(targetSprite->getBoundingBox().size.width, targetSprite->getBoundingBox().size.height * 0.4f),
-		PHYSICSBODY_MATERIAL_DEFAULT
-	);
-	targetSprite->setPosition(Point(visibleSize.width * 0.9 + origin.x, bottomBarOffset + 155));
-	target->setPosition(Point(visibleSize.width * 0.9 + origin.x, bottomBarOffset + 100));
-	targetBody->setDynamic(false);
-	targetBody->setCollisionBitmask(colBitMaskTarget);
-	targetBody->setContactTestBitmask(true);
-	target->setPhysicsBody(targetBody);
-	this->addChild(targetSprite);
-	this->addChild(target);
-
 	//ball / Player
 	player = Sprite::create("trumpfalling.png");
-	player->setScale(2.0, 2.0);
+	player->setScale(1.5, 1.5);
 	auto playerBody = PhysicsBody::createBox(
-		Size(player->getBoundingBox().size.width / 2, player->getBoundingBox().size.height / 2),
+		Size(player->getBoundingBox().size.width / 1.5, player->getBoundingBox().size.height / 1.5),
 		PhysicsMaterial(0.1f, 0.5f, 0.05f)
 	);
 	playerBody->setMass(120.0f);
-	
+
 	player->setPosition(Vec2(visibleSize.width * 0.1f, visibleSize.height * 0.92f));
 	playerBody->setDynamic(false);
 	playerBody->setCollisionBitmask(colBitMaskPlayer);
 	playerBody->setContactTestBitmask(true);
 	player->setPhysicsBody(playerBody);
 	this->addChild(player);
+
+	//Targetsprite + body around the bin
+	auto targetSprite = Sprite::create(spriteBasket);
+	targetSprite->setScale(0.6f);
+	MyBodyParser::getInstance()->parseJsonFile(jsonTarget);
+	auto targetSpriteBody = MyBodyParser::getInstance()->bodyFormJson(targetSprite, jsonNameTarget, PHYSICSBODY_MATERIAL_DEFAULT);
+
+	if (targetSpriteBody != nullptr)
+	{
+		targetSpriteBody->setDynamic(false);
+		targetSprite->setPhysicsBody(targetSpriteBody);
+	}
+	targetSprite->setPosition(Point(visibleSize.width * 0.9 + origin.x, bottomBarOffset + 155));
+	this->addChild(targetSprite);
+
+	// target (inside the bin)
+	target = Node::create();
+	auto targetBody = PhysicsBody::createBox(
+		Size(targetSprite->getBoundingBox().size.width * 0.6f, 3),
+		PHYSICSBODY_MATERIAL_DEFAULT
+	);
+	target->setPosition(Point(visibleSize.width * 0.9 + origin.x, bottomBarOffset + 70));
+	targetBody->setDynamic(false);
+	targetBody->setCollisionBitmask(colBitMaskTarget);
+	targetBody->setContactTestBitmask(true);
+	target->setPhysicsBody(targetBody);
+	this->addChild(target);
 
 	// Collision Detection
 	auto contactListener = EventListenerPhysicsContact::create();
@@ -298,6 +310,7 @@ void GenericLevelScene::dropAction(cocos2d::Ref * sender)
 	isDroped = !isDroped;
 	if(isDroped)
 	{
+		// Drop button
 		dropButtonMenuItem->setSelectedImage(Sprite::create(spriteResetButton));
 		dropButtonMenuItem->setNormalImage(Sprite::create(spriteResetButton));
 
@@ -305,12 +318,15 @@ void GenericLevelScene::dropAction(cocos2d::Ref * sender)
 	}
 	else
 	{
+		// Reset button
 		dropButtonMenuItem->setSelectedImage(Sprite::create(spriteDropButton));
 		dropButtonMenuItem->setNormalImage(Sprite::create(spriteDropButton));
 
 		player->getPhysicsBody()->setDynamic(false);
 		player->setPosition(Vec2(visibleSize.width * 0.1f, visibleSize.height * 0.92f));
 		player->setRotation(0);
+
+		gameOver = false;
 
 		this->removeChild(winLooseSprite);
 	}
@@ -397,14 +413,18 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 
 void GenericLevelScene::playWinLoosAnimation(string spriteToAnimate)
 {
-	this->removeChild(winLooseSprite);
-	winLooseSprite = Sprite::create(spriteToAnimate);
-	winLooseSprite->setPosition(Vec2(visibleSize.width * 0.5f, (visibleSize.height + bottomBarOffset) * 0.5f));
-	winLooseSprite->setScale(0.0f);
-	this->addChild(winLooseSprite);
+	if (!gameOver)
+	{
+		gameOver = true;
+		this->removeChild(winLooseSprite);
+		winLooseSprite = Sprite::create(spriteToAnimate);
+		winLooseSprite->setPosition(Vec2(visibleSize.width * 0.5f, (visibleSize.height + bottomBarOffset) * 0.5f));
+		winLooseSprite->setScale(0.0f);
+		this->addChild(winLooseSprite);
 
-	auto scaleTo = ScaleTo::create(2.0f, 0.8f);
-	winLooseSprite->runAction(scaleTo);
+		auto scaleTo = ScaleTo::create(2.0f, 0.8f);
+		winLooseSprite->runAction(scaleTo);
+	}
 }
 
 
