@@ -44,27 +44,34 @@ bool LevelMediumScene::init()
     wall2->setPosition(Point(visibleSize.width * 0.3f + origin.x, bottomBarOffset + 175));
     this->addChild(wall2);
     
-    auto wall3 = WallSprite::createWallSprite();
-    wall3->setPosition(Point(visibleSize.width * 0.8f + origin.x, bottomBarOffset + 175));
-    this->addChild(wall3);
-    
     auto block = BlockSprite::createBlockSprite(BlockSprite::TYPE_HORIZONTAL_SAND);
-    block->setPosition(Point(visibleSize.width * 0.1f, visibleSize.height * 0.75f));
+    block->setPosition(Point(visibleSize.width * 0.23f, visibleSize.height * 0.76f));
+    block->setScale(0.7f, 0.7f);
     this->addChild(block);
     
-    auto block2 = BlockSprite::createBlockSprite(BlockSprite::TYPE_HORIZONTAL_SAND);
-    block2->setPosition(Point(visibleSize.width * 0.4 + origin.x, visibleSize.height * 0.35));
-    block2->setScale(0.8f, 0.8f);
+    auto block5 = BlockSprite::createBlockSprite(BlockSprite::TYPE_HORIZONTAL_SAND);
+    block5->setPosition(Point(visibleSize.width * 0.23f, visibleSize.height * 0.65f));
+    block5->setScale(0.7f, 0.7f);
+    this->addChild(block5);
+    
+    auto block2 = BlockSprite::createBlockSprite(BlockSprite::TYPE_VERTICAL_SAND);
+    block2->setPosition(Point(visibleSize.width * 0.8f + origin.x, visibleSize.height * 0.35f));
+    block2->setScale(0.9f, 0.9f);
     this->addChild(block2);
     
+    auto block6 = BlockSprite::createBlockSprite(BlockSprite::TYPE_SQUARE_SAND);
+    block6->setPosition(Point(visibleSize.width * 0.65f + origin.x, visibleSize.height * 0.6f));
+    block6->setScale(0.9f, 0.6f);
+    this->addChild(block6);
+    
     auto block3 = BlockSprite::createBlockSprite(BlockSprite::TYPE_HORIZONTAL_SAND);
-    block3->setPosition(Point(visibleSize.width * 0.55f + origin.x, visibleSize.height * 0.4f));
+    block3->setPosition(Point(visibleSize.width * 0.4f + origin.x, visibleSize.height * 0.47f));
     block3->setScale(0.7f, 0.8f);
     this->addChild(block3);
     
     auto block4 = BlockSprite::createBlockSprite(BlockSprite::TYPE_HORIZONTAL_SAND);
-    block4->setPosition(Point(visibleSize.width * 0.7f + origin.x, visibleSize.height * 0.45f));
-    block4->setScale(0.6f, 0.8f);
+    block4->setPosition(Point(visibleSize.width * 0.4f + origin.x, visibleSize.height * 0.64f));
+    block4->setScale(0.7f, 0.8f);
     this->addChild(block4);
 
 	// Add all obstacles to the obstacleObjects Vector
@@ -72,47 +79,39 @@ bool LevelMediumScene::init()
     GenericLevelScene::obstacleObjects.pushBack(block2);
     GenericLevelScene::obstacleObjects.pushBack(block3);
     GenericLevelScene::obstacleObjects.pushBack(block4);
+    GenericLevelScene::obstacleObjects.pushBack(block5);
+    GenericLevelScene::obstacleObjects.pushBack(block6);
     GenericLevelScene::obstacleObjects.pushBack(wall);
     GenericLevelScene::obstacleObjects.pushBack(wall2);
     
 
 	// Add helper objects
     auto slope = SlopeSprite::createSlopeSprite(SlopeSprite::TYPE_MEDIUM);
-    slope->setPosition(Point(visibleSize.width * 0.12f + origin.x, visibleSize.height * 0.8f));
-    slope->setScale(0.4f, 0.4f);
+    slope->setPosition(Point(visibleSize.width * 0.12f + origin.x, visibleSize.height * 0.7f));
+    slope->setScale(0.5f, 0.5f);
     this->addChild(slope);
     
-    auto slope2 = SlopeSprite::createSlopeSprite(SlopeSprite::TYPE_MEDIUM);
-    slope2->setPosition(Point(visibleSize.width * 0.5f + origin.x, visibleSize.height * 0.8f));
-    slope2->setScale(0.4f, 0.4f);
-    this->addChild(slope2);
-    
+   
  
     auto bumper = BumperSprite::createBumperSprite();
-    bumper->setPosition(Point(visibleSize.width * 0.45f + origin.x, visibleSize.height * 0.38f));
-    bumper->setScale(0.4f, 0.4f);
+    bumper->setPosition(Point(visibleSize.width * 0.7f + origin.x, visibleSize.height * 0.4f));
+    bumper->setScale(0.6f, 0.6f);
     this->addChild(bumper);
     
+
     auto bumper2 = BumperSprite::createBumperSprite();
-    bumper2->setPosition(Point(visibleSize.width * 0.55f + origin.x, visibleSize.height * 0.43f));
-    bumper2->setScale(0.4f, 0.4f);
+    bumper2->setPosition(Point(visibleSize.width * 0.5f + origin.x, visibleSize.height * 0.4f));
+    bumper2->setScale(0.8f, 0.8f);
     this->addChild(bumper2);
     
-    auto bumper3 = BumperSprite::createBumperSprite();
-    bumper3->setPosition(Point(visibleSize.width * 0.65f + origin.x, visibleSize.height * 0.48f));
-    bumper3->setScale(0.4f, 0.4f);
-    this->addChild(bumper3);
-    
     auto ramp = RampSprite::createRampSprite(RampSprite::TYPE_STEEP);
-    ramp->setPosition(Point(visibleSize.width * 0.8f + origin.x, visibleSize.height * 0.6f));
+    ramp->setPosition(Point(visibleSize.width * 0.8f + origin.x, visibleSize.height * 0.8f));
     this->addChild(ramp);
 
 	// Add all help object to the helperObjects Vector;
     GenericLevelScene::helperObjects.pushBack(slope);
-    GenericLevelScene::helperObjects.pushBack(slope2);
     GenericLevelScene::helperObjects.pushBack(bumper);
     GenericLevelScene::helperObjects.pushBack(bumper2);
-    GenericLevelScene::helperObjects.pushBack(bumper3);
     GenericLevelScene::helperObjects.pushBack(ramp);
 
 	return true;
