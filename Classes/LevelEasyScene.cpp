@@ -71,16 +71,17 @@ bool LevelEasyScene::init()
 
 	// Add obstacles
 	auto wall = WallSprite::createWallSprite();
-	wall->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.5));
-	//this->addChild(wall);
+	wall->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.45));
+	this->addChild(wall);
 
 	auto block = BlockSprite::createBlockSprite(BlockSprite::TYPE_SQUARE_EARTH);
-	block->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.7));
+	block->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.65));
 	this->addChild(block);
 
 	// Add all obstacle object to the helperObjects Vector
 	// GenericLevelScene::obstacleObjects.pushBack(wall);
 	GenericLevelScene::obstacleObjects.pushBack(block);
+    GenericLevelScene::obstacleObjects.pushBack(wall);
 
 	return true;
 }
