@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "GenericSprite.h"
+#include<vector>
 
 using namespace cocos2d;
 
@@ -36,6 +37,10 @@ private:
 	Sprite* winLooseSprite;
 
 	bool gameOver;
+    
+    //Spritesheet Try
+   //cocos2d::Vector getAnimation(const char *format, int count);
+    void animationbumper();
 
 protected:
 	void onTouchesBegan(const std::vector<Touch*> &touches, Event* event);

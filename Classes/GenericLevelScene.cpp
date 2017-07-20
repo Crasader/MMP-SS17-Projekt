@@ -134,9 +134,53 @@ bool GenericLevelScene::init()
 
 
 	scheduleUpdate();
+    
+    //SpritesheetTry
+  /*  SpriteBatchNode* spritebatchbumper = SpriteBatchNode::create("bumperanimation.png");
+    SpriteFrameCache* cachebumper = SpriteFrameCache::getInstance();
+    cachebumper->addSpriteFramesWithFile("bumperanimation.plist");
+    auto spritebumper = Sprite::createWithSpriteFrameName("trumpbumper1.png");
+    spritebatchbumper->addChild(spritebumper);
+    this->addChild(spritebatchbumper);*/
 
 	return true;
 }
+
+
+
+
+void GenericLevelScene::animationbumper(){
+    
+    //also den ersten Block (bis this->addChild) hatte ich zuerst in der init, dann hatt er aber gemeckert
+    //weil er auf mehrere Sachen nicht mehr zugreifen konnte
+    
+    //SpriteBatchNode beinhaltet alle SpriteFrames -> also das SpriteSheet in PNG Form
+    SpriteBatchNode* spritebatchbumper = SpriteBatchNode::create("bumperanimation.png");
+    //Halt ne Cache um abzuchekcen ob die Framenamen (in der plist) zu den einzelnen Bilder (in PNG) passen
+    SpriteFrameCache* cachebumper = SpriteFrameCache::getInstance();
+    cachebumper->addSpriteFramesWithFile("bumperanimation.plist");
+    //halt Sprite wird generiert  - da musste ich das auto hinzufügen, war ohne vorgesehen - warum das jetzt dann funkioniert
+    //I dunno
+    auto spritebumper = Sprite::createWithSpriteFrameName("trumpbumper1.png");
+    spritebatchbumper->addChild(spritebumper);
+    this->addChild(spritebatchbumper);
+    
+    //Vektor für die 12 Bilder
+    Vector<SpriteFrame*> animFrames(12);
+    char str[100] = {0};
+    //Schleife für die 12 Bilder halt und das %02d kreiert 2 0 Stellen nach den einzelnen Bildnamen -> braucht er anscheinend
+    //ist in vielen tutorials so
+    for(int i = 1; i<12; i++){
+        sprintf(str, "trumpbumper%02d.png",i);
+        SpriteFrame* frame = cachebumper ->getSpriteFrameByName(str);
+        animFrames.pushBack(frame);
+        //animFrames->addObject(frame);
+    }
+    //hier ist dann die eigentliche Animation -> könnte man bestimmt dann auch auslagern
+    Animation* animationbumper = Animation::createWithSpriteFrames(animFrames, 0.3f);
+    spritebumper->runAction(Animate::create(animationbumper));
+}
+
 
 void GenericLevelScene::update(float delta)
 {
@@ -392,6 +436,9 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 
 		Animation* bumerAnimation = Animation::createWithSpriteFrames(bumperAnimFrames, 0.04f);
 		Animate* bumperAnimate = Animate::create(bumerAnimation);
+        
+       
+        
 		if (player->getPhysicsBody()->getVelocity().getLength() > 100)
 		{
 			bumperSprite->runAction(bumperAnimate);

@@ -50,6 +50,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->runWithScene(scene);
 
     return true;
+    
+    //director->setAnimationInterval(1.0/60);
 }
 
 // This function will be called when the app is inactive. When comes a phone call, it's be invoked too
