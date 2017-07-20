@@ -27,6 +27,19 @@ bool GenericLevelScene::init()
 	isDroped = false;
 	gameOver = false;
 
+	// Create Player Animations
+	// PlayerBumper Animation
+	Animation* playerAnimationbumper = Animation::createWithSpriteFrames(getAnimation("bumperanimation.plist",
+		"trumpbumper%02d.png", 12), 0.08f);
+	playerBumperAnimate = Animate::create(playerAnimationbumper);
+	playerBumperAnimate->retain(); // THIS FUCKING SHIT TOOK ME AGES TO FIND OUT 
+	//(without this the reference will be null if called in the collision detection)
+
+	// PlayerRamp / Slope Animation
+	//Animation* playerAnimationRamp = Animation::createWithSpriteFrames(getAnimation("rampeanimation.plist", "trumprampe%02d.png", 7), 2.3f);
+	//playerRampAnimate = Animate::create(playerAnimationRamp);
+	//playerRampAnimate->retain();
+
 	// Background
 	auto backGround = Sprite::create(currentLevelName);
 	backGround->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.5 + origin.y + bottomBarOffset / 2));
@@ -78,7 +91,7 @@ bool GenericLevelScene::init()
 	this->addChild(ground);
 
 	//ball / Player
-	player = Sprite::create("trumpfalling.png");
+	player = Sprite::create("trumpfallingsmall.png");
 	player->setScale(1.5, 1.5);
 	auto playerBody = PhysicsBody::createBox(
 		Size(player->getBoundingBox().size.width / 1.5, player->getBoundingBox().size.height / 1.5),
@@ -132,53 +145,27 @@ bool GenericLevelScene::init()
 	listener->onTouchesEnded = CC_CALLBACK_2(GenericLevelScene::onTouchesEnded, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
-
 	scheduleUpdate();
-    
-    //SpritesheetTry
-  /*  SpriteBatchNode* spritebatchbumper = SpriteBatchNode::create("bumperanimation.png");
-    SpriteFrameCache* cachebumper = SpriteFrameCache::getInstance();
-    cachebumper->addSpriteFramesWithFile("bumperanimation.plist");
-    auto spritebumper = Sprite::createWithSpriteFrameName("trumpbumper1.png");
-    spritebatchbumper->addChild(spritebumper);
-    this->addChild(spritebatchbumper);*/
 
 	return true;
 }
 
 
-
-
-void GenericLevelScene::animationbumper(){
+Vector<SpriteFrame*> GenericLevelScene::getAnimation(const char* plist, const char* format, int count)
+{
+    SpriteFrameCache* bumperCache = SpriteFrameCache::getInstance();
+	bumperCache->addSpriteFramesWithFile(plist);
     
-    //also den ersten Block (bis this->addChild) hatte ich zuerst in der init, dann hatt er aber gemeckert
-    //weil er auf mehrere Sachen nicht mehr zugreifen konnte
-    
-    //SpriteBatchNode beinhaltet alle SpriteFrames -> also das SpriteSheet in PNG Form
-    SpriteBatchNode* spritebatchbumper = SpriteBatchNode::create("bumperanimation.png");
-    //Halt ne Cache um abzuchekcen ob die Framenamen (in der plist) zu den einzelnen Bilder (in PNG) passen
-    SpriteFrameCache* cachebumper = SpriteFrameCache::getInstance();
-    cachebumper->addSpriteFramesWithFile("bumperanimation.plist");
-    //halt Sprite wird generiert  - da musste ich das auto hinzufügen, war ohne vorgesehen - warum das jetzt dann funkioniert
-    //I dunno
-    auto spritebumper = Sprite::createWithSpriteFrameName("trumpbumper1.png");
-    spritebatchbumper->addChild(spritebumper);
-    this->addChild(spritebatchbumper);
-    
-    //Vektor für die 12 Bilder
-    Vector<SpriteFrame*> animFrames(12);
-    char str[100] = {0};
-    //Schleife für die 12 Bilder halt und das %02d kreiert 2 0 Stellen nach den einzelnen Bildnamen -> braucht er anscheinend
-    //ist in vielen tutorials so
-    for(int i = 1; i<12; i++){
-        sprintf(str, "trumpbumper%02d.png",i);
-        SpriteFrame* frame = cachebumper ->getSpriteFrameByName(str);
+    Vector<SpriteFrame*> animFrames(count);
+    char str[100];
+    for(int i = 1; i < count; i++)
+	{
+        sprintf(str, format, i);
+        SpriteFrame* frame = bumperCache->getSpriteFrameByName(str);
         animFrames.pushBack(frame);
-        //animFrames->addObject(frame);
     }
-    //hier ist dann die eigentliche Animation -> könnte man bestimmt dann auch auslagern
-    Animation* animationbumper = Animation::createWithSpriteFrames(animFrames, 0.3f);
-    spritebumper->runAction(Animate::create(animationbumper));
+
+	return animFrames;
 }
 
 
@@ -437,11 +424,16 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 		Animation* bumerAnimation = Animation::createWithSpriteFrames(bumperAnimFrames, 0.04f);
 		Animate* bumperAnimate = Animate::create(bumerAnimation);
         
-       
-        
 		if (player->getPhysicsBody()->getVelocity().getLength() > 100)
 		{
-			bumperSprite->runAction(bumperAnimate);
+			if (bumperSprite->numberOfRunningActions() == 0)
+			{
+				bumperSprite->runAction(bumperAnimate);
+			}
+			if (player->numberOfRunningActions() == 0) 
+			{
+				player->runAction(playerBumperAnimate);
+			}
 		}
 		else
 		{
@@ -452,7 +444,14 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 	}
 
 	// Check if player collided with slope / ramp (for player animation)
-
+	else if ((bodyA->getCollisionBitmask() == colBitMaskSlopeRamp && bodyB->getCollisionBitmask() == colBitMaskPlayer) ||
+		(bodyB->getCollisionBitmask() == colBitMaskSlopeRamp && bodyA->getCollisionBitmask() == colBitMaskPlayer))
+	{
+		if (player->numberOfRunningActions() == 0)
+		{
+			// player->runAction(playerRampAnimate);
+		}
+	}
 	// Check other collision that should cause any animation
 
 	return true;
