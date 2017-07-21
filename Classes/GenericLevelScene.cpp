@@ -30,13 +30,14 @@ bool GenericLevelScene::init()
 	// Create Player Animations
 	// PlayerBumper Animation
 	Animation* playerAnimationbumper = Animation::createWithSpriteFrames(getAnimation("bumperanimation2.plist",
-		"trumpbumper%02d.png", 12), 0.07f);
+		"trumpbumper%02d.png", 12), 0.08f);
 	playerBumperAnimate = Animate::create(playerAnimationbumper);
 	playerBumperAnimate->retain(); // THIS FUCKING SHIT TOOK ME AGES TO FIND OUT 
 	// (without this the reference will be null if called in the collision detection)
 
 	// PlayerRamp / Slope Animation
-	Animation* playerAnimationRamp = Animation::createWithSpriteFrames(getAnimation("rampeanimation2.plist", "trumprampe%02d.png", 30), 1/30.0f);
+	Animation* playerAnimationRamp = Animation::createWithSpriteFrames(getAnimation("rampeanimation2.plist",
+		"trumprampe%02d.png", 30), 1/25.0f);
 	playerRampAnimate = Animate::create(playerAnimationRamp);
 	playerRampAnimate->retain();
 
@@ -353,6 +354,15 @@ void GenericLevelScene::dropAction(cocos2d::Ref * sender)
 		dropButtonMenuItem->setSelectedImage(Sprite::create(spriteDropButton));
 		dropButtonMenuItem->setNormalImage(Sprite::create(spriteDropButton));
 
+		// Reset Animation
+		if (player->getNumberOfRunningActions() > 0)
+		{
+			player->stopAllActions();
+			// Looks ugly, but it works
+			player->setSpriteFrame(playerBumperAnimate->getAnimation()->getFrames().front()->getSpriteFrame());
+		}
+
+		// Reset Player position
 		player->getPhysicsBody()->setDynamic(false);
 		player->setPosition(Vec2(visibleSize.width * 0.1f, visibleSize.height * 0.92f));
 		player->setRotation(0);
@@ -426,11 +436,11 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
         
 		if (player->getPhysicsBody()->getVelocity().getLength() > 100)
 		{
-			if (bumperSprite->numberOfRunningActions() == 0)
+			if (bumperSprite->getNumberOfRunningActions() == 0)
 			{
 				bumperSprite->runAction(bumperAnimate);
 			}
-			if (player->numberOfRunningActions() == 0) 
+			if (player->getNumberOfRunningActions() == 0)
 			{
 				player->runAction(playerBumperAnimate);
 			}
@@ -443,11 +453,13 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 		}
 	}
 
-	// Check if player collided with slope / ramp (for player animation)
+	// Check if player collided with ramp (for player animation)
+	// Animation won't play if palyer collides with a slope, disabled the collisionbitmask
+	// in the SlopeSprite.cpp (animation does not work with the slope)
 	else if ((bodyA->getCollisionBitmask() == colBitMaskSlopeRamp && bodyB->getCollisionBitmask() == colBitMaskPlayer) ||
 		(bodyB->getCollisionBitmask() == colBitMaskSlopeRamp && bodyA->getCollisionBitmask() == colBitMaskPlayer))
 	{
-		if (player->numberOfRunningActions() == 0)
+		if (player->getNumberOfRunningActions() == 0 && isDroped)
 		{
 			player->runAction(playerRampAnimate);
 		}

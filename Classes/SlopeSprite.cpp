@@ -46,8 +46,10 @@ SlopeSprite * SlopeSprite::createSlopeSprite(int type)
 		if (sloepBody != nullptr)
 		{
 			sloepBody->setDynamic(false);
-			sloepBody->setCollisionBitmask(colBitMaskSlopeRamp);
-			sloepBody->setContactTestBitmask(true);
+			// Disabled because animation does not work well enough with the slope
+			// an no other sliding animation is available
+			/*sloepBody->setCollisionBitmask(colBitMaskSlopeRamp);
+			sloepBody->setContactTestBitmask(true);*/
 			slope->setPhysicsBody(sloepBody);
 		}
 
