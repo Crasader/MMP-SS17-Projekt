@@ -14,7 +14,7 @@ USING_NS_CC;
 Scene* LevelEasyScene::createScene()
 {
 	auto scene = Scene::createWithPhysics();;
-	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+	//scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 	scene->getPhysicsWorld()->setGravity(Vec2(0.0f, gravity));
 	auto layer = LevelEasyScene::create();
 
@@ -33,24 +33,15 @@ bool LevelEasyScene::init()
 		return false;
 	}
 
-	// SLOPE EXAMPLE (old)
-	/*
-	auto rampBody = PhysicsBody::createBox(
-		Size(32.0f, 32.0f),
-		PHYSICSBODY_MATERIAL_DEFAULT
-	);
-	auto ramp = Sprite::create(spriteObstacleSlope);
-	ramp->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.8));
-	rampBody->setDynamic(false);
-	ramp->setPhysicsBody(rampBody);
-	this->addChild(ramp);
-	*/
-
 	// Examples:
 	// Add helper objects
-	auto slope = SlopeSprite::createSlopeSprite(SlopeSprite::TYPE_STEEP);
-	slope->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.8));
-	this->addChild(slope);
+	auto slopeMedium = SlopeSprite::createSlopeSprite(SlopeSprite::TYPE_MEDIUM);
+	slopeMedium->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.5));
+	this->addChild(slopeMedium);
+
+	auto slopeSteep = SlopeSprite::createSlopeSprite(SlopeSprite::TYPE_STEEP);
+	slopeSteep->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.8));
+	this->addChild(slopeSteep);
 
 	auto bumper = BumperSprite::createBumperSprite();
 	bumper->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.4));
@@ -62,7 +53,8 @@ bool LevelEasyScene::init()
 	this->addChild(ramp);
 
 	// Add all helper objects to the helperObjects Vector
-	GenericLevelScene::helperObjects.pushBack(slope);
+	GenericLevelScene::helperObjects.pushBack(slopeMedium);
+	GenericLevelScene::helperObjects.pushBack(slopeSteep);
 	GenericLevelScene::helperObjects.pushBack(bumper);
 	GenericLevelScene::helperObjects.pushBack(ramp);
 

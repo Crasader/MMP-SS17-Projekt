@@ -15,9 +15,9 @@
                 <key>spriteSourceSize</key>
                 <string>{21,45}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{21,45}}</string>
+                <string>{{0,135},{21,45}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>trumprampe10.png</key>
             <dict>
@@ -30,9 +30,9 @@
                 <key>spriteSourceSize</key>
                 <string>{21,45}</string>
                 <key>textureRect</key>
-                <string>{{48,1},{21,45}}</string>
+                <string>{{42,135},{21,45}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>trumprampe11.png</key>
             <dict>
@@ -41,15 +41,60 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{21,45}</string>
+                <string>{21,47}</string>
                 <key>spriteSourceSize</key>
-                <string>{21,45}</string>
+                <string>{21,47}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{21,45}}</string>
+                <string>{{63,181},{21,47}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>trumprampe12.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,46}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,46}</string>
+                <key>textureRect</key>
+                <string>{{63,135},{21,46}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>trumprampe13.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,47}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,47}</string>
+                <key>textureRect</key>
+                <string>{{84,181},{21,47}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>trumprampe14.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,46}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,46}</string>
+                <key>textureRect</key>
+                <string>{{84,135},{21,46}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>trumprampe15.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -60,9 +105,69 @@
                 <key>spriteSourceSize</key>
                 <string>{21,45}</string>
                 <key>textureRect</key>
-                <string>{{95,1},{21,45}}</string>
+                <string>{{21,135},{21,45}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
+            </dict>
+            <key>trumprampe16.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,45}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,45}</string>
+                <key>textureRect</key>
+                <string>{{63,90},{21,45}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>trumprampe17.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,45}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,45}</string>
+                <key>textureRect</key>
+                <string>{{84,90},{21,45}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>trumprampe18.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,45}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,45}</string>
+                <key>textureRect</key>
+                <string>{{42,90},{21,45}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>trumprampe19.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,46}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,46}</string>
+                <key>textureRect</key>
+                <string>{{21,181},{21,46}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
             <key>trumprampe02.png</key>
             <dict>
@@ -75,9 +180,159 @@
                 <key>spriteSourceSize</key>
                 <string>{21,45}</string>
                 <key>textureRect</key>
-                <string>{{48,1},{21,45}}</string>
+                <string>{{105,90},{21,45}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
+            </dict>
+            <key>trumprampe20.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,46}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,46}</string>
+                <key>textureRect</key>
+                <string>{{0,181},{21,46}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>trumprampe21.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,46}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,46}</string>
+                <key>textureRect</key>
+                <string>{{105,135},{21,46}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>trumprampe22.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{22,48}</string>
+                <key>spriteSourceSize</key>
+                <string>{22,48}</string>
+                <key>textureRect</key>
+                <string>{{105,181},{22,48}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>trumprampe23.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,45}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,45}</string>
+                <key>textureRect</key>
+                <string>{{21,90},{21,45}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>trumprampe24.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,47}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,47}</string>
+                <key>textureRect</key>
+                <string>{{42,181},{21,47}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>trumprampe25.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,45}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,45}</string>
+                <key>textureRect</key>
+                <string>{{84,0},{21,45}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>trumprampe26.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,45}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,45}</string>
+                <key>textureRect</key>
+                <string>{{63,0},{21,45}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>trumprampe27.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,45}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,45}</string>
+                <key>textureRect</key>
+                <string>{{105,0},{21,45}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>trumprampe28.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,45}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,45}</string>
+                <key>textureRect</key>
+                <string>{{42,0},{21,45}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>trumprampe29.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,45}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,45}</string>
+                <key>textureRect</key>
+                <string>{{0,0},{21,45}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
             <key>trumprampe03.png</key>
             <dict>
@@ -90,9 +345,24 @@
                 <key>spriteSourceSize</key>
                 <string>{21,45}</string>
                 <key>textureRect</key>
-                <string>{{142,1},{21,45}}</string>
+                <string>{{0,45},{21,45}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
+            </dict>
+            <key>trumprampe30.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{21,45}</string>
+                <key>spriteSourceSize</key>
+                <string>{21,45}</string>
+                <key>textureRect</key>
+                <string>{{42,45},{21,45}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
             <key>trumprampe04.png</key>
             <dict>
@@ -105,9 +375,9 @@
                 <key>spriteSourceSize</key>
                 <string>{21,45}</string>
                 <key>textureRect</key>
-                <string>{{189,1},{21,45}}</string>
+                <string>{{105,45},{21,45}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>trumprampe05.png</key>
             <dict>
@@ -120,9 +390,9 @@
                 <key>spriteSourceSize</key>
                 <string>{21,45}</string>
                 <key>textureRect</key>
-                <string>{{1,24},{21,45}}</string>
+                <string>{{84,45},{21,45}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>trumprampe06.png</key>
             <dict>
@@ -135,11 +405,11 @@
                 <key>spriteSourceSize</key>
                 <string>{21,45}</string>
                 <key>textureRect</key>
-                <string>{{48,24},{21,45}}</string>
+                <string>{{0,90},{21,45}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>trumprampe7-0.png</key>
+            <key>trumprampe07.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -150,279 +420,9 @@
                 <key>spriteSourceSize</key>
                 <string>{21,45}</string>
                 <key>textureRect</key>
-                <string>{{1,24},{21,45}}</string>
+                <string>{{63,45},{21,45}}</string>
                 <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>trumprampe7-10.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{21,45}</string>
-                <key>spriteSourceSize</key>
-                <string>{21,45}</string>
-                <key>textureRect</key>
-                <string>{{95,24},{21,45}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>trumprampe7-11.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{21,45}</string>
-                <key>spriteSourceSize</key>
-                <string>{21,45}</string>
-                <key>textureRect</key>
-                <string>{{142,24},{21,45}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>trumprampe7-12.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{21,45}</string>
-                <key>spriteSourceSize</key>
-                <string>{21,45}</string>
-                <key>textureRect</key>
-                <string>{{189,24},{21,45}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>trumprampe7-13.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{21,46}</string>
-                <key>spriteSourceSize</key>
-                <string>{21,46}</string>
-                <key>textureRect</key>
-                <string>{{1,47},{21,46}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>trumprampe7-14.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{21,46}</string>
-                <key>spriteSourceSize</key>
-                <string>{21,46}</string>
-                <key>textureRect</key>
-                <string>{{49,47},{21,46}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>trumprampe7-15.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{21,46}</string>
-                <key>spriteSourceSize</key>
-                <string>{21,46}</string>
-                <key>textureRect</key>
-                <string>{{97,47},{21,46}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>trumprampe7-16.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{22,48}</string>
-                <key>spriteSourceSize</key>
-                <string>{22,48}</string>
-                <key>textureRect</key>
-                <string>{{145,93},{22,48}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>trumprampe7-17.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{21,45}</string>
-                <key>spriteSourceSize</key>
-                <string>{21,45}</string>
-                <key>textureRect</key>
-                <string>{{145,47},{21,45}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>trumprampe7-18.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{21,47}</string>
-                <key>spriteSourceSize</key>
-                <string>{21,47}</string>
-                <key>textureRect</key>
-                <string>{{1,70},{21,47}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>trumprampe7-2.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{21,45}</string>
-                <key>spriteSourceSize</key>
-                <string>{21,45}</string>
-                <key>textureRect</key>
-                <string>{{192,47},{21,45}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>trumprampe7-20.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{21,45}</string>
-                <key>spriteSourceSize</key>
-                <string>{21,45}</string>
-                <key>textureRect</key>
-                <string>{{1,24},{21,45}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>trumprampe7-3.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{21,45}</string>
-                <key>spriteSourceSize</key>
-                <string>{21,45}</string>
-                <key>textureRect</key>
-                <string>{{145,47},{21,45}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>trumprampe7-4.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{21,45}</string>
-                <key>spriteSourceSize</key>
-                <string>{21,45}</string>
-                <key>textureRect</key>
-                <string>{{50,70},{21,45}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>trumprampe7-5.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{21,47}</string>
-                <key>spriteSourceSize</key>
-                <string>{21,47}</string>
-                <key>textureRect</key>
-                <string>{{97,70},{21,47}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>trumprampe7-6.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{21,46}</string>
-                <key>spriteSourceSize</key>
-                <string>{21,46}</string>
-                <key>textureRect</key>
-                <string>{{146,70},{21,46}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>trumprampe7-7.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{21,47}</string>
-                <key>spriteSourceSize</key>
-                <string>{21,47}</string>
-                <key>textureRect</key>
-                <string>{{1,93},{21,47}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>trumprampe7-8.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{21,46}</string>
-                <key>spriteSourceSize</key>
-                <string>{21,46}</string>
-                <key>textureRect</key>
-                <string>{{50,93},{21,46}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>trumprampe7-9.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{21,45}</string>
-                <key>spriteSourceSize</key>
-                <string>{21,45}</string>
-                <key>textureRect</key>
-                <string>{{98,93},{21,45}}</string>
-                <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>trumprampe08.png</key>
             <dict>
@@ -435,9 +435,9 @@
                 <key>spriteSourceSize</key>
                 <string>{21,45}</string>
                 <key>textureRect</key>
-                <string>{{189,1},{21,45}}</string>
+                <string>{{21,45},{21,45}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>trumprampe09.png</key>
             <dict>
@@ -450,9 +450,9 @@
                 <key>spriteSourceSize</key>
                 <string>{21,45}</string>
                 <key>textureRect</key>
-                <string>{{142,1},{21,45}}</string>
+                <string>{{21,0},{21,45}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -464,13 +464,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>rampeanimation.png</string>
+            <string>rampeanimation2.png</string>
             <key>size</key>
-            <string>{238,116}</string>
+            <string>{127,229}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:9da422be4f8b48492099f3bbeedb63c4:fbf45f8775c16dbf77a7e497925408fe:f042ed12a95986aa932b571980e371bd$</string>
+            <string>$TexturePacker:SmartUpdate:53e2b41ebcd072fbe6bd67ccc25a4a75:ca189ec0a5c70b645e4cec7be968fd01:f042ed12a95986aa932b571980e371bd$</string>
             <key>textureFileName</key>
-            <string>rampeanimation.png</string>
+            <string>rampeanimation2.png</string>
         </dict>
     </dict>
 </plist>

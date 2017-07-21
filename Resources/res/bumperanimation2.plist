@@ -4,7 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>trumpbumper1.png</key>
+            <key>trumpbumper01.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -64,7 +64,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumpbumper2.png</key>
+            <key>trumpbumper02.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -79,7 +79,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumpbumper3.png</key>
+            <key>trumpbumper03.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -94,7 +94,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumpbumper4.png</key>
+            <key>trumpbumper04.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -109,7 +109,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumpbumper5.png</key>
+            <key>trumpbumper05.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -124,7 +124,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumpbumper6.png</key>
+            <key>trumpbumper06.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -139,7 +139,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumpbumper7.png</key>
+            <key>trumpbumper07.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -154,7 +154,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumpbumper8.png</key>
+            <key>trumpbumper08.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -169,7 +169,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumpbumper9.png</key>
+            <key>trumpbumper09.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>

@@ -29,16 +29,16 @@ bool GenericLevelScene::init()
 
 	// Create Player Animations
 	// PlayerBumper Animation
-	Animation* playerAnimationbumper = Animation::createWithSpriteFrames(getAnimation("bumperanimation.plist",
-		"trumpbumper%02d.png", 12), 0.08f);
+	Animation* playerAnimationbumper = Animation::createWithSpriteFrames(getAnimation("bumperanimation2.plist",
+		"trumpbumper%02d.png", 12), 0.07f);
 	playerBumperAnimate = Animate::create(playerAnimationbumper);
 	playerBumperAnimate->retain(); // THIS FUCKING SHIT TOOK ME AGES TO FIND OUT 
-	//(without this the reference will be null if called in the collision detection)
+	// (without this the reference will be null if called in the collision detection)
 
 	// PlayerRamp / Slope Animation
-	//Animation* playerAnimationRamp = Animation::createWithSpriteFrames(getAnimation("rampeanimation.plist", "trumprampe%02d.png", 7), 2.3f);
-	//playerRampAnimate = Animate::create(playerAnimationRamp);
-	//playerRampAnimate->retain();
+	Animation* playerAnimationRamp = Animation::createWithSpriteFrames(getAnimation("rampeanimation2.plist", "trumprampe%02d.png", 30), 1/30.0f);
+	playerRampAnimate = Animate::create(playerAnimationRamp);
+	playerRampAnimate->retain();
 
 	// Background
 	auto backGround = Sprite::create(currentLevelName);
@@ -449,10 +449,9 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 	{
 		if (player->numberOfRunningActions() == 0)
 		{
-			// player->runAction(playerRampAnimate);
+			player->runAction(playerRampAnimate);
 		}
 	}
-	// Check other collision that should cause any animation
 
 	return true;
 }

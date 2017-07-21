@@ -46,6 +46,8 @@ SlopeSprite * SlopeSprite::createSlopeSprite(int type)
 		if (sloepBody != nullptr)
 		{
 			sloepBody->setDynamic(false);
+			sloepBody->setCollisionBitmask(colBitMaskSlopeRamp);
+			sloepBody->setContactTestBitmask(true);
 			slope->setPhysicsBody(sloepBody);
 		}
 

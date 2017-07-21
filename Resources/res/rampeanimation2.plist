@@ -19,7 +19,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe010.png</key>
+            <key>trumprampe10.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -34,7 +34,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe011.png</key>
+            <key>trumprampe11.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -49,7 +49,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe012.png</key>
+            <key>trumprampe12.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -64,7 +64,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe013.png</key>
+            <key>trumprampe13.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -79,7 +79,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe014.png</key>
+            <key>trumprampe14.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -94,7 +94,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe015.png</key>
+            <key>trumprampe15.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -109,7 +109,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe016.png</key>
+            <key>trumprampe16.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -124,7 +124,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe017.png</key>
+            <key>trumprampe17.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -139,7 +139,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe018.png</key>
+            <key>trumprampe18.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -154,7 +154,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe019.png</key>
+            <key>trumprampe19.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -184,7 +184,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe020.png</key>
+            <key>trumprampe20.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -199,7 +199,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe021.png</key>
+            <key>trumprampe21.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -214,7 +214,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe022.png</key>
+            <key>trumprampe22.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -229,7 +229,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe023.png</key>
+            <key>trumprampe23.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -244,7 +244,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe024.png</key>
+            <key>trumprampe24.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -259,7 +259,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe025.png</key>
+            <key>trumprampe25.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -274,7 +274,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe026.png</key>
+            <key>trumprampe26.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -289,7 +289,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe027.png</key>
+            <key>trumprampe27.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -304,7 +304,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe028.png</key>
+            <key>trumprampe28.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -319,7 +319,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe029.png</key>
+            <key>trumprampe29.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -349,7 +349,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>trumprampe030.png</key>
+            <key>trumprampe30.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -464,13 +464,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>rampeanimation.png</string>
+            <string>rampeanimation2.png</string>
             <key>size</key>
             <string>{127,229}</string>
             <key>smartupdate</key>
             <string>$TexturePacker:SmartUpdate:53e2b41ebcd072fbe6bd67ccc25a4a75:ca189ec0a5c70b645e4cec7be968fd01:f042ed12a95986aa932b571980e371bd$</string>
             <key>textureFileName</key>
-            <string>rampeanimation.png</string>
+            <string>rampeanimation2.png</string>
         </dict>
     </dict>
 </plist>

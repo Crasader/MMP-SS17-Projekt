@@ -46,6 +46,8 @@ RampSprite * RampSprite::createRampSprite(int type)
 		if (rampBody != nullptr)
 		{
 			rampBody->setDynamic(false);
+			rampBody->setCollisionBitmask(colBitMaskSlopeRamp);
+			rampBody->setContactTestBitmask(true);
 			ramp->setPhysicsBody(rampBody);
 		}
 
