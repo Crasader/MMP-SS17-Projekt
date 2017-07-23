@@ -5,8 +5,11 @@
 #include "MainMenuScene.h"
 #include "GenericLevelScene.h"
 #include "MyBodyParser.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
+
+using namespace CocosDenshion;
 
 // on "init" you need to initialize your instance
 bool GenericLevelScene::init()
@@ -40,6 +43,12 @@ bool GenericLevelScene::init()
 		"trumprampe%02d.png", 30), 1/25.0f);
 	playerRampAnimate = Animate::create(playerAnimationRamp);
 	playerRampAnimate->retain();
+
+	// Pre-Load sound effects
+	auto audio = SimpleAudioEngine::getInstance();
+	audio->setEffectsVolume(0.01f);
+	audio->preloadEffect("audio/trash.wav");
+	audio->preloadEffect("audio/boing.wav");
 
 	// Background
 	auto backGround = Sprite::create(currentLevelName);
@@ -95,7 +104,7 @@ bool GenericLevelScene::init()
 	player = Sprite::create("trumpfallingsmall.png");
 	player->setScale(1.5, 1.5);
 	auto playerBody = PhysicsBody::createBox(
-		Size(player->getBoundingBox().size.width / 1.5, player->getBoundingBox().size.height / 1.5),
+		Size(player->getBoundingBox().size.width / 1.5 - 5, player->getBoundingBox().size.height / 1.5 - 5),
 		PhysicsMaterial(0.1f, 0.5f, 0.05f)
 	);
 	playerBody->setMass(120.0f);
@@ -382,9 +391,6 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 	if ((bodyA->getCollisionBitmask() == colBitMaskGround && bodyB->getCollisionBitmask() == colBitMaskPlayer) ||
 		(bodyB->getCollisionBitmask() == colBitMaskGround && bodyA->getCollisionBitmask() == colBitMaskPlayer)) 
 	{
-		//player->getPhysicsBody()->setAngularVelocity(0);
-		//player->getPhysicsBody()->setVelocity(Vec2(0, 0));
-
 		playWinLoosAnimation(spriteLooseScreen);
 	}
 
@@ -394,6 +400,11 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 	{
 		//player->getPhysicsBody()->setAngularVelocity(0);
 		//player->getPhysicsBody()->setVelocity(Vec2(0, 0));
+
+		if (!gameOver)
+		{
+			SimpleAudioEngine::getInstance()->playEffect("audio/trash.wav");
+		}
 
 		playWinLoosAnimation(spriteWinScreen);
 	}
@@ -434,6 +445,7 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 		Animation* bumerAnimation = Animation::createWithSpriteFrames(bumperAnimFrames, 0.04f);
 		Animate* bumperAnimate = Animate::create(bumerAnimation);
         
+		// Check if force is enough for bounce
 		if (player->getPhysicsBody()->getVelocity().getLength() > 100)
 		{
 			if (bumperSprite->getNumberOfRunningActions() == 0)
@@ -444,6 +456,7 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 			{
 				player->runAction(playerBumperAnimate);
 			}
+			SimpleAudioEngine::getInstance()->playEffect("audio/boing.wav");
 		}
 		else
 		{
