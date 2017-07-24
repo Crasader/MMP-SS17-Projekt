@@ -22,6 +22,8 @@ private:
 
 	bool onContact(cocos2d::PhysicsContact &contact);
 
+	void HandleBumperCollision(cocos2d::Sprite * bumperSprite);
+
 	void playWinLoosAnimation(std::string spriteToAnimate);
 
 	ui::TextField* textFieldTime;
@@ -58,7 +60,6 @@ protected:
 
 	Size visibleSize;
 	Vec2 origin;
-
 };
 
 #endif // __GENERICLEVEL_SCENE_H__

@@ -52,6 +52,7 @@ extern const string spriteHelperBumperUsed;
 
 // Target
 extern const string spriteBasket;
+extern const string spriteBin;
 
 // Bottom
 extern const string spriteGround;

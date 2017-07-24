@@ -56,7 +56,8 @@ extern const string spriteLooseScreen = "LostFertig.png";
 
 
 // Target
-extern const string spriteBasket = "korb.png";
+extern const string spriteBasket = "korb2.png";
+extern const string spriteBin = "eimer.png";
 
 // Bottom
 extern const string spriteGround = "dummyPNG.png";

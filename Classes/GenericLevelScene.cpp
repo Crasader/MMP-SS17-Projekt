@@ -46,7 +46,7 @@ bool GenericLevelScene::init()
 
 	// Pre-Load sound effects
 	auto audio = SimpleAudioEngine::getInstance();
-	audio->setEffectsVolume(0.01f);
+	audio->setEffectsVolume(0.1f);
 	audio->preloadEffect("audio/trash.wav");
 	audio->preloadEffect("audio/boing.wav");
 
@@ -61,7 +61,7 @@ bool GenericLevelScene::init()
 	backButtonMenuItem->setPosition(Point(visibleSize.width * bottomButtonBarLeft + origin.x,
 		visibleSize.height * bottomButtonBarVerticalFactor + origin.y));
 
-	// Drop Button
+	// Drop/Reset Button
 	dropButtonMenuItem = MenuItemImage::create(spriteDropButton, spriteDropButton,
 		CC_CALLBACK_1(GenericLevelScene::dropAction, this));
 	dropButtonMenuItem->setPosition(Point(visibleSize.width * bottomButtonBarMiddle + origin.x,
@@ -90,7 +90,7 @@ bool GenericLevelScene::init()
 	// Ground
 	auto groundBody = PhysicsBody::createBox(
 		Size(visibleSize.width, 32.0f),
-		PhysicsMaterial(1.0f, 0.0f, 5.0f)
+		PhysicsMaterial(1.0f, 0.0f, 2.0f)
 	);
 	auto ground = Node::create();
 	ground->setPosition(Point(visibleSize.width * 0.5 + origin.x, bottomBarOffset + 50));
@@ -99,6 +99,12 @@ bool GenericLevelScene::init()
 	groundBody->setContactTestBitmask(true);
 	ground->setPhysicsBody(groundBody);
 	this->addChild(ground);
+
+	// Targetsprite basket, def before player because otherwhise he would fall "behind" the basket
+	auto basketSprite = Sprite::create(spriteBasket);
+	basketSprite->setScale(0.65f);
+	basketSprite->setPosition(Point(visibleSize.width * 0.9 + origin.x, bottomBarOffset + 162));
+	this->addChild(basketSprite);
 
 	//ball / Player
 	player = Sprite::create("trumpfallingsmall.png");
@@ -116,27 +122,27 @@ bool GenericLevelScene::init()
 	player->setPhysicsBody(playerBody);
 	this->addChild(player);
 
-	//Targetsprite + body around the bin
-	auto targetSprite = Sprite::create(spriteBasket);
-	targetSprite->setScale(0.6f);
+	//Targetsprite bin
+	auto binSprite = Sprite::create(spriteBin);
+	binSprite->setScale(0.65f);
 	MyBodyParser::getInstance()->parseJsonFile(jsonTarget);
-	auto targetSpriteBody = MyBodyParser::getInstance()->bodyFormJson(targetSprite, jsonNameTarget, PHYSICSBODY_MATERIAL_DEFAULT);
+	auto targetSpriteBody = MyBodyParser::getInstance()->bodyFormJson(binSprite, jsonNameTarget, PHYSICSBODY_MATERIAL_DEFAULT);
 
 	if (targetSpriteBody != nullptr)
 	{
 		targetSpriteBody->setDynamic(false);
-		targetSprite->setPhysicsBody(targetSpriteBody);
+		binSprite->setPhysicsBody(targetSpriteBody);
 	}
-	targetSprite->setPosition(Point(visibleSize.width * 0.9 + origin.x, bottomBarOffset + 155));
-	this->addChild(targetSprite);
+	binSprite->setPosition(Point(visibleSize.width * 0.9 + origin.x, bottomBarOffset + 162));
+	this->addChild(binSprite);
 
 	// target (inside the bin)
 	target = Node::create();
 	auto targetBody = PhysicsBody::createBox(
-		Size(targetSprite->getBoundingBox().size.width * 0.6f, 3),
-		PHYSICSBODY_MATERIAL_DEFAULT
+		Size(binSprite->getBoundingBox().size.width * 0.6f, 3),
+		PhysicsMaterial(1.0f, 0.0f, 2.5f)
 	);
-	target->setPosition(Point(visibleSize.width * 0.9 + origin.x, bottomBarOffset + 70));
+	target->setPosition(Point(visibleSize.width * 0.9 + origin.x, bottomBarOffset + 72));
 	targetBody->setDynamic(false);
 	targetBody->setCollisionBitmask(colBitMaskTarget);
 	targetBody->setContactTestBitmask(true);
@@ -327,7 +333,7 @@ void GenericLevelScene::onTouchesEnded(const std::vector<Touch*>& touches, Event
 			auto tap = touch->getLocation();
 			for (auto helperObject : helperObjects) {
 				if (helperObject->getTouch() != nullptr && helperObject->getTouch() == touch) {
-					//if touch ending belongs to this player, clear it
+					//if touch ending belongs to this object, clear it
 					helperObject->setTouch(nullptr);
 				}
 			}
@@ -373,6 +379,7 @@ void GenericLevelScene::dropAction(cocos2d::Ref * sender)
 
 		// Reset Player position
 		player->getPhysicsBody()->setDynamic(false);
+		player->getPhysicsBody()->setVelocityLimit(FLT_MAX);
 		player->setPosition(Vec2(visibleSize.width * 0.1f, visibleSize.height * 0.92f));
 		player->setRotation(0);
 
@@ -391,6 +398,9 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 	if ((bodyA->getCollisionBitmask() == colBitMaskGround && bodyB->getCollisionBitmask() == colBitMaskPlayer) ||
 		(bodyB->getCollisionBitmask() == colBitMaskGround && bodyA->getCollisionBitmask() == colBitMaskPlayer)) 
 	{
+		// Fixes weird bounce back issue that sometimes happens when the player hits the ground at a specific angle
+		player->getPhysicsBody()->setVelocityLimit(250);
+
 		playWinLoosAnimation(spriteLooseScreen);
 	}
 
@@ -398,8 +408,8 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 	else if ((bodyA->getCollisionBitmask() == colBitMaskTarget && bodyB->getCollisionBitmask() == colBitMaskPlayer) ||
 		(bodyB->getCollisionBitmask() == colBitMaskTarget && bodyA->getCollisionBitmask() == colBitMaskPlayer))
 	{
-		//player->getPhysicsBody()->setAngularVelocity(0);
-		//player->getPhysicsBody()->setVelocity(Vec2(0, 0));
+		// Fixes weird bounce back issue that sometimes happens when the player hits the ground at a specific angle
+		player->getPhysicsBody()->setVelocityLimit(0);
 
 		if (!gameOver)
 		{
@@ -423,47 +433,7 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 			bumperSprite = (Sprite*)bodyB->getOwner();
 		}
 
-		// Can't really put the creation of the Animation in the levelcreation, since you need the size of the bumper to animate
-		// Maybe it works by changing the Rect of every spriteframe in the animation?
-		// Still too much hassle and performs well enough anyway
-		Vector<SpriteFrame*> bumperAnimFrames;
-
-		auto rect = Rect(0, 0, bumperSprite->getBoundingBox().size.width * (1 / bumperSprite->getScale()),
-			bumperSprite->getBoundingBox().size.height * (1 / bumperSprite->getScale()));
-
-		auto bumperUnused = SpriteFrame::create(spriteHelperBumper, rect);
-		auto bumperUsed = SpriteFrame::create(spriteHelperBumperUsed, rect);
-
-		bumperAnimFrames.reserve(8);
-		bumperAnimFrames.pushBack(bumperUnused);
-		for (int i = 0; i < 6; i++) 
-		{
-			bumperAnimFrames.pushBack(bumperUsed);
-		}
-		bumperAnimFrames.pushBack(bumperUnused);
-
-		Animation* bumerAnimation = Animation::createWithSpriteFrames(bumperAnimFrames, 0.04f);
-		Animate* bumperAnimate = Animate::create(bumerAnimation);
-        
-		// Check if force is enough for bounce
-		if (player->getPhysicsBody()->getVelocity().getLength() > 100)
-		{
-			if (bumperSprite->getNumberOfRunningActions() == 0)
-			{
-				bumperSprite->runAction(bumperAnimate);
-			}
-			if (player->getNumberOfRunningActions() == 0)
-			{
-				player->runAction(playerBumperAnimate);
-			}
-			SimpleAudioEngine::getInstance()->playEffect("audio/boing.wav");
-		}
-		else
-		{
-			// Stop Ball from doing too many small bounces
-			// Maybe not the best way
-			player->getPhysicsBody()->setVelocity(Vec2(0, 0));
-		}
+		HandleBumperCollision(bumperSprite);
 	}
 
 	// Check if player collided with ramp (for player animation)
@@ -479,6 +449,51 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 	}
 
 	return true;
+}
+
+void GenericLevelScene::HandleBumperCollision(cocos2d::Sprite * bumperSprite)
+{
+	// Can't really put the creation of the Animation in the levelcreation, since you need the size of the bumper to animate
+	// Maybe it works by changing the Rect of every spriteframe in the animation?
+	// Still too much hassle and performs well enough anyway
+	Vector<SpriteFrame*> bumperAnimFrames;
+
+	auto rect = Rect(0, 0, bumperSprite->getBoundingBox().size.width * (1 / bumperSprite->getScale()),
+		bumperSprite->getBoundingBox().size.height * (1 / bumperSprite->getScale()));
+
+	auto bumperUnused = SpriteFrame::create(spriteHelperBumper, rect);
+	auto bumperUsed = SpriteFrame::create(spriteHelperBumperUsed, rect);
+
+	bumperAnimFrames.reserve(8);
+	bumperAnimFrames.pushBack(bumperUnused);
+	for (int i = 0; i < 6; i++)
+	{
+		bumperAnimFrames.pushBack(bumperUsed);
+	}
+	bumperAnimFrames.pushBack(bumperUnused);
+
+	Animation* bumerAnimation = Animation::createWithSpriteFrames(bumperAnimFrames, 0.04f);
+	Animate* bumperAnimate = Animate::create(bumerAnimation);
+
+	// Check if force is enough for bounce
+	if (player->getPhysicsBody()->getVelocity().getLength() > 100)
+	{
+		if (bumperSprite->getNumberOfRunningActions() == 0)
+		{
+			bumperSprite->runAction(bumperAnimate);
+		}
+		if (player->getNumberOfRunningActions() == 0)
+		{
+			player->runAction(playerBumperAnimate);
+		}
+		SimpleAudioEngine::getInstance()->playEffect("audio/boing.wav");
+	}
+	else
+	{
+		// Stop Ball from doing too many small bounces
+		// Maybe not the best way
+		player->getPhysicsBody()->setVelocity(Vec2(0, 0));
+	}
 }
 
 void GenericLevelScene::playWinLoosAnimation(string spriteToAnimate)
