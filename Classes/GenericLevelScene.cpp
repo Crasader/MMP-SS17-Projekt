@@ -71,6 +71,8 @@ bool GenericLevelScene::init()
 	this->addChild(menu);
 
 	// Time Field
+	// Prints Warning: fullPathForFilename: No file found at Thonburi. Possible missing file.
+	// Probably because some missing font file, causes no issues
 	textFieldTime = ui::TextField::create();
 	textFieldTime->setString("00:00");
 	textFieldTime->setFontSize(60);
@@ -78,7 +80,6 @@ bool GenericLevelScene::init()
 	textFieldTime->setPosition(Point(visibleSize.width * bottomButtonBarRight + origin.x,
 		visibleSize.height * bottomButtonBarVerticalFactor + origin.y));
 	this->addChild(textFieldTime);
-
 
 	// EdgeBorder
 	auto edgeBody = PhysicsBody::createEdgeBox(visibleSize, PHYSICSBODY_MATERIAL_DEFAULT, 2);
@@ -109,20 +110,20 @@ bool GenericLevelScene::init()
 	//ball / Player
 	player = Sprite::create("trumpfallingsmall.png");
 	player->setScale(1.5, 1.5);
-	auto playerBody = PhysicsBody::createBox(
-		Size(player->getBoundingBox().size.width / 1.5 - 5, player->getBoundingBox().size.height / 1.5 - 5),
-		PhysicsMaterial(0.1f, 0.5f, 0.05f)
-	);
-	playerBody->setMass(120.0f);
-
+	MyBodyParser::getInstance()->parseJsonFile("Trump.json");
+	auto playerBody = MyBodyParser::getInstance()->bodyFormJson(player, "Trump", PhysicsMaterial(0.1f, 0.5f, 0.05f));
+	if (playerBody != nullptr)
+	{
+		playerBody->setMass(120.0f);
+		playerBody->setDynamic(false);
+		playerBody->setCollisionBitmask(colBitMaskPlayer);
+		playerBody->setContactTestBitmask(true);
+	}
 	player->setPosition(Vec2(visibleSize.width * 0.1f, visibleSize.height * 0.92f));
-	playerBody->setDynamic(false);
-	playerBody->setCollisionBitmask(colBitMaskPlayer);
-	playerBody->setContactTestBitmask(true);
 	player->setPhysicsBody(playerBody);
 	this->addChild(player);
 
-	//Targetsprite bin
+	// Targetsprite bin
 	auto binSprite = Sprite::create(spriteBin);
 	binSprite->setScale(0.65f);
 	MyBodyParser::getInstance()->parseJsonFile(jsonTarget);

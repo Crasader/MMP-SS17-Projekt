@@ -69,6 +69,10 @@ extern const int colBitMaskTarget;
 extern const int colBitMaskGround;
 extern const int colBitMaskBumper;
 extern const int colBitMaskSlopeRamp;
+extern const int colBitMaskSpeedRight;
+extern const int colBitMaskSpeedUp;
+extern const int colBitMaskSpeedDown;
+extern const int colBitMaskSpeedLeft;
 
 // JSON Files
 extern const string jsonSlope;
@@ -81,6 +85,8 @@ extern const string jsonRamp3;
 
 extern const string jsonTarget;
 
+extern const string jsonPlayer;
+
 
 extern const string jsonNameSlope;
 extern const string jsonNameSlope2;
@@ -91,6 +97,8 @@ extern const string jsonNameRamp2;
 extern const string jsonNameRamp3;
 
 extern const string jsonNameTarget;
+
+extern const string jsonNamePlayer;
 
 // Position
 // Bottom Buttons

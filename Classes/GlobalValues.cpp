@@ -68,6 +68,10 @@ extern const int colBitMaskTarget = 2;
 extern const int colBitMaskGround = 3;
 extern const int colBitMaskBumper = 4;
 extern const int colBitMaskSlopeRamp = 5;
+extern const int colBitMaskSpeedRight = 6;
+extern const int colBitMaskSpeedUp = 7;
+extern const int colBitMaskSpeedDown = 8;
+extern const int colBitMaskSpeedLeft = 9;
 
 // JSON Files
 extern const string jsonSlope = "Schraege.json";
@@ -80,6 +84,7 @@ extern const string jsonRamp3 = "rampe3.json";
 
 extern const string jsonTarget = "korb.json";
 
+extern const string jsonPlayer = "TrumpMask.json";
 
 
 extern const string jsonNameSlope = "Schraege";
@@ -91,6 +96,8 @@ extern const string jsonNameRamp2 = "rampe2";
 extern const string jsonNameRamp3 = "rampe3";
 
 extern const string jsonNameTarget = "Korb";
+
+extern const string jsonNamePlayer = "Trump";
 
 // Position
 // Bottom Buttons
