@@ -73,6 +73,11 @@ bool LevelMediumScene::init()
     block4->setPosition(Point(visibleSize.width * 0.4f + origin.x, visibleSize.height * 0.64f));
     block4->setScale(0.7f, 0.8f);
     this->addChild(block4);
+    
+    auto block7 = BlockSprite::createBlockSprite(BlockSprite::TYPE_VERTICAL_SAND);
+    block7->setPosition(Point(visibleSize.width * 0.98f + origin.x, visibleSize.height * 0.45f));
+    block7->setScale(0.9f, 0.5f);
+    this->addChild(block7);
 
 	// Add all obstacles to the obstacleObjects Vector
 	GenericLevelScene::obstacleObjects.pushBack(block);
@@ -81,6 +86,7 @@ bool LevelMediumScene::init()
     GenericLevelScene::obstacleObjects.pushBack(block4);
     GenericLevelScene::obstacleObjects.pushBack(block5);
     GenericLevelScene::obstacleObjects.pushBack(block6);
+    GenericLevelScene::obstacleObjects.pushBack(block7);
     GenericLevelScene::obstacleObjects.pushBack(wall);
     GenericLevelScene::obstacleObjects.pushBack(wall2);
     

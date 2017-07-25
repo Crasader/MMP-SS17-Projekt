@@ -63,7 +63,7 @@ bool LevelEasyScene::init()
 
 	// Add obstacles
 	auto wall = WallSprite::createWallSprite();
-	wall->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.45));
+	wall->setPosition(Point(visibleSize.width * 0.98 + origin.x, visibleSize.height * 0.41));
 	this->addChild(wall);
 
 	auto block = BlockSprite::createBlockSprite(BlockSprite::TYPE_SQUARE_EARTH);
