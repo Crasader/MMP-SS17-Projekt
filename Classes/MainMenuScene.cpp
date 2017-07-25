@@ -6,6 +6,7 @@
 #include "LevelEasyScene.h"
 #include "LevelMediumScene.h"
 #include "LevelHardScene.h"
+#include "GuideScene.h"
 
 USING_NS_CC;
 
@@ -97,7 +98,8 @@ void MainMenuScene::goToMainLevel3Scene(cocos2d::Ref *sender)
 
 void MainMenuScene::goToGuideScene(cocos2d::Ref *sender)
 {
-	// TODO Transition to Guide
+	auto scene = GuideScene::createScene();
+	Director::getInstance()->replaceScene(TransitionFade::create(transitionDuration, scene));
 }
 
 void MainMenuScene::goToStartMenuScene(cocos2d::Ref *sender) 

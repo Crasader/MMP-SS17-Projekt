@@ -114,7 +114,7 @@ bool GenericLevelScene::init()
 	auto playerBody = MyBodyParser::getInstance()->bodyFormJson(player, "Trump", PhysicsMaterial(0.1f, 0.5f, 0.05f));
 	if (playerBody != nullptr)
 	{
-		playerBody->setMass(120.0f);
+		playerBody->setMass(140.0f);
 		playerBody->setDynamic(false);
 		playerBody->setCollisionBitmask(colBitMaskPlayer);
 		playerBody->setContactTestBitmask(true);
@@ -483,10 +483,12 @@ void GenericLevelScene::HandleBumperCollision(cocos2d::Sprite * bumperSprite)
 		{
 			bumperSprite->runAction(bumperAnimate);
 		}
-		if (player->getNumberOfRunningActions() == 0)
+		if (player->getNumberOfRunningActions() > 0)
 		{
-			player->runAction(playerBumperAnimate);
+			player->stopAllActions();
 		}
+		player->runAction(playerBumperAnimate);
+
 		SimpleAudioEngine::getInstance()->playEffect("audio/boing.wav");
 	}
 	else

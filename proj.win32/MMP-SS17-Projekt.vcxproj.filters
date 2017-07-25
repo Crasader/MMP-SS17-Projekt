@@ -72,6 +72,9 @@
     <ClCompile Include="..\Classes\MyBodyParser.cpp">
       <Filter>src\BodyParser</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\GuideScene.cpp">
+      <Filter>src\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -121,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\MyBodyParser.h">
       <Filter>src\BodyParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GuideScene.h">
+      <Filter>src\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

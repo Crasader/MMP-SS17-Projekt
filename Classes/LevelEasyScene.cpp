@@ -33,14 +33,15 @@ bool LevelEasyScene::init()
 		return false;
 	}
 
-	// Examples:
 	// Add helper objects
 	auto slopeMedium = SlopeSprite::createSlopeSprite(SlopeSprite::TYPE_MEDIUM);
 	slopeMedium->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.5));
+	slopeMedium->setScale(0.7f);
 	this->addChild(slopeMedium);
 
 	auto slopeSteep = SlopeSprite::createSlopeSprite(SlopeSprite::TYPE_STEEP);
 	slopeSteep->setPosition(Point(visibleSize.width * 0.15 + origin.x, visibleSize.height * 0.8));
+	slopeSteep->setScale(0.7f);
 	this->addChild(slopeSteep);
 
 	auto bumper = BumperSprite::createBumperSprite();
@@ -52,28 +53,37 @@ bool LevelEasyScene::init()
 	ramp->setPosition(Point(visibleSize.width * 0.85 + origin.x, visibleSize.height * 0.9));
 	this->addChild(ramp);
 
+	auto ramp2 = RampSprite::createRampSprite(RampSprite::TYPE_FLAT);
+	ramp2->setPosition(Point(visibleSize.width * 0.65 + origin.x, visibleSize.height * 0.75));
+	this->addChild(ramp2);
+
 	// Add all helper objects to the helperObjects Vector
 	GenericLevelScene::helperObjects.pushBack(slopeMedium);
 	GenericLevelScene::helperObjects.pushBack(slopeSteep);
 	GenericLevelScene::helperObjects.pushBack(bumper);
 	GenericLevelScene::helperObjects.pushBack(ramp);
-
-
+	GenericLevelScene::helperObjects.pushBack(ramp2);
 
 
 	// Add obstacles
 	auto wall = WallSprite::createWallSprite();
-	wall->setPosition(Point(visibleSize.width * 0.98 + origin.x, visibleSize.height * 0.41));
+	wall->setPosition(Point(visibleSize.width * 0.965 + origin.x, visibleSize.height * 0.41));
 	this->addChild(wall);
 
 	auto block = BlockSprite::createBlockSprite(BlockSprite::TYPE_SQUARE_EARTH);
-	block->setPosition(Point(visibleSize.width * 0.5 + origin.x, visibleSize.height * 0.65));
+	block->setPosition(Point(visibleSize.width * 0.45 + origin.x, visibleSize.height * 0.65));
+	block->setScale(0.8f);
 	this->addChild(block);
 
+	auto block2 = BlockSprite::createBlockSprite(BlockSprite::TYPE_HORIZONTAL_EARTH);
+	block2->setPosition(Point(visibleSize.width * 0.9 + origin.x, visibleSize.height * 0.60));
+	block2->setScale(0.55f);
+	this->addChild(block2);
+
 	// Add all obstacle object to the helperObjects Vector
-	// GenericLevelScene::obstacleObjects.pushBack(wall);
 	GenericLevelScene::obstacleObjects.pushBack(block);
     GenericLevelScene::obstacleObjects.pushBack(wall);
+	GenericLevelScene::obstacleObjects.pushBack(block2);
 
 	return true;
 }

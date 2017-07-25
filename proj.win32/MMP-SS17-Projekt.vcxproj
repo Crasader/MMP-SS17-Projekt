@@ -157,6 +157,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\LevelHardScene.cpp" />
     <ClCompile Include="..\Classes\LevelMediumScene.cpp" />
     <ClCompile Include="..\Classes\MainMenuScene.cpp" />
+    <ClCompile Include="..\Classes\GuideScene.cpp" />
     <ClCompile Include="..\Classes\MyBodyParser.cpp" />
     <ClCompile Include="..\Classes\RampSprite.cpp" />
     <ClCompile Include="..\Classes\SlopeSprite.cpp" />
@@ -175,6 +176,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\LevelHardScene.h" />
     <ClInclude Include="..\Classes\LevelMediumScene.h" />
     <ClInclude Include="..\Classes\MainMenuScene.h" />
+    <ClInclude Include="..\Classes\GuideScene.h" />
     <ClInclude Include="..\Classes\MyBodyParser.h" />
     <ClInclude Include="..\Classes\RampSprite.h" />
     <ClInclude Include="..\Classes\SlopeSprite.h" />

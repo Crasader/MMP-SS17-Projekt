@@ -25,7 +25,6 @@ private:
 	void goToGuideScene(cocos2d::Ref *sender);
 
 	void goToStartMenuScene(cocos2d::Ref *sender);
-
 };
 
 #endif // __MAINMENU_SCENE_H__
