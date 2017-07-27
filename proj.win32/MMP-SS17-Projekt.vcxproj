@@ -161,6 +161,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\MyBodyParser.cpp" />
     <ClCompile Include="..\Classes\RampSprite.cpp" />
     <ClCompile Include="..\Classes\SlopeSprite.cpp" />
+    <ClCompile Include="..\Classes\SpeedBoosterSprite.cpp" />
     <ClCompile Include="..\Classes\StartMenuScene.cpp" />
     <ClCompile Include="..\Classes\WallSprite.cpp" />
     <ClCompile Include="main.cpp" />
@@ -180,6 +181,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MyBodyParser.h" />
     <ClInclude Include="..\Classes\RampSprite.h" />
     <ClInclude Include="..\Classes\SlopeSprite.h" />
+    <ClInclude Include="..\Classes\SpeedBoosterSprite.h" />
     <ClInclude Include="..\Classes\StartMenuScene.h" />
     <ClInclude Include="..\Classes\WallSprite.h" />
     <ClInclude Include="main.h" />

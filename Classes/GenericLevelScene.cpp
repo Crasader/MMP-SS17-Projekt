@@ -26,6 +26,8 @@ bool GenericLevelScene::init()
 	origin = Director::getInstance()->getVisibleOrigin();
 	obstacleObjects = Vector<Sprite*>();
 	helperObjects = Vector<GenericSprite*>();
+	speedBoosterToReset = Vector<SpeedBoosterSprite*>();
+
 	time = 0.0f;
 	isDroped = false;
 	gameOver = false;
@@ -384,6 +386,14 @@ void GenericLevelScene::dropAction(cocos2d::Ref * sender)
 		player->setPosition(Vec2(visibleSize.width * 0.1f, visibleSize.height * 0.92f));
 		player->setRotation(0);
 
+		// Reset Speedboosters
+		for each (auto sB in speedBoosterToReset)
+		{
+			sB->getPhysicsBody()->setEnabled(true);
+			sB->setVisible(true);
+		}
+		speedBoosterToReset.clear();
+
 		gameOver = false;
 
 		this->removeChild(winLooseSprite);
@@ -447,6 +457,31 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 		{
 			player->runAction(playerRampAnimate);
 		}
+	}
+
+	// Check if Player collided with Speed booster
+	else if ((bodyA->getCollisionBitmask() == colBitMaskSpeedRight && bodyB->getCollisionBitmask() == colBitMaskPlayer) ||
+		(bodyB->getCollisionBitmask() == colBitMaskSpeedRight && bodyA->getCollisionBitmask() == colBitMaskPlayer))
+	{
+		SpeedBoosterSprite* speedBoosterSprite;
+		if (bodyA->getCollisionBitmask() == colBitMaskSpeedRight)
+		{
+			speedBoosterSprite = (SpeedBoosterSprite*)bodyA->getOwner();
+		}
+		else
+		{
+			speedBoosterSprite = (SpeedBoosterSprite*)bodyB->getOwner();
+		}
+		// "Remove" the booster and its physicsbody
+		speedBoosterToReset.pushBack(speedBoosterSprite);
+		speedBoosterSprite->getPhysicsBody()->setEnabled(false);
+		speedBoosterSprite->setVisible(false);
+		// Apply some boost to the player
+		//player->getPhysicsBody()->applyImpulse(Vec2(500.0f, 0.0f));
+		player->getPhysicsBody()->setVelocity(Vec2(500.0f, 0.0f));
+
+		// Return false because we don't want a real collission between the two objects
+		return false;
 	}
 
 	return true;

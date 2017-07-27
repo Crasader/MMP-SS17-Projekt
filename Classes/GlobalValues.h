@@ -50,6 +50,8 @@ extern const string spriteHelperSlopeFlat;
 extern const string spriteHelperBumper;
 extern const string spriteHelperBumperUsed;
 
+extern const string spriteSpeedBooster;
+
 // Target
 extern const string spriteBasket;
 extern const string spriteBin;

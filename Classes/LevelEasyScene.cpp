@@ -8,6 +8,7 @@
 #include "WallSprite.h"
 #include "BlockSprite.h"
 #include "RampSprite.h"
+#include "SpeedBoosterSprite.h"
 
 USING_NS_CC;
 
@@ -56,6 +57,10 @@ bool LevelEasyScene::init()
 	auto ramp2 = RampSprite::createRampSprite(RampSprite::TYPE_FLAT);
 	ramp2->setPosition(Point(visibleSize.width * 0.65 + origin.x, visibleSize.height * 0.75));
 	this->addChild(ramp2);
+
+	auto booster = SpeedBoosterSprite::createSpeedBoosterSprite();
+	booster->setPosition(Point(visibleSize.width * 0.25f + origin.x, visibleSize.height * 0.45f));
+	this->addChild(booster);
 
 	// Add all helper objects to the helperObjects Vector
 	GenericLevelScene::helperObjects.pushBack(slopeMedium);

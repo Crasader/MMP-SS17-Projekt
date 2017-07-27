@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "GenericSprite.h"
+#include "SpeedBoosterSprite.h"
 
 using namespace cocos2d;
 
@@ -38,8 +39,10 @@ private:
 	Sprite* winLooseSprite;
 
 	bool gameOver;
+
+	Vector<SpeedBoosterSprite*> speedBoosterToReset;
     
-    //Spritesheet Try
+    //Spritesheet
    Vector<SpriteFrame*> getAnimation(const char* plist, const char* format, int count);
    Animate* playerBumperAnimate;
    Animate* playerRampAnimate;

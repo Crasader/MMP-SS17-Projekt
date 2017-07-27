@@ -75,6 +75,9 @@
     <ClCompile Include="..\Classes\GuideScene.cpp">
       <Filter>src\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\SpeedBoosterSprite.cpp">
+      <Filter>src\Sprite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -127,6 +130,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\GuideScene.h">
       <Filter>src\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SpeedBoosterSprite.h">
+      <Filter>src\Sprite</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
