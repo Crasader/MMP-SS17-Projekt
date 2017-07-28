@@ -5,11 +5,11 @@
 
 - Das Projekt in der bevorzugten Entwicklungsumgebung öffnen und einmal bauen (sicherstellen, dass es bau- und ausführbar ist)
 
-Im Ordner des gerade neu erstellten Projektes:
+- Im Ordner des gerade neu erstellten Projektes:
 	- Alle Dateien im Classes Ordner Löschen (AppDelegate.cpp, AppDelegate.h, HelloWorld.cpp, HelloWorld.h)
 	- Den Inhalt des Resources Ordner löschen
 
-Dateien aus unserem Projekt kopieren:
+- Dateien aus unserem Projekt kopieren:
 	- Die Dateien aus unserem Classes Ordner in den Classes Ordner des gerade erstellten Cocos Projektes kopieren
 	- Den Inhalt unseres Ressources Ordners in den Ressources Ordner des neuen Projekt kopieren (alle drei ordner + deren Inhalt)
 
