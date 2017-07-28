@@ -8,7 +8,7 @@ using namespace cocos2d;
 class GenericSprite : public Sprite
 {
 public:
-	CC_SYNTHESIZE(Touch*, _touch, Touch);
+	CC_SYNTHESIZE(Touch*, touch, Touch);
 private:
 	
 };

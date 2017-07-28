@@ -387,7 +387,7 @@ void GenericLevelScene::dropAction(cocos2d::Ref * sender)
 		player->setRotation(0);
 
 		// Reset Speedboosters
-		for each (auto sB in speedBoosterToReset)
+		for (auto sB : speedBoosterToReset)
 		{
 			sB->getPhysicsBody()->setEnabled(true);
 			sB->setVisible(true);
