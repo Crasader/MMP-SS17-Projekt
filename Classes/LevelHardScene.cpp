@@ -83,8 +83,12 @@ bool LevelHardScene::init()
  
     GenericLevelScene::obstacleObjects.pushBack(block8);
     GenericLevelScene::obstacleObjects.pushBack(wall);
-    
 
+
+	auto booster = SpeedBoosterSprite::createSpeedBoosterSprite();
+	booster->setPosition(Point(visibleSize.width * 0.25f + origin.x, visibleSize.height * 0.6f));
+	this->addChild(booster);
+    
 
 	// Add helper objects
     auto slope = SlopeSprite::createSlopeSprite(SlopeSprite::TYPE_MEDIUM);

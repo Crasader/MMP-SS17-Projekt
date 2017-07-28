@@ -89,6 +89,10 @@ bool LevelMediumScene::init()
     GenericLevelScene::obstacleObjects.pushBack(block7);
     GenericLevelScene::obstacleObjects.pushBack(wall);
     GenericLevelScene::obstacleObjects.pushBack(wall2);
+
+	auto booster = SpeedBoosterSprite::createSpeedBoosterSprite();
+	booster->setPosition(Point(visibleSize.width * 0.3f + origin.x, visibleSize.height * 0.7f));
+	this->addChild(booster);
     
 
 	// Add helper objects

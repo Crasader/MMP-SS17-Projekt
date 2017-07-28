@@ -478,7 +478,7 @@ bool GenericLevelScene::onContact(cocos2d::PhysicsContact & contact)
 		speedBoosterSprite->setVisible(false);
 		// Apply some boost to the player
 		//player->getPhysicsBody()->applyImpulse(Vec2(500.0f, 0.0f));
-		player->getPhysicsBody()->setVelocity(Vec2(500.0f, 0.0f));
+		player->getPhysicsBody()->setVelocity(Vec2(400.0f, 0.0f));
 
 		// Return false because we don't want a real collission between the two objects
 		return false;
