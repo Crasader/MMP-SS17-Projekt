@@ -1,0 +1,30 @@
+- IDE z.B. VS Studio 2017
+- Cocos Framework: cocos2d-x-3.15.1 installieren
+
+- Auf der Konsole per 'cocos new "Dunk the Trump" -l cpp' ein neues Cocos Projekt erstellen.
+
+- Das Projekt in der bevorzugten Entwicklungsumgebung öffnen und einmal bauen (sicherstellen, dass es bau- und ausführbar ist)
+
+Im Ordner des gerade neu erstellten Projektes:
+	- Alle Dateien im Classes Ordner Löschen (AppDelegate.cpp, AppDelegate.h, HelloWorld.cpp, HelloWorld.h)
+	- Den Inhalt des Resources Ordner löschen
+
+Dateien aus unserem Projekt kopieren:
+	- Die Dateien aus unserem Classes Ordner in den Classes Ordner des gerade erstellten Cocos Projektes kopieren
+	- Den Inhalt unseres Ressources Ordners in den Ressources Ordner des neuen Projekt kopieren (alle drei ordner + deren Inhalt)
+
+- In der Entwicklungsumgebung alle Dateien die nun im Classes Ordner sind zum Projekt hinzufügen (.cpp und .h)
+
+- Projekt wie gewohnt bauen und ausführen
+
+
+
+Mögliche Fehler:
+	- Runtime error with "HsSrv.dll"
+	-> Asus Audiotreiber deinstallieren 
+
+	- Build error with "Msvcr100.dll"
+	-> Install 32-bit version of https://www.microsoft.com/en-us/download/details.aspx?id=30679
+
+	- Irgendein anderer komischer dll fehler
+	-> Install 32-bit version of https://www.microsoft.com/de-de/download/details.aspx?id=48145
